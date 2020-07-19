@@ -242,6 +242,7 @@
 				2C2C2A9824C1997C00EC9652 /* Frameworks */,
 				2C2C2A9924C1997C00EC9652 /* Resources */,
 				2CCDDF2F24C4939300FA1660 /* SwiftLint */,
+				2CCDDF3024C4958E00FA1660 /* Unused */,
 			);
 			buildRules = (
 			);
@@ -346,6 +347,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		2CCDDF3024C4958E00FA1660 /* Unused */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Unused;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SRCROOT}/unused.rb xcode\n";
 		};
 		7C23FCAF3F16B1B794815BC2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

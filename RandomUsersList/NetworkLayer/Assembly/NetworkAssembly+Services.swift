@@ -3,7 +3,7 @@ extension NetworkAssembly {
     return GetRandomUsers(repository: mainRepository)
   }
   
-  private var mainRepository: MainRepository {
+  var mainRepository: MainRepository {
     return MainRepository(apiDataSource: mainDataSource)
   }
   

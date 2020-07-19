@@ -44,9 +44,27 @@ struct IDApiResponse: Codable {
 struct LocationApiResponse: Codable {
   let street: StreetApiResponse?
   let city, state, country: String?
-  let postcode: Int?
+  let postcodeInt: Int?
+  let postcodeString: String?
   let coordinates: CoordinatesApiResponse?
   let timezone: TimezoneApiResponse?
+  
+  enum CodingKeys: String, CodingKey {
+    case street, city, state, country, coordinates, timezone
+    case postcodeInt, postcodeString = "postcode"
+  }
+  
+  init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+    street = try values.decode(StreetApiResponse.self, forKey: .street)
+    city = try values.decode(String.self, forKey: .city)
+    state = try values.decode(String.self, forKey: .state)
+    country = try values.decode(String.self, forKey: .country)
+    postcodeString = try? values.decode(String.self, forKey: .postcodeString)
+    postcodeInt = try? values.decode(Int.self, forKey: .postcodeInt)
+    coordinates = try values.decode(CoordinatesApiResponse.self, forKey: .coordinates)
+    timezone = try values.decode(TimezoneApiResponse.self, forKey: .timezone)
+  }
 }
 
 // MARK: - CoordinatesApiResponse

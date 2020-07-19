@@ -9,7 +9,7 @@ struct RandomUsersEndpoint: Endpoint {
   }
   
   var path: String {
-    return "/"
+    return ""
   }
   
   var method: Moya.Method {

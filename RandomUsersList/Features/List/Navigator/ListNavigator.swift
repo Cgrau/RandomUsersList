@@ -1,5 +1,5 @@
 import UIKit
 
-protocol ListNavigator: class {
+protocol ListNavigator: class, AutoMockable {
   func navigate()
 }

@@ -1,5 +1,5 @@
 import UIKit
 
-protocol ListUI: class {
+protocol ListUI: class, AutoMockable {
   func showSomething()
 }

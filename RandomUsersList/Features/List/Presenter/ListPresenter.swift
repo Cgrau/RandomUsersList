@@ -1,6 +1,6 @@
 import UIKit
 
-protocol ListPresenter: class {
+protocol ListPresenter: class, AutoMockable {
   var ui: ListUI? { get set }
   
   func didLoad()

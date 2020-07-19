@@ -23,6 +23,8 @@
 		2CCDDF2624C4902800FA1660 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1C24C4902800FA1660 /* ListView.swift */; };
 		2CCDDF2724C4902800FA1660 /* ListUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1D24C4902800FA1660 /* ListUI.swift */; };
 		2CCDDF2824C4902800FA1660 /* DefaultListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1E24C4902800FA1660 /* DefaultListPresenter.swift */; };
+		2CCDDF3324C496D600FA1660 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF3224C496D600FA1660 /* AutoMockable.swift */; };
+		2CCDDF3A24C49AA000FA1660 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF3924C49AA000FA1660 /* AutoMockable.generated.swift */; };
 		53D5F5C7A720BAFC558ED5D0 /* Pods_RandomUsersListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5633344A8C40A4729A7022 /* Pods_RandomUsersListTests.framework */; };
 		C32A596D264F46F3928B1016 /* Pods_RandomUsersList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63428E2A2B85AF52CEE2EBB /* Pods_RandomUsersList.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +63,8 @@
 		2CCDDF1C24C4902800FA1660 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		2CCDDF1D24C4902800FA1660 /* ListUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUI.swift; sourceTree = "<group>"; };
 		2CCDDF1E24C4902800FA1660 /* DefaultListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultListPresenter.swift; sourceTree = "<group>"; };
+		2CCDDF3224C496D600FA1660 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
+		2CCDDF3924C49AA000FA1660 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
 		AD5633344A8C40A4729A7022 /* Pods_RandomUsersListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUsersListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C63428E2A2B85AF52CEE2EBB /* Pods_RandomUsersList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUsersList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DDC68C7633A5E7F57D2932 /* Pods-RandomUsersList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUsersList.release.xcconfig"; path = "Target Support Files/Pods-RandomUsersList/Pods-RandomUsersList.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 		2C2C2AB424C1997F00EC9652 /* RandomUsersListTests */ = {
 			isa = PBXGroup;
 			children = (
+				2CCDDF3824C49AA000FA1660 /* AutoMockable */,
 				2C2C2AB524C1997F00EC9652 /* RandomUsersListTests.swift */,
 				2C2C2AB724C1997F00EC9652 /* Info.plist */,
 			);
@@ -139,9 +144,10 @@
 		2CCDDF0F24C48F5200FA1660 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				2CCDDF1024C48F7800FA1660 /* Assembly */,
 				2C2C2A9E24C1997D00EC9652 /* AppDelegate.swift */,
 				2C2C2AA024C1997D00EC9652 /* SceneDelegate.swift */,
+				2CCDDF1024C48F7800FA1660 /* Assembly */,
+				2CCDDF3124C496BF00FA1660 /* AutoMockable */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -219,6 +225,22 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		2CCDDF3124C496BF00FA1660 /* AutoMockable */ = {
+			isa = PBXGroup;
+			children = (
+				2CCDDF3224C496D600FA1660 /* AutoMockable.swift */,
+			);
+			path = AutoMockable;
+			sourceTree = "<group>";
+		};
+		2CCDDF3824C49AA000FA1660 /* AutoMockable */ = {
+			isa = PBXGroup;
+			children = (
+				2CCDDF3924C49AA000FA1660 /* AutoMockable.generated.swift */,
+			);
+			path = AutoMockable;
+			sourceTree = "<group>";
+		};
 		BA78DC48818008AA50C33279 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +265,7 @@
 				2C2C2A9924C1997C00EC9652 /* Resources */,
 				2CCDDF2F24C4939300FA1660 /* SwiftLint */,
 				2CCDDF3024C4958E00FA1660 /* Unused */,
+				2CCDDF3724C49A7A00FA1660 /* AutoMockable */,
 			);
 			buildRules = (
 			);
@@ -366,6 +389,24 @@
 			shellPath = /bin/sh;
 			shellScript = "${SRCROOT}/unused.rb xcode\n";
 		};
+		2CCDDF3724C49A7A00FA1660 /* AutoMockable */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = AutoMockable;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$PODS_ROOT/Sourcery/bin/sourcery --sources ./ --templates ./Templates/Sourcery --output ./RandomUsersListTests/AutoMockable\n";
+		};
 		7C23FCAF3F16B1B794815BC2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -419,6 +460,7 @@
 			files = (
 				2C2C2A9F24C1997D00EC9652 /* AppDelegate.swift in Sources */,
 				2CCDDF2724C4902800FA1660 /* ListUI.swift in Sources */,
+				2CCDDF3324C496D600FA1660 /* AutoMockable.swift in Sources */,
 				2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */,
 				2CCDDF2324C4902800FA1660 /* DefaultListInteractor.swift in Sources */,
 				2CCDDF2424C4902800FA1660 /* ListInteractor.swift in Sources */,
@@ -438,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C2C2AB624C1997F00EC9652 /* RandomUsersListTests.swift in Sources */,
+				2CCDDF3A24C49AA000FA1660 /* AutoMockable.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

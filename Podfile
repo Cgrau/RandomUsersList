@@ -8,6 +8,7 @@ end
 def app_pods
   use_frameworks!
   pod 'SwiftLint'
+  pod 'Sourcery'
 end
 
 target 'RandomUsersList' do

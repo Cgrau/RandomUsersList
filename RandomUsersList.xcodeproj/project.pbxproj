@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,17 @@
 		2CCDDF2824C4902800FA1660 /* DefaultListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1E24C4902800FA1660 /* DefaultListPresenter.swift */; };
 		2CCDDF3324C496D600FA1660 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF3224C496D600FA1660 /* AutoMockable.swift */; };
 		2CCDDF3A24C49AA000FA1660 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF3924C49AA000FA1660 /* AutoMockable.generated.swift */; };
+		2CCDDF4224C49E7300FA1660 /* NetworkAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF4124C49E7300FA1660 /* NetworkAssembly.swift */; };
+		2CCDDF4424C49E8A00FA1660 /* NetworkAssembly+Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF4324C49E8A00FA1660 /* NetworkAssembly+Moya.swift */; };
+		2CCDDF4624C49EA700FA1660 /* NetworkAssembly+ErrorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF4524C49EA700FA1660 /* NetworkAssembly+ErrorAdapter.swift */; };
+		2CCDDF4924C49ED800FA1660 /* DefaultErrorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF4824C49ED800FA1660 /* DefaultErrorAdapter.swift */; };
+		2CCDDF4B24C49F0900FA1660 /* ErrorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF4A24C49F0900FA1660 /* ErrorAdapter.swift */; };
+		2CCDDF4D24C49F2C00FA1660 /* Error+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF4C24C49F2C00FA1660 /* Error+Message.swift */; };
+		2CCDDF4F24C49F6600FA1660 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF4E24C49F6600FA1660 /* Service.swift */; };
+		2CCDDF5124C49F7500FA1660 /* PrimitiveSequence+CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF5024C49F7500FA1660 /* PrimitiveSequence+CustomError.swift */; };
+		2CCDDF5324C49F8300FA1660 /* TargetType+Default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF5224C49F8300FA1660 /* TargetType+Default.swift */; };
+		2CCDDF5524C4A0E300FA1660 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF5424C4A0E300FA1660 /* Endpoint.swift */; };
+		2CCDDF5724C4A0FD00FA1660 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF5624C4A0FD00FA1660 /* Mappable.swift */; };
 		53D5F5C7A720BAFC558ED5D0 /* Pods_RandomUsersListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5633344A8C40A4729A7022 /* Pods_RandomUsersListTests.framework */; };
 		C32A596D264F46F3928B1016 /* Pods_RandomUsersList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C63428E2A2B85AF52CEE2EBB /* Pods_RandomUsersList.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +76,17 @@
 		2CCDDF1E24C4902800FA1660 /* DefaultListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultListPresenter.swift; sourceTree = "<group>"; };
 		2CCDDF3224C496D600FA1660 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
 		2CCDDF3924C49AA000FA1660 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
+		2CCDDF4124C49E7300FA1660 /* NetworkAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembly.swift; sourceTree = "<group>"; };
+		2CCDDF4324C49E8A00FA1660 /* NetworkAssembly+Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkAssembly+Moya.swift"; sourceTree = "<group>"; };
+		2CCDDF4524C49EA700FA1660 /* NetworkAssembly+ErrorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkAssembly+ErrorAdapter.swift"; sourceTree = "<group>"; };
+		2CCDDF4824C49ED800FA1660 /* DefaultErrorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultErrorAdapter.swift; sourceTree = "<group>"; };
+		2CCDDF4A24C49F0900FA1660 /* ErrorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAdapter.swift; sourceTree = "<group>"; };
+		2CCDDF4C24C49F2C00FA1660 /* Error+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Message.swift"; sourceTree = "<group>"; };
+		2CCDDF4E24C49F6600FA1660 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		2CCDDF5024C49F7500FA1660 /* PrimitiveSequence+CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimitiveSequence+CustomError.swift"; sourceTree = "<group>"; };
+		2CCDDF5224C49F8300FA1660 /* TargetType+Default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetType+Default.swift"; sourceTree = "<group>"; };
+		2CCDDF5424C4A0E300FA1660 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		2CCDDF5624C4A0FD00FA1660 /* Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
 		AD5633344A8C40A4729A7022 /* Pods_RandomUsersListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUsersListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C63428E2A2B85AF52CEE2EBB /* Pods_RandomUsersList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUsersList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DDC68C7633A5E7F57D2932 /* Pods-RandomUsersList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUsersList.release.xcconfig"; path = "Target Support Files/Pods-RandomUsersList/Pods-RandomUsersList.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +169,7 @@
 				2C2C2A9E24C1997D00EC9652 /* AppDelegate.swift */,
 				2C2C2AA024C1997D00EC9652 /* SceneDelegate.swift */,
 				2CCDDF1024C48F7800FA1660 /* Assembly */,
+				2CCDDF3B24C49E1D00FA1660 /* NetworkLayer */,
 				2CCDDF3124C496BF00FA1660 /* AutoMockable */,
 			);
 			path = Core;
@@ -239,6 +262,64 @@
 				2CCDDF3924C49AA000FA1660 /* AutoMockable.generated.swift */,
 			);
 			path = AutoMockable;
+			sourceTree = "<group>";
+		};
+		2CCDDF3B24C49E1D00FA1660 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				2CCDDF3D24C49E3F00FA1660 /* Service */,
+				2CCDDF4024C49E5C00FA1660 /* Protocols */,
+				2CCDDF3F24C49E5500FA1660 /* NetworkAssembly */,
+				2CCDDF3E24C49E4600FA1660 /* Extensions */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		2CCDDF3D24C49E3F00FA1660 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2CCDDF4E24C49F6600FA1660 /* Service.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2CCDDF3E24C49E4600FA1660 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2CCDDF5024C49F7500FA1660 /* PrimitiveSequence+CustomError.swift */,
+				2CCDDF5224C49F8300FA1660 /* TargetType+Default.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2CCDDF3F24C49E5500FA1660 /* NetworkAssembly */ = {
+			isa = PBXGroup;
+			children = (
+				2CCDDF4124C49E7300FA1660 /* NetworkAssembly.swift */,
+				2CCDDF4324C49E8A00FA1660 /* NetworkAssembly+Moya.swift */,
+				2CCDDF4524C49EA700FA1660 /* NetworkAssembly+ErrorAdapter.swift */,
+			);
+			path = NetworkAssembly;
+			sourceTree = "<group>";
+		};
+		2CCDDF4024C49E5C00FA1660 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2CCDDF5424C4A0E300FA1660 /* Endpoint.swift */,
+				2CCDDF5624C4A0FD00FA1660 /* Mappable.swift */,
+				2CCDDF4724C49EC300FA1660 /* Error */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2CCDDF4724C49EC300FA1660 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				2CCDDF4A24C49F0900FA1660 /* ErrorAdapter.swift */,
+				2CCDDF4824C49ED800FA1660 /* DefaultErrorAdapter.swift */,
+				2CCDDF4C24C49F2C00FA1660 /* Error+Message.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 		BA78DC48818008AA50C33279 /* Pods */ = {
@@ -494,19 +575,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CCDDF4424C49E8A00FA1660 /* NetworkAssembly+Moya.swift in Sources */,
+				2CCDDF4624C49EA700FA1660 /* NetworkAssembly+ErrorAdapter.swift in Sources */,
 				2C2C2A9F24C1997D00EC9652 /* AppDelegate.swift in Sources */,
 				2CCDDF2724C4902800FA1660 /* ListUI.swift in Sources */,
 				2CCDDF3324C496D600FA1660 /* AutoMockable.swift in Sources */,
 				2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */,
 				2CCDDF2324C4902800FA1660 /* DefaultListInteractor.swift in Sources */,
 				2CCDDF2424C4902800FA1660 /* ListInteractor.swift in Sources */,
+				2CCDDF4F24C49F6600FA1660 /* Service.swift in Sources */,
+				2CCDDF4D24C49F2C00FA1660 /* Error+Message.swift in Sources */,
+				2CCDDF5524C4A0E300FA1660 /* Endpoint.swift in Sources */,
+				2CCDDF5124C49F7500FA1660 /* PrimitiveSequence+CustomError.swift in Sources */,
 				2CCDDF1224C48F9800FA1660 /* Assembly.swift in Sources */,
+				2CCDDF5324C49F8300FA1660 /* TargetType+Default.swift in Sources */,
 				2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */,
+				2CCDDF4224C49E7300FA1660 /* NetworkAssembly.swift in Sources */,
+				2CCDDF5724C4A0FD00FA1660 /* Mappable.swift in Sources */,
 				2CCDDF2124C4902800FA1660 /* ListPresenter.swift in Sources */,
+				2CCDDF4B24C49F0900FA1660 /* ErrorAdapter.swift in Sources */,
 				2CCDDF2824C4902800FA1660 /* DefaultListPresenter.swift in Sources */,
 				2C2C2AA124C1997D00EC9652 /* SceneDelegate.swift in Sources */,
 				2CCDDF2624C4902800FA1660 /* ListView.swift in Sources */,
 				2CCDDF2224C4902800FA1660 /* ListViewController.swift in Sources */,
+				2CCDDF4924C49ED800FA1660 /* DefaultErrorAdapter.swift in Sources */,
 				2CCDDF2524C4902800FA1660 /* DefaultListNavigator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

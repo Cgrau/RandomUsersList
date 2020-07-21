@@ -1,12 +1,14 @@
 import UIKit
+import Kingfisher
 
 private enum Constants {
-  static let imageSize = CGSize(width: 40, height: 40)
+  static let imageSize = CGSize(width: 50, height: 50)
   enum Titles {
     static let name = "FullName: "
     static let email = "Email:"
     static let phone = "Phone:"
   }
+  static let pictureCornerRadius: CGFloat = 4
 }
 
 final class UserViewCell: TableViewCell {
@@ -15,6 +17,7 @@ final class UserViewCell: TableViewCell {
     let label = UILabel()
     label.text = Constants.Titles.name
     label.font = UIFont.boldSystemFont(ofSize: FontSize.regular)
+    label.textColor = Colors.secondary
     return label
   }()
   
@@ -28,6 +31,7 @@ final class UserViewCell: TableViewCell {
     let label = UILabel()
     label.text = Constants.Titles.email
     label.font = UIFont.boldSystemFont(ofSize: FontSize.regular)
+    label.textColor = Colors.secondary
     label.numberOfLines = 0
     return label
   }()
@@ -43,6 +47,7 @@ final class UserViewCell: TableViewCell {
     let label = UILabel()
     label.text = Constants.Titles.phone
     label.font = UIFont.boldSystemFont(ofSize: FontSize.regular)
+    label.textColor = Colors.secondary
     return label
   }()
   
@@ -54,6 +59,8 @@ final class UserViewCell: TableViewCell {
   
   private var picture: UIImageView = {
     let imageView = UIImageView()
+    imageView.layer.cornerRadius = Constants.pictureCornerRadius
+    imageView.layer.masksToBounds = true
     return imageView
   }()
   
@@ -70,11 +77,11 @@ final class UserViewCell: TableViewCell {
   override func setupConstraints() {
     picture.snp.makeConstraints { make in
       make.leading.equalToSuperview().offset(Spacing.s)
-      make.centerY.equalToSuperview()
+      make.top.equalToSuperview().offset(Spacing.l)
       make.size.equalTo(Constants.imageSize)
     }
     fullNameTitleLabel.snp.makeConstraints { make in
-      make.top.equalToSuperview().offset(Spacing.l)
+      make.top.equalTo(picture)
       make.leading.equalTo(picture.snp.trailing).offset(Spacing.s)
       make.trailing.equalToSuperview().offset(-Spacing.s)
     }
@@ -113,8 +120,14 @@ extension UserViewCell {
                  phone: String?,
                  image: String?) {
     accessoryType = .disclosureIndicator
+    selectionStyle = UITableViewCell.SelectionStyle.none
     fullNameLabel.text = fullName
     emailLabel.text = email
     phoneLabel.text = phone
+    guard let image = image else {
+      return
+    }
+    let url = URL(string: image)
+    picture.kf.setImage(with: url)
   }
 }

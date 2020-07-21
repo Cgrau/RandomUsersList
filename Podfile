@@ -16,6 +16,7 @@ def app_pods
   pod 'Moya', '14.0.0'
   pod 'Moya/RxSwift', '14.0.0'
   pod 'SnapKit', '~> 5.0.0'
+  pod 'Kingfisher'
 end
 
 target 'RandomUsersList' do

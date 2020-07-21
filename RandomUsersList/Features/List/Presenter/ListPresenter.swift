@@ -6,4 +6,5 @@ protocol ListPresenter: class, AutoMockable {
   func didLoad()
   func didSelect(user: User)
   func delete(user: User)
+  func search(for text: String)
 }

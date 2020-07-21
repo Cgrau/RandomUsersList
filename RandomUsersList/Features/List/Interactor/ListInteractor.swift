@@ -5,4 +5,5 @@ protocol ListInteractor: class, AutoMockable {
   
   func fetchUsers()
   func delete(user: User)
+  func searchUsers(by text: String)
 }

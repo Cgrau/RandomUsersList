@@ -24,6 +24,10 @@ class DefaultListPresenter: ListPresenter {
   func delete(user: User) {
     interactor.delete(user: user)
   }
+  
+  func search(for text: String) {
+    interactor.searchUsers(by: text)
+  }
 }
 
 extension DefaultListPresenter: ListInteractorDelegate {

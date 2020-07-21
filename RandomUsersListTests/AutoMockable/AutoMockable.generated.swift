@@ -80,6 +80,23 @@ class ListInteractorMock: NSObject, ListInteractor {
         deleteUserClosure?(user)
     }
 
+    //MARK: - searchUsers
+
+    private(set) var searchUsersByCallsCount = 0
+    var searchUsersByCalled: Bool {
+        return searchUsersByCallsCount > 0
+    }
+    private(set) var searchUsersByReceivedText: String?
+    private(set) var searchUsersByReceivedInvocations: [String] = []
+    var searchUsersByClosure: ((String) -> Void)?
+
+    func searchUsers(by text: String) {
+        searchUsersByCallsCount += 1
+        searchUsersByReceivedText = text
+        searchUsersByReceivedInvocations.append(text)
+        searchUsersByClosure?(text)
+    }
+
 }
 class ListNavigatorMock: NSObject, ListNavigator {
 
@@ -145,6 +162,23 @@ class ListPresenterMock: NSObject, ListPresenter {
         deleteUserReceivedUser = user
         deleteUserReceivedInvocations.append(user)
         deleteUserClosure?(user)
+    }
+
+    //MARK: - search
+
+    private(set) var searchForCallsCount = 0
+    var searchForCalled: Bool {
+        return searchForCallsCount > 0
+    }
+    private(set) var searchForReceivedText: String?
+    private(set) var searchForReceivedInvocations: [String] = []
+    var searchForClosure: ((String) -> Void)?
+
+    func search(for text: String) {
+        searchForCallsCount += 1
+        searchForReceivedText = text
+        searchForReceivedInvocations.append(text)
+        searchForClosure?(text)
     }
 
 }

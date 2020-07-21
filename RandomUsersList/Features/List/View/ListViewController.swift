@@ -43,4 +43,8 @@ extension ListViewController: ListViewDelegate {
   func didTapDelete(user: User) {
     presenter?.delete(user: user)
   }
+  
+  func didSearchFor(text: String) {
+    presenter?.search(for: text)
+  }
 }

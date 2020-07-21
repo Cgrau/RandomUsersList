@@ -1,19 +1,24 @@
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 protocol ListViewDelegate: class {
   func didTap(user: User)
   func didTapDelete(user: User)
+  func didSearchFor(text: String)
 }
 
 private enum Constants {
   static let title = "RandomUsers"
   static let searchPlaceholder = "Search User"
+  static let undelineHeight = 2
 }
 
 class ListView: View {
   
   weak var delegate: ListViewDelegate?
+  private var bag = DisposeBag()
   
   var users: [User] = [] {
     didSet {
@@ -60,6 +65,14 @@ class ListView: View {
     tableView.dataSource = self
     tableView.delegate = self
     setupKeyboardBehaviour(to: tableView)
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                             action: #selector(self.dismissKeyboard))
+    addGestureRecognizer(tap)
+    textField.rx.controlEvent(.editingChanged)
+      .asObservable().subscribe({ [weak self] _ in
+        guard let text = self?.textField.text else { return }
+        self?.delegate?.didSearchFor(text: text)
+      }).disposed(by: bag)
   }
   
   override func setupConstraints() {
@@ -71,7 +84,7 @@ class ListView: View {
       make.top.equalTo(titleLabel.snp.bottom)
       make.leading.equalTo(titleLabel).offset(-Spacing.l)
       make.trailing.equalTo(titleLabel).offset(Spacing.l)
-      make.height.equalTo(2)
+      make.height.equalTo(Constants.undelineHeight)
     }
     textField.snp.makeConstraints { make in
       make.top.equalTo(underline.snp.bottom).offset(Spacing.s)
@@ -84,6 +97,10 @@ class ListView: View {
       make.trailing.equalToSuperview()
       make.bottom.equalTo(safeAreaLayoutGuide)
     }
+  }
+  
+  @objc func dismissKeyboard() {
+    endEditing(true)
   }
 }
 

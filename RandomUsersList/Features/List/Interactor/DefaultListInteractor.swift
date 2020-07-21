@@ -43,4 +43,17 @@ class DefaultListInteractor: ListInteractor {
     localStorage.deleteUser(with: user.uuid)
     delegate?.didDeleteUser(users: users)
   }
+  
+  func searchUsers(by text: String) {
+    guard text == "" else {
+      var filteredUsers = self.users
+      filteredUsers = filteredUsers.filter({
+        guard let fullname = $0.fullName?.lowercased(), let email = $0.email?.lowercased() else { return false }
+        return fullname.contains(text.lowercased()) || email.contains(text.lowercased())
+      })
+      self.delegate?.didLoad(users: filteredUsers)
+      return
+    }
+    self.delegate?.didLoad(users: self.users)
+  }
 }

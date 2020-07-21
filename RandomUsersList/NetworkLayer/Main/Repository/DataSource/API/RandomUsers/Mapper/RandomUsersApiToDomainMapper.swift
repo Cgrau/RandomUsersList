@@ -15,7 +15,8 @@ struct RandomUsersApiToDomainMapper: Mappable {
   }
   
   func map(_ from: RandomUsersApiResponse) throws -> [User] {
-    return from.results.map { (response: UserApiResponse) in
+    let users = from.results.removingDuplicates()
+    return users.map { (response: UserApiResponse) in
       return User(name: response.name?.first,
                   surname: response.name?.last,
                   email: response.email,

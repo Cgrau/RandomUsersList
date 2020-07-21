@@ -14,7 +14,7 @@
 		2C2C2AA124C1997D00EC9652 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C2AA024C1997D00EC9652 /* SceneDelegate.swift */; };
 		2C2C2AA824C1997F00EC9652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C2AA724C1997F00EC9652 /* Assets.xcassets */; };
 		2C2C2AAB24C1997F00EC9652 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C2AA924C1997F00EC9652 /* LaunchScreen.storyboard */; };
-		2C2C2AB624C1997F00EC9652 /* RandomUsersListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C2AB524C1997F00EC9652 /* RandomUsersListTests.swift */; };
+		2C9F145E24C6E8EF001CF10E /* Array+RemoveDuplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F145D24C6E8EF001CF10E /* Array+RemoveDuplicates.swift */; };
 		2CCDDF1224C48F9800FA1660 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1124C48F9800FA1660 /* Assembly.swift */; };
 		2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */; };
 		2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1624C4902800FA1660 /* ListNavigator.swift */; };
@@ -80,9 +80,9 @@
 		2C2C2AAA24C1997F00EC9652 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C2C2AAC24C1997F00EC9652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C2C2AB124C1997F00EC9652 /* RandomUsersListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RandomUsersListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C2C2AB524C1997F00EC9652 /* RandomUsersListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUsersListTests.swift; sourceTree = "<group>"; };
 		2C2C2AB724C1997F00EC9652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C34FCFECF29693F61DBCC30 /* Pods-RandomUsersList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUsersList.debug.xcconfig"; path = "Target Support Files/Pods-RandomUsersList/Pods-RandomUsersList.debug.xcconfig"; sourceTree = "<group>"; };
+		2C9F145D24C6E8EF001CF10E /* Array+RemoveDuplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+RemoveDuplicates.swift"; sourceTree = "<group>"; };
 		2CCDDF1124C48F9800FA1660 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+getListViewController.swift"; sourceTree = "<group>"; };
 		2CCDDF1624C4902800FA1660 /* ListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigator.swift; sourceTree = "<group>"; };
@@ -227,7 +227,6 @@
 				2CCDDF3824C49AA000FA1660 /* AutoMockable */,
 				2C08384F24C4C381002898AF /* Utils */,
 				2C08384824C4C24A002898AF /* Network */,
-				2C2C2AB524C1997F00EC9652 /* RandomUsersListTests.swift */,
 				2C2C2AB724C1997F00EC9652 /* Info.plist */,
 			);
 			path = RandomUsersListTests;
@@ -520,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				2CCDDF7924C4B3CE00FA1660 /* String+MapToDateString.swift */,
+				2C9F145D24C6E8EF001CF10E /* Array+RemoveDuplicates.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -800,6 +800,7 @@
 				2CCDDF3324C496D600FA1660 /* AutoMockable.swift in Sources */,
 				2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */,
 				2CCDDF7C24C4B4D500FA1660 /* GetRandomUsersUseCase.swift in Sources */,
+				2C9F145E24C6E8EF001CF10E /* Array+RemoveDuplicates.swift in Sources */,
 				2CCDDF2324C4902800FA1660 /* DefaultListInteractor.swift in Sources */,
 				2CCDDF2424C4902800FA1660 /* ListInteractor.swift in Sources */,
 				2CCDDF6224C4A55F00FA1660 /* MainDataSource.swift in Sources */,
@@ -834,7 +835,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C08384B24C4C273002898AF /* MainSpec.swift in Sources */,
-				2C2C2AB624C1997F00EC9652 /* RandomUsersListTests.swift in Sources */,
 				2CCDDF3A24C49AA000FA1660 /* AutoMockable.generated.swift in Sources */,
 				2C08385124C4C390002898AF /* Fixture.swift in Sources */,
 			);

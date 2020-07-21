@@ -1,7 +1,7 @@
 import Foundation
 
 // MARK: - UserApiResponse
-struct UserApiResponse: Codable {
+struct UserApiResponse: Codable, Hashable {
   let gender: String?
   let name: NameApiResponse?
   let location: LocationApiResponse?
@@ -21,27 +21,33 @@ struct UserApiResponse: Codable {
     case cellphone = "cell"
     case nationality = "nat"
   }
+  
+  static func == (lhs: UserApiResponse, rhs: UserApiResponse) -> Bool {
+    guard let lhsID = lhs.id?.value,
+      let rhsID = rhs.id?.value else { return false }
+    return lhsID == rhsID
+  }
 }
 
 // MARK: - BirthdateInfoApiResponse
-struct BirthdateInfoApiResponse: Codable {
+struct BirthdateInfoApiResponse: Codable, Hashable {
   let date: String?
   let age: Int?
 }
 
 // MARK: - RegistrationDateInfoApiResponse
-struct RegistrationDateInfoApiResponse: Codable {
+struct RegistrationDateInfoApiResponse: Codable, Hashable {
   let date: String?
   let age: Int?
 }
 
 // MARK: - IDApiResponse
-struct IDApiResponse: Codable {
+struct IDApiResponse: Codable, Hashable {
   let name, value: String?
 }
 
 // MARK: - LocationApiResponse
-struct LocationApiResponse: Codable {
+struct LocationApiResponse: Codable, Hashable {
   let street: StreetApiResponse?
   let city, state, country: String?
   let postcodeInt: Int?
@@ -68,18 +74,18 @@ struct LocationApiResponse: Codable {
 }
 
 // MARK: - CoordinatesApiResponse
-struct CoordinatesApiResponse: Codable {
+struct CoordinatesApiResponse: Codable, Hashable {
   let latitude, longitude: String?
 }
 
 // MARK: - StreetApiResponse
-struct StreetApiResponse: Codable {
+struct StreetApiResponse: Codable, Hashable {
   let number: Int?
   let name: String?
 }
 
 // MARK: - TimezoneApiResponse
-struct TimezoneApiResponse: Codable {
+struct TimezoneApiResponse: Codable, Hashable {
   let offset, timezoneDescription: String?
   
   enum CodingKeys: String, CodingKey {
@@ -89,17 +95,17 @@ struct TimezoneApiResponse: Codable {
 }
 
 // MARK: - LoginApiResponse
-struct LoginApiResponse: Codable {
+struct LoginApiResponse: Codable, Hashable {
   let uuid, username, password, salt: String?
   let md5, sha1, sha256: String?
 }
 
 // MARK: - NameApiResponse
-struct NameApiResponse: Codable {
+struct NameApiResponse: Codable, Hashable {
   let title, first, last: String?
 }
 
 // MARK: - PictureApiResponse
-struct PictureApiResponse: Codable {
+struct PictureApiResponse: Codable, Hashable {
   let large, medium, thumbnail: String?
 }

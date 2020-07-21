@@ -15,6 +15,11 @@
 		2C2C2AA824C1997F00EC9652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C2AA724C1997F00EC9652 /* Assets.xcassets */; };
 		2C2C2AAB24C1997F00EC9652 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C2AA924C1997F00EC9652 /* LaunchScreen.storyboard */; };
 		2C9F145E24C6E8EF001CF10E /* Array+RemoveDuplicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F145D24C6E8EF001CF10E /* Array+RemoveDuplicates.swift */; };
+		2C9F146124C6EC01001CF10E /* Fontsize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146024C6EC01001CF10E /* Fontsize.swift */; };
+		2C9F146324C6EC12001CF10E /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146224C6EC12001CF10E /* View.swift */; };
+		2C9F146524C6EC6A001CF10E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146424C6EC6A001CF10E /* TableViewCell.swift */; };
+		2C9F146724C6EC8A001CF10E /* TableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146624C6EC8A001CF10E /* TableViewCell+ReuseIdentifier.swift */; };
+		2C9F146924C6EEC9001CF10E /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146824C6EEC9001CF10E /* Spacing.swift */; };
 		2CCDDF1224C48F9800FA1660 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1124C48F9800FA1660 /* Assembly.swift */; };
 		2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */; };
 		2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1624C4902800FA1660 /* ListNavigator.swift */; };
@@ -83,6 +88,11 @@
 		2C2C2AB724C1997F00EC9652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C34FCFECF29693F61DBCC30 /* Pods-RandomUsersList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUsersList.debug.xcconfig"; path = "Target Support Files/Pods-RandomUsersList/Pods-RandomUsersList.debug.xcconfig"; sourceTree = "<group>"; };
 		2C9F145D24C6E8EF001CF10E /* Array+RemoveDuplicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+RemoveDuplicates.swift"; sourceTree = "<group>"; };
+		2C9F146024C6EC01001CF10E /* Fontsize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fontsize.swift; sourceTree = "<group>"; };
+		2C9F146224C6EC12001CF10E /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		2C9F146424C6EC6A001CF10E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		2C9F146624C6EC8A001CF10E /* TableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		2C9F146824C6EEC9001CF10E /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		2CCDDF1124C48F9800FA1660 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+getListViewController.swift"; sourceTree = "<group>"; };
 		2CCDDF1624C4902800FA1660 /* ListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigator.swift; sourceTree = "<group>"; };
@@ -232,6 +242,18 @@
 			path = RandomUsersListTests;
 			sourceTree = "<group>";
 		};
+		2C9F145F24C6EBE3001CF10E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2C9F146224C6EC12001CF10E /* View.swift */,
+				2C9F146424C6EC6A001CF10E /* TableViewCell.swift */,
+				2C9F146624C6EC8A001CF10E /* TableViewCell+ReuseIdentifier.swift */,
+				2C9F146024C6EC01001CF10E /* Fontsize.swift */,
+				2C9F146824C6EEC9001CF10E /* Spacing.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		2CCDDF0F24C48F5200FA1660 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,8 +261,9 @@
 				2C2C2AA024C1997D00EC9652 /* SceneDelegate.swift */,
 				2CCDDF1024C48F7800FA1660 /* Assembly */,
 				2CCDDF3B24C49E1D00FA1660 /* NetworkLayer */,
-				2CCDDF3124C496BF00FA1660 /* AutoMockable */,
 				2CCDDF7824C4B3BE00FA1660 /* Extensions */,
+				2C9F145F24C6EBE3001CF10E /* UI */,
+				2CCDDF3124C496BF00FA1660 /* AutoMockable */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -789,11 +812,13 @@
 			files = (
 				2CCDDF4424C49E8A00FA1660 /* NetworkAssembly+Moya.swift in Sources */,
 				2CCDDF7524C4AD1600FA1660 /* RandomUsersApiToDomainMapper.swift in Sources */,
+				2C9F146924C6EEC9001CF10E /* Spacing.swift in Sources */,
 				2CCDDF4624C49EA700FA1660 /* NetworkAssembly+ErrorAdapter.swift in Sources */,
 				2CCDDF7024C4AB9C00FA1660 /* MainService.swift in Sources */,
 				2CCDDF8024C4B57300FA1660 /* MainRepository.swift in Sources */,
 				2C2C2A9F24C1997D00EC9652 /* AppDelegate.swift in Sources */,
 				2CCDDF2724C4902800FA1660 /* ListUI.swift in Sources */,
+				2C9F146724C6EC8A001CF10E /* TableViewCell+ReuseIdentifier.swift in Sources */,
 				2CCDDF6E24C4AB2D00FA1660 /* RandomUsersEndpoint.swift in Sources */,
 				2CCDDF7A24C4B3CE00FA1660 /* String+MapToDateString.swift in Sources */,
 				2CCDDF6A24C4A9F500FA1660 /* RandomUsersApiResponse.swift in Sources */,
@@ -809,10 +834,12 @@
 				2CCDDF5524C4A0E300FA1660 /* Endpoint.swift in Sources */,
 				2CCDDF5124C49F7500FA1660 /* PrimitiveSequence+CustomError.swift in Sources */,
 				2CCDDF1224C48F9800FA1660 /* Assembly.swift in Sources */,
+				2C9F146524C6EC6A001CF10E /* TableViewCell.swift in Sources */,
 				2CCDDF5324C49F8300FA1660 /* TargetType+Default.swift in Sources */,
 				2CCDDF7E24C4B52F00FA1660 /* GetRandomUsers.swift in Sources */,
 				2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */,
 				2CCDDF4224C49E7300FA1660 /* NetworkAssembly.swift in Sources */,
+				2C9F146324C6EC12001CF10E /* View.swift in Sources */,
 				2CCDDF5724C4A0FD00FA1660 /* Mappable.swift in Sources */,
 				2CCDDF2124C4902800FA1660 /* ListPresenter.swift in Sources */,
 				2CCDDF4B24C49F0900FA1660 /* ErrorAdapter.swift in Sources */,
@@ -826,6 +853,7 @@
 				2CCDDF4924C49ED800FA1660 /* DefaultErrorAdapter.swift in Sources */,
 				2CCDDF5B24C4A4B900FA1660 /* NetworkAssembly+Services.swift in Sources */,
 				2CCDDF8324C4B64000FA1660 /* MainApiDataSource.swift in Sources */,
+				2C9F146124C6EC01001CF10E /* Fontsize.swift in Sources */,
 				2CCDDF2524C4902800FA1660 /* DefaultListNavigator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,6 +13,7 @@ class DefaultListPresenter: ListPresenter {
   }
   
   func didLoad() {
+    ui?.showLoading()
     interactor.fetchUsers()
   }
   
@@ -23,10 +24,12 @@ class DefaultListPresenter: ListPresenter {
 
 extension DefaultListPresenter: ListInteractorDelegate {
   func didLoad(users: [User]) {
+    ui?.hideLoading()
     ui?.show(users: users)
   }
   
   func didFailLoadingUsers(error: Error) {
+    ui?.hideLoading()
     ui?.show(error: error.message)
   }
 }

@@ -24,6 +24,14 @@ extension ListViewController: ListUI {
   func show(error: String) {
     show(errorMessage: error)
   }
+  
+  func showLoading() {
+    showLoadingView()
+  }
+  
+  func hideLoading() {
+    hideLoadingView()
+  }
 }
 
 extension ListViewController: ListViewDelegate {

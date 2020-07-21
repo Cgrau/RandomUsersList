@@ -150,4 +150,30 @@ class ListUIMock: NSObject, ListUI {
         showErrorClosure?(error)
     }
 
+    //MARK: - showLoading
+
+    private(set) var showLoadingCallsCount = 0
+    var showLoadingCalled: Bool {
+        return showLoadingCallsCount > 0
+    }
+    var showLoadingClosure: (() -> Void)?
+
+    func showLoading() {
+        showLoadingCallsCount += 1
+        showLoadingClosure?()
+    }
+
+    //MARK: - hideLoading
+
+    private(set) var hideLoadingCallsCount = 0
+    var hideLoadingCalled: Bool {
+        return hideLoadingCallsCount > 0
+    }
+    var hideLoadingClosure: (() -> Void)?
+
+    func hideLoading() {
+        hideLoadingCallsCount += 1
+        hideLoadingClosure?()
+    }
+
 }

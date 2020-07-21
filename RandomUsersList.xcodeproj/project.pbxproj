@@ -306,8 +306,8 @@
 		2CCDDF2924C4902C00FA1660 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2CCDDF1824C4902800FA1660 /* ListViewController.swift */,
 				2CCDDF1C24C4902800FA1660 /* ListView.swift */,
+				2CCDDF1824C4902800FA1660 /* ListViewController.swift */,
 				2CCDDF1D24C4902800FA1660 /* ListUI.swift */,
 			);
 			path = View;

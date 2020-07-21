@@ -7,12 +7,14 @@ protocol ListViewDelegate: class {
   func didTap(user: User)
   func didTapDelete(user: User)
   func didSearchFor(text: String)
+  func reachedBottomOfTable()
 }
 
 private enum Constants {
   static let title = "RandomUsers"
   static let searchPlaceholder = "Search User"
   static let undelineHeight = 2
+  static let lastRowSpace = 5
 }
 
 class ListView: View {
@@ -65,14 +67,8 @@ class ListView: View {
     tableView.dataSource = self
     tableView.delegate = self
     setupKeyboardBehaviour(to: tableView)
-    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                             action: #selector(self.dismissKeyboard))
-    addGestureRecognizer(tap)
-    textField.rx.controlEvent(.editingChanged)
-      .asObservable().subscribe({ [weak self] _ in
-        guard let text = self?.textField.text else { return }
-        self?.delegate?.didSearchFor(text: text)
-      }).disposed(by: bag)
+    configureTapHideKeyboard()
+    configureSearchboxReaction()
   }
   
   override func setupConstraints() {
@@ -97,6 +93,20 @@ class ListView: View {
       make.trailing.equalToSuperview()
       make.bottom.equalTo(safeAreaLayoutGuide)
     }
+  }
+  
+  private func configureSearchboxReaction() {
+    textField.rx.controlEvent(.editingChanged)
+      .asObservable().subscribe({ [weak self] _ in
+        guard let text = self?.textField.text else { return }
+        self?.delegate?.didSearchFor(text: text)
+      }).disposed(by: bag)
+  }
+  
+  private func configureTapHideKeyboard() {
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                             action: #selector(self.dismissKeyboard))
+    addGestureRecognizer(tap)
   }
   
   @objc func dismissKeyboard() {
@@ -147,6 +157,16 @@ extension ListView {
     if editingStyle == UITableViewCell.EditingStyle.delete {
       let userToDelete = users[indexPath.row]
       delegate?.didTapDelete(user: userToDelete)
+    }
+  }
+}
+
+// MARK: - TableView - Bottom Reached minus lastRowSpace
+extension ListView {
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    guard let lastCell = tableView.visibleCells.last, let row = tableView.indexPath(for: lastCell)?.row else { return }
+    if row == users.count - Constants.lastRowSpace {
+      delegate?.reachedBottomOfTable()
     }
   }
 }

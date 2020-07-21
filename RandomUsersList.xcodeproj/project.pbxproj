@@ -34,6 +34,7 @@
 		2C9F148924C75C5E001CF10E /* User+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F148824C75C5E001CF10E /* User+Mock.swift */; };
 		2C9F148B24C762A1001CF10E /* ListPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F148A24C762A1001CF10E /* ListPresenterSpec.swift */; };
 		2C9F148D24C7651F001CF10E /* ListInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F148C24C7651F001CF10E /* ListInteractorSpec.swift */; };
+		2C9F149024C77551001CF10E /* RemoveDuplicatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F148F24C77551001CF10E /* RemoveDuplicatesTests.swift */; };
 		2CCDDF1224C48F9800FA1660 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1124C48F9800FA1660 /* Assembly.swift */; };
 		2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */; };
 		2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1624C4902800FA1660 /* ListNavigator.swift */; };
@@ -121,6 +122,7 @@
 		2C9F148824C75C5E001CF10E /* User+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Mock.swift"; sourceTree = "<group>"; };
 		2C9F148A24C762A1001CF10E /* ListPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenterSpec.swift; sourceTree = "<group>"; };
 		2C9F148C24C7651F001CF10E /* ListInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractorSpec.swift; sourceTree = "<group>"; };
+		2C9F148F24C77551001CF10E /* RemoveDuplicatesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveDuplicatesTests.swift; sourceTree = "<group>"; };
 		2CCDDF1124C48F9800FA1660 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+getListViewController.swift"; sourceTree = "<group>"; };
 		2CCDDF1624C4902800FA1660 /* ListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigator.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			children = (
 				2CCDDF3824C49AA000FA1660 /* AutoMockable */,
 				2C08384F24C4C381002898AF /* Utils */,
+				2C9F148E24C7752D001CF10E /* Others */,
 				2C9F147E24C75BAF001CF10E /* Features */,
 				2C08384824C4C24A002898AF /* Network */,
 				2C2C2AB724C1997F00EC9652 /* Info.plist */,
@@ -354,6 +357,14 @@
 				2C9F148824C75C5E001CF10E /* User+Mock.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		2C9F148E24C7752D001CF10E /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				2C9F148F24C77551001CF10E /* RemoveDuplicatesTests.swift */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 		2CCDDF0F24C48F5200FA1660 /* Core */ = {
@@ -981,6 +992,7 @@
 				2C08384B24C4C273002898AF /* MainSpec.swift in Sources */,
 				2C9F148624C75C29001CF10E /* XCTestCase+UIViewController.swift in Sources */,
 				2CCDDF3A24C49AA000FA1660 /* AutoMockable.generated.swift in Sources */,
+				2C9F149024C77551001CF10E /* RemoveDuplicatesTests.swift in Sources */,
 				2C08385124C4C390002898AF /* Fixture.swift in Sources */,
 				2C9F148D24C7651F001CF10E /* ListInteractorSpec.swift in Sources */,
 				2C9F148424C75BF2001CF10E /* ListViewSpec.swift in Sources */,

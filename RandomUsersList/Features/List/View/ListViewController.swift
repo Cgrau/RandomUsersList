@@ -47,4 +47,8 @@ extension ListViewController: ListViewDelegate {
   func didSearchFor(text: String) {
     presenter?.search(for: text)
   }
+  
+  func reachedBottomOfTable() {
+    presenter?.loadMoreUsers()
+  }
 }

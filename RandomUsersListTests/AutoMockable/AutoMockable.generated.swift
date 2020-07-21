@@ -240,6 +240,19 @@ class ListPresenterMock: NSObject, ListPresenter {
         searchForClosure?(text)
     }
 
+    //MARK: - loadMoreUsers
+
+    private(set) var loadMoreUsersCallsCount = 0
+    var loadMoreUsersCalled: Bool {
+        return loadMoreUsersCallsCount > 0
+    }
+    var loadMoreUsersClosure: (() -> Void)?
+
+    func loadMoreUsers() {
+        loadMoreUsersCallsCount += 1
+        loadMoreUsersClosure?()
+    }
+
 }
 class ListUIMock: NSObject, ListUI {
 

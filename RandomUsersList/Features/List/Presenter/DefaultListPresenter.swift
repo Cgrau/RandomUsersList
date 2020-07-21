@@ -5,6 +5,7 @@ class DefaultListPresenter: ListPresenter {
   weak var ui: ListUI?
   private let interactor: ListInteractor
   private let navigator: ListNavigator
+  private var isLoading = false
   
   init(interactor: ListInteractor,
        navigator: ListNavigator) {
@@ -28,15 +29,25 @@ class DefaultListPresenter: ListPresenter {
   func search(for text: String) {
     interactor.searchUsers(by: text)
   }
+  
+  func loadMoreUsers() {
+    if isLoading == false {
+      isLoading.toggle()
+      ui?.showLoading()
+      interactor.fetchUsers()
+    }
+  }
 }
 
 extension DefaultListPresenter: ListInteractorDelegate {
   func didLoad(users: [User]) {
+    isLoading = false
     ui?.hideLoading()
     ui?.show(users: users)
   }
   
   func didFailLoadingUsers(error: Error) {
+    isLoading = false
     ui?.hideLoading()
     ui?.show(error: error.message)
   }

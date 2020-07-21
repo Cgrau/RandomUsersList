@@ -25,6 +25,7 @@
 		2C9F146F24C6F5E1001CF10E /* UIColor+HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146E24C6F5E1001CF10E /* UIColor+HexColor.swift */; };
 		2C9F147224C6FB25001CF10E /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147124C6FB25001CF10E /* UserViewCell.swift */; };
 		2C9F147424C6FF20001CF10E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147324C6FF20001CF10E /* Colors.swift */; };
+		2C9F147624C70AA5001CF10E /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147524C70AA5001CF10E /* TextField.swift */; };
 		2CCDDF1224C48F9800FA1660 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1124C48F9800FA1660 /* Assembly.swift */; };
 		2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */; };
 		2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1624C4902800FA1660 /* ListNavigator.swift */; };
@@ -103,6 +104,7 @@
 		2C9F146E24C6F5E1001CF10E /* UIColor+HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexColor.swift"; sourceTree = "<group>"; };
 		2C9F147124C6FB25001CF10E /* UserViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
 		2C9F147324C6FF20001CF10E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		2C9F147524C70AA5001CF10E /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		2CCDDF1124C48F9800FA1660 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+getListViewController.swift"; sourceTree = "<group>"; };
 		2CCDDF1624C4902800FA1660 /* ListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigator.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				2C9F146824C6EEC9001CF10E /* Spacing.swift */,
 				2C9F146E24C6F5E1001CF10E /* UIColor+HexColor.swift */,
 				2C9F147324C6FF20001CF10E /* Colors.swift */,
+				2C9F147524C70AA5001CF10E /* TextField.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -839,6 +842,7 @@
 				2CCDDF4624C49EA700FA1660 /* NetworkAssembly+ErrorAdapter.swift in Sources */,
 				2CCDDF7024C4AB9C00FA1660 /* MainService.swift in Sources */,
 				2CCDDF8024C4B57300FA1660 /* MainRepository.swift in Sources */,
+				2C9F147624C70AA5001CF10E /* TextField.swift in Sources */,
 				2C2C2A9F24C1997D00EC9652 /* AppDelegate.swift in Sources */,
 				2CCDDF2724C4902800FA1660 /* ListUI.swift in Sources */,
 				2C9F146724C6EC8A001CF10E /* TableViewCell+ReuseIdentifier.swift in Sources */,

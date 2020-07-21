@@ -7,10 +7,11 @@ protocol ListViewDelegate: class {
 
 private enum Constants {
   static let title = "RandomUsers"
+  static let searchPlaceholder = "Search User"
 }
 
 class ListView: View {
-    
+  
   weak var delegate: ListViewDelegate?
   
   var users: [User] = [] {
@@ -34,6 +35,14 @@ class ListView: View {
     return view
   }()
   
+  private var textField: TextField = {
+    let textField = TextField()
+    textField.autocorrectionType = .no
+    textField.font = UIFont.systemFont(ofSize: FontSize.regular)
+    textField.placeholder = Constants.searchPlaceholder
+    return textField
+  }()
+  
   private var tableView: UITableView = {
     let tableView = UITableView()
     return tableView
@@ -44,6 +53,7 @@ class ListView: View {
     backgroundColor = Colors.main
     addSubview(titleLabel)
     addSubview(underline)
+    addSubview(textField)
     addSubview(tableView)
     tableView.register(UserViewCell.self)
     tableView.dataSource = self
@@ -62,8 +72,13 @@ class ListView: View {
       make.trailing.equalTo(titleLabel).offset(Spacing.l)
       make.height.equalTo(2)
     }
-    tableView.snp.makeConstraints { make in
+    textField.snp.makeConstraints { make in
       make.top.equalTo(underline.snp.bottom).offset(Spacing.s)
+      make.leading.equalToSuperview().offset(Spacing.l)
+      make.trailing.equalToSuperview().offset(-Spacing.l)
+    }
+    tableView.snp.makeConstraints { make in
+      make.top.equalTo(textField.snp.bottom).offset(Spacing.s)
       make.leading.equalToSuperview()
       make.trailing.equalToSuperview()
       make.bottom.equalTo(safeAreaLayoutGuide)
@@ -103,3 +118,17 @@ extension ListView: UITableViewDelegate {
     delegate?.didTap(user: selectedUser)
   }
 }
+
+// MARK: - Swipe to Delete
+extension ListView {
+  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    return true
+  }
+  
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == UITableViewCell.EditingStyle.delete {
+      //delete user and never show him/her again
+    }
+  }
+}
+

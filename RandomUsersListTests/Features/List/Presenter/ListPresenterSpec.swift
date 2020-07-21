@@ -45,6 +45,12 @@ final class ListPresenterSpec: XCTestCase {
     XCTAssertTrue(interactor.searchUsersByCalled)
   }
   
+  func test_loadMoreUsers() {
+    sut.loadMoreUsers()
+    XCTAssertTrue(ui.showLoadingCalled)
+    XCTAssertTrue(interactor.fetchUsersCalled)
+  }
+  
   // MARK:- ListInteractorDelegate
   func test_didLoadUsers() {
     sut.didLoad(users: [User](repeating: User.mock, count: 40))

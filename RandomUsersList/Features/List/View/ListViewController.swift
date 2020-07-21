@@ -1,5 +1,9 @@
 import UIKit
 
+private enum Constants {
+  static let deleteMessage = "You really don't want to see %@ anymore?"
+}
+
 class ListViewController: UIViewController {
   
   var mainView: ListView?
@@ -41,7 +45,10 @@ extension ListViewController: ListViewDelegate {
   }
   
   func didTapDelete(user: User) {
-    presenter?.delete(user: user)
+    let message = String(format: Constants.deleteMessage, user.fullName ?? "this dude")
+    show(questionMessage: message) {
+      self.presenter?.delete(user: user)
+    }
   }
   
   func didSearchFor(text: String) {

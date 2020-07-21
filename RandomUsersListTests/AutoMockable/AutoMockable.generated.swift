@@ -49,6 +49,7 @@ class GetRandomUsersUseCaseMock: NSObject, GetRandomUsersUseCase {
 }
 class ListInteractorMock: NSObject, ListInteractor {
     var delegate: ListInteractorDelegate?
+    var users: [User] = []
 
     //MARK: - fetchUsers
 
@@ -95,6 +96,60 @@ class ListInteractorMock: NSObject, ListInteractor {
         searchUsersByReceivedText = text
         searchUsersByReceivedInvocations.append(text)
         searchUsersByClosure?(text)
+    }
+
+}
+class ListInteractorDelegateMock: NSObject, ListInteractorDelegate {
+
+    //MARK: - didLoad
+
+    private(set) var didLoadUsersCallsCount = 0
+    var didLoadUsersCalled: Bool {
+        return didLoadUsersCallsCount > 0
+    }
+    private(set) var didLoadUsersReceivedUsers: [User]?
+    private(set) var didLoadUsersReceivedInvocations: [[User]] = []
+    var didLoadUsersClosure: (([User]) -> Void)?
+
+    func didLoad(users: [User]) {
+        didLoadUsersCallsCount += 1
+        didLoadUsersReceivedUsers = users
+        didLoadUsersReceivedInvocations.append(users)
+        didLoadUsersClosure?(users)
+    }
+
+    //MARK: - didFailLoadingUsers
+
+    private(set) var didFailLoadingUsersErrorCallsCount = 0
+    var didFailLoadingUsersErrorCalled: Bool {
+        return didFailLoadingUsersErrorCallsCount > 0
+    }
+    private(set) var didFailLoadingUsersErrorReceivedError: Error?
+    private(set) var didFailLoadingUsersErrorReceivedInvocations: [Error] = []
+    var didFailLoadingUsersErrorClosure: ((Error) -> Void)?
+
+    func didFailLoadingUsers(error: Error) {
+        didFailLoadingUsersErrorCallsCount += 1
+        didFailLoadingUsersErrorReceivedError = error
+        didFailLoadingUsersErrorReceivedInvocations.append(error)
+        didFailLoadingUsersErrorClosure?(error)
+    }
+
+    //MARK: - didDeleteUser
+
+    private(set) var didDeleteUserUsersCallsCount = 0
+    var didDeleteUserUsersCalled: Bool {
+        return didDeleteUserUsersCallsCount > 0
+    }
+    private(set) var didDeleteUserUsersReceivedUsers: [User]?
+    private(set) var didDeleteUserUsersReceivedInvocations: [[User]] = []
+    var didDeleteUserUsersClosure: (([User]) -> Void)?
+
+    func didDeleteUser(users: [User]) {
+        didDeleteUserUsersCallsCount += 1
+        didDeleteUserUsersReceivedUsers = users
+        didDeleteUserUsersReceivedInvocations.append(users)
+        didDeleteUserUsersClosure?(users)
     }
 
 }

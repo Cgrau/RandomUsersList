@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 
-protocol ListInteractorDelegate: class {
+protocol ListInteractorDelegate: class, AutoMockable {
   func didLoad(users: [User])
   func didFailLoadingUsers(error: Error)
   func didDeleteUser(users: [User])
@@ -16,7 +16,7 @@ class DefaultListInteractor: ListInteractor {
   weak var delegate: ListInteractorDelegate?
   private let getRandomUsersUseCase: GetRandomUsersUseCase
   private let localStorage: LocalStorage
-  private var users: [User] = []
+  var users: [User] = []
   private let bag = DisposeBag()
   
   init(getRandomUsersUseCase: GetRandomUsersUseCase,

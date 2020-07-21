@@ -18,7 +18,7 @@ class DefaultListPresenter: ListPresenter {
   }
   
   func didSelect(user: User) {
-    
+    navigator.navigateToDetail(user: user)
   }
   
   func delete(user: User) {

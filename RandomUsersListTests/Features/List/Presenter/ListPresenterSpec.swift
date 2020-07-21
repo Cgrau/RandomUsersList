@@ -32,6 +32,7 @@ final class ListPresenterSpec: XCTestCase {
   
   func test_select_user() {
     sut.didSelect(user: User.mock)
+    XCTAssertTrue(navigator.navigateToDetailUserCalled)
   }
   
   func test_delete_user() {

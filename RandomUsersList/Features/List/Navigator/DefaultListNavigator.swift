@@ -8,7 +8,7 @@ class DefaultListNavigator: ListNavigator {
     self.from = from
   }
   
-  func navigate() {
+  func navigateToDetail(user: User) {
     
   }
 }

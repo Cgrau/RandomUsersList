@@ -155,17 +155,21 @@ class ListInteractorDelegateMock: NSObject, ListInteractorDelegate {
 }
 class ListNavigatorMock: NSObject, ListNavigator {
 
-    //MARK: - navigate
+    //MARK: - navigateToDetail
 
-    private(set) var navigateCallsCount = 0
-    var navigateCalled: Bool {
-        return navigateCallsCount > 0
+    private(set) var navigateToDetailUserCallsCount = 0
+    var navigateToDetailUserCalled: Bool {
+        return navigateToDetailUserCallsCount > 0
     }
-    var navigateClosure: (() -> Void)?
+    private(set) var navigateToDetailUserReceivedUser: User?
+    private(set) var navigateToDetailUserReceivedInvocations: [User] = []
+    var navigateToDetailUserClosure: ((User) -> Void)?
 
-    func navigate() {
-        navigateCallsCount += 1
-        navigateClosure?()
+    func navigateToDetail(user: User) {
+        navigateToDetailUserCallsCount += 1
+        navigateToDetailUserReceivedUser = user
+        navigateToDetailUserReceivedInvocations.append(user)
+        navigateToDetailUserClosure?(user)
     }
 
 }

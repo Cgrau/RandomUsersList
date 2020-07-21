@@ -1,11 +1,16 @@
 import Foundation
 
 // MARK: - User
-struct User: Codable {
-  let name, surname, email, gender, phone: String?
+struct User: Codable, Equatable {
+  let id: String?
+  let fullName, email, gender, phone: String?
   let picture: Picture?
   let location: Location?
   let registeredDate: String?
+  
+  static func == (lhs: User, rhs: User) -> Bool {
+    return lhs.id == rhs.id && lhs.fullName == rhs.fullName
+  }
 }
 
 // MARK: - Picture

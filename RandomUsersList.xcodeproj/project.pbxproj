@@ -23,6 +23,8 @@
 		2C9F146B24C6F122001CF10E /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146A24C6F122001CF10E /* UIViewController+Loading.swift */; };
 		2C9F146D24C6F3CB001CF10E /* UIViewController+ShowErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146C24C6F3CB001CF10E /* UIViewController+ShowErrorMessage.swift */; };
 		2C9F146F24C6F5E1001CF10E /* UIColor+HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146E24C6F5E1001CF10E /* UIColor+HexColor.swift */; };
+		2C9F147224C6FB25001CF10E /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147124C6FB25001CF10E /* UserViewCell.swift */; };
+		2C9F147424C6FF20001CF10E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147324C6FF20001CF10E /* Colors.swift */; };
 		2CCDDF1224C48F9800FA1660 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1124C48F9800FA1660 /* Assembly.swift */; };
 		2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */; };
 		2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1624C4902800FA1660 /* ListNavigator.swift */; };
@@ -99,6 +101,8 @@
 		2C9F146A24C6F122001CF10E /* UIViewController+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loading.swift"; sourceTree = "<group>"; };
 		2C9F146C24C6F3CB001CF10E /* UIViewController+ShowErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowErrorMessage.swift"; sourceTree = "<group>"; };
 		2C9F146E24C6F5E1001CF10E /* UIColor+HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexColor.swift"; sourceTree = "<group>"; };
+		2C9F147124C6FB25001CF10E /* UserViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
+		2C9F147324C6FF20001CF10E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2CCDDF1124C48F9800FA1660 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+getListViewController.swift"; sourceTree = "<group>"; };
 		2CCDDF1624C4902800FA1660 /* ListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigator.swift; sourceTree = "<group>"; };
@@ -257,8 +261,17 @@
 				2C9F146024C6EC01001CF10E /* Fontsize.swift */,
 				2C9F146824C6EEC9001CF10E /* Spacing.swift */,
 				2C9F146E24C6F5E1001CF10E /* UIColor+HexColor.swift */,
+				2C9F147324C6FF20001CF10E /* Colors.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		2C9F147024C6FB14001CF10E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2C9F147124C6FB25001CF10E /* UserViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		2CCDDF0F24C48F5200FA1660 /* Core */ = {
@@ -306,6 +319,7 @@
 		2CCDDF2924C4902C00FA1660 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2C9F147024C6FB14001CF10E /* Cells */,
 				2CCDDF1C24C4902800FA1660 /* ListView.swift */,
 				2CCDDF1824C4902800FA1660 /* ListViewController.swift */,
 				2CCDDF1D24C4902800FA1660 /* ListUI.swift */,
@@ -832,6 +846,8 @@
 				2CCDDF7A24C4B3CE00FA1660 /* String+MapToDateString.swift in Sources */,
 				2CCDDF6A24C4A9F500FA1660 /* RandomUsersApiResponse.swift in Sources */,
 				2CCDDF3324C496D600FA1660 /* AutoMockable.swift in Sources */,
+				2C9F147424C6FF20001CF10E /* Colors.swift in Sources */,
+				2C9F147224C6FB25001CF10E /* UserViewCell.swift in Sources */,
 				2C9F146F24C6F5E1001CF10E /* UIColor+HexColor.swift in Sources */,
 				2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */,
 				2CCDDF7C24C4B4D500FA1660 /* GetRandomUsersUseCase.swift in Sources */,

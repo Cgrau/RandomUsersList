@@ -7,7 +7,6 @@ protocol ListViewDelegate: class {
 
 private enum Constants {
   static let title = "RandomUsers"
-  static let color = UIColor(hex: 0x28d6c0)
 }
 
 class ListView: View {
@@ -42,10 +41,13 @@ class ListView: View {
   
   // MARK: View Functions
   override func setupView() {
-    backgroundColor = Constants.color
+    backgroundColor = Colors.main
     addSubview(titleLabel)
     addSubview(underline)
     addSubview(tableView)
+    tableView.register(UserViewCell.self)
+    tableView.dataSource = self
+    tableView.delegate = self
     setupKeyboardBehaviour(to: tableView)
   }
   
@@ -66,5 +68,38 @@ class ListView: View {
       make.trailing.equalToSuperview()
       make.bottom.equalTo(safeAreaLayoutGuide)
     }
+  }
+}
+
+// MARK: - UITableViewDataSource
+extension ListView: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return users.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let user = users[indexPath.row]
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: UserViewCell.cellIdentifier) as? UserViewCell else {
+      return UITableViewCell()
+    }
+    
+    cell.configure(fullName: user.fullName,
+                   email: user.email,
+                   phone: user.phone,
+                   image: user.picture?.thumbnail)
+    
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    return UITableView.automaticDimension
+  }
+}
+
+// MARK: - UITableViewDelegate
+extension ListView: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let selectedUser = users[indexPath.row]
+    delegate?.didTap(user: selectedUser)
   }
 }

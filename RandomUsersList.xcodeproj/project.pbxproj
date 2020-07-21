@@ -26,6 +26,9 @@
 		2C9F147224C6FB25001CF10E /* UserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147124C6FB25001CF10E /* UserViewCell.swift */; };
 		2C9F147424C6FF20001CF10E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147324C6FF20001CF10E /* Colors.swift */; };
 		2C9F147624C70AA5001CF10E /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147524C70AA5001CF10E /* TextField.swift */; };
+		2C9F147924C747E0001CF10E /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147824C747E0001CF10E /* LocalStorage.swift */; };
+		2C9F147B24C749CF001CF10E /* UserDefaultsLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147A24C749CF001CF10E /* UserDefaultsLocalStorage.swift */; };
+		2C9F147D24C74A39001CF10E /* LocalStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147C24C74A39001CF10E /* LocalStorageKey.swift */; };
 		2CCDDF1224C48F9800FA1660 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1124C48F9800FA1660 /* Assembly.swift */; };
 		2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */; };
 		2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1624C4902800FA1660 /* ListNavigator.swift */; };
@@ -105,6 +108,9 @@
 		2C9F147124C6FB25001CF10E /* UserViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewCell.swift; sourceTree = "<group>"; };
 		2C9F147324C6FF20001CF10E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		2C9F147524C70AA5001CF10E /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		2C9F147824C747E0001CF10E /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		2C9F147A24C749CF001CF10E /* UserDefaultsLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsLocalStorage.swift; sourceTree = "<group>"; };
+		2C9F147C24C74A39001CF10E /* LocalStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKey.swift; sourceTree = "<group>"; };
 		2CCDDF1124C48F9800FA1660 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+getListViewController.swift"; sourceTree = "<group>"; };
 		2CCDDF1624C4902800FA1660 /* ListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigator.swift; sourceTree = "<group>"; };
@@ -277,6 +283,16 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		2C9F147724C747C0001CF10E /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				2C9F147C24C74A39001CF10E /* LocalStorageKey.swift */,
+				2C9F147824C747E0001CF10E /* LocalStorage.swift */,
+				2C9F147A24C749CF001CF10E /* UserDefaultsLocalStorage.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
 		2CCDDF0F24C48F5200FA1660 /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +318,7 @@
 		2CCDDF1324C48FC100FA1660 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				2C9F147724C747C0001CF10E /* LocalStorage */,
 				2CCDDF1424C48FDC00FA1660 /* List */,
 			);
 			path = Features;
@@ -849,6 +866,7 @@
 				2CCDDF6E24C4AB2D00FA1660 /* RandomUsersEndpoint.swift in Sources */,
 				2CCDDF7A24C4B3CE00FA1660 /* String+MapToDateString.swift in Sources */,
 				2CCDDF6A24C4A9F500FA1660 /* RandomUsersApiResponse.swift in Sources */,
+				2C9F147D24C74A39001CF10E /* LocalStorageKey.swift in Sources */,
 				2CCDDF3324C496D600FA1660 /* AutoMockable.swift in Sources */,
 				2C9F147424C6FF20001CF10E /* Colors.swift in Sources */,
 				2C9F147224C6FB25001CF10E /* UserViewCell.swift in Sources */,
@@ -880,11 +898,13 @@
 				2CCDDF2824C4902800FA1660 /* DefaultListPresenter.swift in Sources */,
 				2C2C2AA124C1997D00EC9652 /* SceneDelegate.swift in Sources */,
 				2CCDDF2624C4902800FA1660 /* ListView.swift in Sources */,
+				2C9F147B24C749CF001CF10E /* UserDefaultsLocalStorage.swift in Sources */,
 				2CCDDF6C24C4AA6D00FA1660 /* RandomUsersRequest.swift in Sources */,
 				2CCDDF2224C4902800FA1660 /* ListViewController.swift in Sources */,
 				2CCDDF4924C49ED800FA1660 /* DefaultErrorAdapter.swift in Sources */,
 				2CCDDF5B24C4A4B900FA1660 /* NetworkAssembly+Services.swift in Sources */,
 				2CCDDF8324C4B64000FA1660 /* MainApiDataSource.swift in Sources */,
+				2C9F147924C747E0001CF10E /* LocalStorage.swift in Sources */,
 				2C9F146124C6EC01001CF10E /* Fontsize.swift in Sources */,
 				2CCDDF2524C4902800FA1660 /* DefaultListNavigator.swift in Sources */,
 			);

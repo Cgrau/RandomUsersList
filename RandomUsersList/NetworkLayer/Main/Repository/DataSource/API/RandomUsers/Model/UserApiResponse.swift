@@ -6,7 +6,7 @@ struct UserApiResponse: Codable, Hashable {
   let name: NameApiResponse?
   let location: LocationApiResponse?
   let email: String?
-  let login: LoginApiResponse?
+  let login: LoginApiResponse
   let birthInfo: BirthdateInfoApiResponse?
   let registrationInfo: RegistrationDateInfoApiResponse?
   let phone, cellphone: String?
@@ -96,7 +96,8 @@ struct TimezoneApiResponse: Codable, Hashable {
 
 // MARK: - LoginApiResponse
 struct LoginApiResponse: Codable, Hashable {
-  let uuid, username, password, salt: String?
+  let uuid: String
+  let username, password, salt: String?
   let md5, sha1, sha256: String?
 }
 

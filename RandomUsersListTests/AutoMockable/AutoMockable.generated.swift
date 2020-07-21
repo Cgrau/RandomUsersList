@@ -211,3 +211,41 @@ class ListUIMock: NSObject, ListUI {
     }
 
 }
+class LocalStorageMock: NSObject, LocalStorage {
+
+    //MARK: - deleteUser
+
+    private(set) var deleteUserWithCallsCount = 0
+    var deleteUserWithCalled: Bool {
+        return deleteUserWithCallsCount > 0
+    }
+    private(set) var deleteUserWithReceivedUuid: String?
+    private(set) var deleteUserWithReceivedInvocations: [String] = []
+    var deleteUserWithClosure: ((String) -> Void)?
+
+    func deleteUser(with uuid: String) {
+        deleteUserWithCallsCount += 1
+        deleteUserWithReceivedUuid = uuid
+        deleteUserWithReceivedInvocations.append(uuid)
+        deleteUserWithClosure?(uuid)
+    }
+
+    //MARK: - removeDeletedUsers
+
+    private(set) var removeDeletedUsersFromCallsCount = 0
+    var removeDeletedUsersFromCalled: Bool {
+        return removeDeletedUsersFromCallsCount > 0
+    }
+    private(set) var removeDeletedUsersFromReceivedFrom: [User]?
+    private(set) var removeDeletedUsersFromReceivedInvocations: [[User]] = []
+    var removeDeletedUsersFromReturnValue: [User]!
+    var removeDeletedUsersFromClosure: (([User]) -> [User])?
+
+    func removeDeletedUsers(from: [User]) -> [User] {
+        removeDeletedUsersFromCallsCount += 1
+        removeDeletedUsersFromReceivedFrom = from
+        removeDeletedUsersFromReceivedInvocations.append(from)
+        return removeDeletedUsersFromClosure.map({ $0(from) }) ?? removeDeletedUsersFromReturnValue
+    }
+
+}

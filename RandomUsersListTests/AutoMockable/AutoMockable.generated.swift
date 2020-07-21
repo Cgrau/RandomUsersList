@@ -8,6 +8,7 @@ import Foundation
 @testable import RandomUsersList
 #if os(iOS) || os(tvOS) || os(watchOS)
 import UIKit
+import RxSwift
 #elseif os(OSX)
 import AppKit
 #endif
@@ -25,6 +26,27 @@ import AppKit
 
 
 
+class GetRandomUsersUseCaseMock: NSObject, GetRandomUsersUseCase {
+
+    //MARK: - execute
+
+    private(set) var executeRequestCallsCount = 0
+    var executeRequestCalled: Bool {
+        return executeRequestCallsCount > 0
+    }
+    private(set) var executeRequestReceivedRequest: RandomUsersRequest?
+    private(set) var executeRequestReceivedInvocations: [RandomUsersRequest] = []
+    var executeRequestReturnValue: Single<[User]>!
+    var executeRequestClosure: ((RandomUsersRequest) -> Single<[User]>)?
+
+    func execute(request: RandomUsersRequest) -> Single<[User]> {
+        executeRequestCallsCount += 1
+        executeRequestReceivedRequest = request
+        executeRequestReceivedInvocations.append(request)
+        return executeRequestClosure.map({ $0(request) }) ?? executeRequestReturnValue
+    }
+
+}
 class ListInteractorMock: NSObject, ListInteractor {
     var delegate: ListInteractorDelegate?
 

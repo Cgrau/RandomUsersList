@@ -21,8 +21,8 @@ struct RandomUsersApiToDomainMapper: Mappable {
                   fullName: map(name: response.name?.first,
                                 surname: response.name?.last),
                   email: response.email,
-                  gender: response.gender,
                   phone: response.phone,
+                  gender: Gender(rawValue: response.gender ?? ""),
                   picture: map(picture: response.picture),
                   location: map(location: response.location),
                   registeredDate: map(registeredDate: response.registrationInfo?.date))

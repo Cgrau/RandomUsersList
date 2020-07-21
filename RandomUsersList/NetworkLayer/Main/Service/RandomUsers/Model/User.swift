@@ -1,9 +1,10 @@
 import Foundation
 
 // MARK: - User
-struct User: Codable, Hashable {
+struct User: Hashable {
   let uuid: String
-  let fullName, email, gender, phone: String?
+  let fullName, email, phone: String?
+  let gender: Gender?
   let picture: Picture?
   let location: Location?
   let registeredDate: String?
@@ -13,12 +14,18 @@ struct User: Codable, Hashable {
   }
 }
 
+// MARK: - Gender
+enum Gender: String {
+  case male
+  case female
+}
+
 // MARK: - Picture
-struct Picture: Codable, Hashable {
+struct Picture: Hashable {
   let large, medium, thumbnail: String?
 }
 
 // MARK: - Location
-struct Location: Codable, Hashable {
+struct Location: Hashable {
   let street, city, state: String?
 }

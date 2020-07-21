@@ -29,6 +29,9 @@
 		2C9F147924C747E0001CF10E /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147824C747E0001CF10E /* LocalStorage.swift */; };
 		2C9F147B24C749CF001CF10E /* UserDefaultsLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147A24C749CF001CF10E /* UserDefaultsLocalStorage.swift */; };
 		2C9F147D24C74A39001CF10E /* LocalStorageKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F147C24C74A39001CF10E /* LocalStorageKey.swift */; };
+		2C9F148424C75BF2001CF10E /* ListViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F148324C75BF2001CF10E /* ListViewSpec.swift */; };
+		2C9F148624C75C29001CF10E /* XCTestCase+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F148524C75C29001CF10E /* XCTestCase+UIViewController.swift */; };
+		2C9F148924C75C5E001CF10E /* User+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F148824C75C5E001CF10E /* User+Mock.swift */; };
 		2CCDDF1224C48F9800FA1660 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1124C48F9800FA1660 /* Assembly.swift */; };
 		2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */; };
 		2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1624C4902800FA1660 /* ListNavigator.swift */; };
@@ -111,6 +114,9 @@
 		2C9F147824C747E0001CF10E /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		2C9F147A24C749CF001CF10E /* UserDefaultsLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsLocalStorage.swift; sourceTree = "<group>"; };
 		2C9F147C24C74A39001CF10E /* LocalStorageKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKey.swift; sourceTree = "<group>"; };
+		2C9F148324C75BF2001CF10E /* ListViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewSpec.swift; sourceTree = "<group>"; };
+		2C9F148524C75C29001CF10E /* XCTestCase+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+UIViewController.swift"; sourceTree = "<group>"; };
+		2C9F148824C75C5E001CF10E /* User+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Mock.swift"; sourceTree = "<group>"; };
 		2CCDDF1124C48F9800FA1660 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+getListViewController.swift"; sourceTree = "<group>"; };
 		2CCDDF1624C4902800FA1660 /* ListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigator.swift; sourceTree = "<group>"; };
@@ -212,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				2C08385024C4C390002898AF /* Fixture.swift */,
+				2C9F148524C75C29001CF10E /* XCTestCase+UIViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -254,6 +261,7 @@
 			children = (
 				2CCDDF3824C49AA000FA1660 /* AutoMockable */,
 				2C08384F24C4C381002898AF /* Utils */,
+				2C9F147E24C75BAF001CF10E /* Features */,
 				2C08384824C4C24A002898AF /* Network */,
 				2C2C2AB724C1997F00EC9652 /* Info.plist */,
 			);
@@ -291,6 +299,55 @@
 				2C9F147A24C749CF001CF10E /* UserDefaultsLocalStorage.swift */,
 			);
 			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		2C9F147E24C75BAF001CF10E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				2C9F147F24C75BBA001CF10E /* List */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		2C9F147F24C75BBA001CF10E /* List */ = {
+			isa = PBXGroup;
+			children = (
+				2C9F148724C75C52001CF10E /* Mocks */,
+				2C9F148024C75BD4001CF10E /* View */,
+				2C9F148224C75BE2001CF10E /* Presenter */,
+				2C9F148124C75BD8001CF10E /* Interactor */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		2C9F148024C75BD4001CF10E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C9F148324C75BF2001CF10E /* ListViewSpec.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C9F148124C75BD8001CF10E /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2C9F148224C75BE2001CF10E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2C9F148724C75C52001CF10E /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2C9F148824C75C5E001CF10E /* User+Mock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		2CCDDF0F24C48F5200FA1660 /* Core */ = {
@@ -914,9 +971,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C9F148924C75C5E001CF10E /* User+Mock.swift in Sources */,
 				2C08384B24C4C273002898AF /* MainSpec.swift in Sources */,
+				2C9F148624C75C29001CF10E /* XCTestCase+UIViewController.swift in Sources */,
 				2CCDDF3A24C49AA000FA1660 /* AutoMockable.generated.swift in Sources */,
 				2C08385124C4C390002898AF /* Fixture.swift in Sources */,
+				2C9F148424C75BF2001CF10E /* ListViewSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

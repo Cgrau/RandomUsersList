@@ -37,6 +37,6 @@ extension Assembly: ListProvider {
   }
   
   private func mainInteractor() -> ListInteractor {
-    return DefaultListInteractor()
+    return DefaultListInteractor(getRandomUsersUseCase: resolver.getRandomUsers)
   }
 }

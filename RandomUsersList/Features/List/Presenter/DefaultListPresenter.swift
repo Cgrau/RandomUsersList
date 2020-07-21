@@ -13,13 +13,20 @@ class DefaultListPresenter: ListPresenter {
   }
   
   func didLoad() {
-    interactor.fetchSomething()
+    interactor.fetchUsers()
+  }
+  
+  func didSelect(user: User) {
+    
   }
 }
 
 extension DefaultListPresenter: ListInteractorDelegate {
+  func didLoad(users: [User]) {
+    ui?.show(users: users)
+  }
   
-  func somethingFetched() {
-    ui?.showSomething()
+  func didFailLoadingUsers(error: Error) {
+    ui?.show(error: error.message)
   }
 }

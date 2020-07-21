@@ -50,17 +50,17 @@ class GetRandomUsersUseCaseMock: NSObject, GetRandomUsersUseCase {
 class ListInteractorMock: NSObject, ListInteractor {
     var delegate: ListInteractorDelegate?
 
-    //MARK: - fetchSomething
+    //MARK: - fetchUsers
 
-    private(set) var fetchSomethingCallsCount = 0
-    var fetchSomethingCalled: Bool {
-        return fetchSomethingCallsCount > 0
+    private(set) var fetchUsersCallsCount = 0
+    var fetchUsersCalled: Bool {
+        return fetchUsersCallsCount > 0
     }
-    var fetchSomethingClosure: (() -> Void)?
+    var fetchUsersClosure: (() -> Void)?
 
-    func fetchSomething() {
-        fetchSomethingCallsCount += 1
-        fetchSomethingClosure?()
+    func fetchUsers() {
+        fetchUsersCallsCount += 1
+        fetchUsersClosure?()
     }
 
 }
@@ -96,20 +96,58 @@ class ListPresenterMock: NSObject, ListPresenter {
         didLoadClosure?()
     }
 
+    //MARK: - didSelect
+
+    private(set) var didSelectUserCallsCount = 0
+    var didSelectUserCalled: Bool {
+        return didSelectUserCallsCount > 0
+    }
+    private(set) var didSelectUserReceivedUser: User?
+    private(set) var didSelectUserReceivedInvocations: [User] = []
+    var didSelectUserClosure: ((User) -> Void)?
+
+    func didSelect(user: User) {
+        didSelectUserCallsCount += 1
+        didSelectUserReceivedUser = user
+        didSelectUserReceivedInvocations.append(user)
+        didSelectUserClosure?(user)
+    }
+
 }
 class ListUIMock: NSObject, ListUI {
 
-    //MARK: - showSomething
+    //MARK: - show
 
-    private(set) var showSomethingCallsCount = 0
-    var showSomethingCalled: Bool {
-        return showSomethingCallsCount > 0
+    private(set) var showUsersCallsCount = 0
+    var showUsersCalled: Bool {
+        return showUsersCallsCount > 0
     }
-    var showSomethingClosure: (() -> Void)?
+    private(set) var showUsersReceivedUsers: [User]?
+    private(set) var showUsersReceivedInvocations: [[User]] = []
+    var showUsersClosure: (([User]) -> Void)?
 
-    func showSomething() {
-        showSomethingCallsCount += 1
-        showSomethingClosure?()
+    func show(users: [User]) {
+        showUsersCallsCount += 1
+        showUsersReceivedUsers = users
+        showUsersReceivedInvocations.append(users)
+        showUsersClosure?(users)
+    }
+
+    //MARK: - show
+
+    private(set) var showErrorCallsCount = 0
+    var showErrorCalled: Bool {
+        return showErrorCallsCount > 0
+    }
+    private(set) var showErrorReceivedError: String?
+    private(set) var showErrorReceivedInvocations: [String] = []
+    var showErrorClosure: ((String) -> Void)?
+
+    func show(error: String) {
+        showErrorCallsCount += 1
+        showErrorReceivedError = error
+        showErrorReceivedInvocations.append(error)
+        showErrorClosure?(error)
     }
 
 }

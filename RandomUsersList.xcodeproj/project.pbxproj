@@ -20,6 +20,9 @@
 		2C9F146524C6EC6A001CF10E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146424C6EC6A001CF10E /* TableViewCell.swift */; };
 		2C9F146724C6EC8A001CF10E /* TableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146624C6EC8A001CF10E /* TableViewCell+ReuseIdentifier.swift */; };
 		2C9F146924C6EEC9001CF10E /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146824C6EEC9001CF10E /* Spacing.swift */; };
+		2C9F146B24C6F122001CF10E /* UIViewController+Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146A24C6F122001CF10E /* UIViewController+Loading.swift */; };
+		2C9F146D24C6F3CB001CF10E /* UIViewController+ShowErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146C24C6F3CB001CF10E /* UIViewController+ShowErrorMessage.swift */; };
+		2C9F146F24C6F5E1001CF10E /* UIColor+HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F146E24C6F5E1001CF10E /* UIColor+HexColor.swift */; };
 		2CCDDF1224C48F9800FA1660 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1124C48F9800FA1660 /* Assembly.swift */; };
 		2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */; };
 		2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1624C4902800FA1660 /* ListNavigator.swift */; };
@@ -93,6 +96,9 @@
 		2C9F146424C6EC6A001CF10E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2C9F146624C6EC8A001CF10E /* TableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		2C9F146824C6EEC9001CF10E /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
+		2C9F146A24C6F122001CF10E /* UIViewController+Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Loading.swift"; sourceTree = "<group>"; };
+		2C9F146C24C6F3CB001CF10E /* UIViewController+ShowErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShowErrorMessage.swift"; sourceTree = "<group>"; };
+		2C9F146E24C6F5E1001CF10E /* UIColor+HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexColor.swift"; sourceTree = "<group>"; };
 		2CCDDF1124C48F9800FA1660 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+getListViewController.swift"; sourceTree = "<group>"; };
 		2CCDDF1624C4902800FA1660 /* ListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigator.swift; sourceTree = "<group>"; };
@@ -250,6 +256,7 @@
 				2C9F146624C6EC8A001CF10E /* TableViewCell+ReuseIdentifier.swift */,
 				2C9F146024C6EC01001CF10E /* Fontsize.swift */,
 				2C9F146824C6EEC9001CF10E /* Spacing.swift */,
+				2C9F146E24C6F5E1001CF10E /* UIColor+HexColor.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -543,6 +550,8 @@
 			children = (
 				2CCDDF7924C4B3CE00FA1660 /* String+MapToDateString.swift */,
 				2C9F145D24C6E8EF001CF10E /* Array+RemoveDuplicates.swift */,
+				2C9F146A24C6F122001CF10E /* UIViewController+Loading.swift */,
+				2C9F146C24C6F3CB001CF10E /* UIViewController+ShowErrorMessage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -823,6 +832,7 @@
 				2CCDDF7A24C4B3CE00FA1660 /* String+MapToDateString.swift in Sources */,
 				2CCDDF6A24C4A9F500FA1660 /* RandomUsersApiResponse.swift in Sources */,
 				2CCDDF3324C496D600FA1660 /* AutoMockable.swift in Sources */,
+				2C9F146F24C6F5E1001CF10E /* UIColor+HexColor.swift in Sources */,
 				2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */,
 				2CCDDF7C24C4B4D500FA1660 /* GetRandomUsersUseCase.swift in Sources */,
 				2C9F145E24C6E8EF001CF10E /* Array+RemoveDuplicates.swift in Sources */,
@@ -843,6 +853,8 @@
 				2CCDDF5724C4A0FD00FA1660 /* Mappable.swift in Sources */,
 				2CCDDF2124C4902800FA1660 /* ListPresenter.swift in Sources */,
 				2CCDDF4B24C49F0900FA1660 /* ErrorAdapter.swift in Sources */,
+				2C9F146D24C6F3CB001CF10E /* UIViewController+ShowErrorMessage.swift in Sources */,
+				2C9F146B24C6F122001CF10E /* UIViewController+Loading.swift in Sources */,
 				2CCDDF7724C4AD3700FA1660 /* User.swift in Sources */,
 				2CCDDF6824C4A5D500FA1660 /* UserApiResponse.swift in Sources */,
 				2CCDDF2824C4902800FA1660 /* DefaultListPresenter.swift in Sources */,

@@ -1,5 +1,6 @@
 import UIKit
 
 protocol ListUI: class, AutoMockable {
-  func showSomething()
+  func show(users: [User])
+  func show(error: String)
 }

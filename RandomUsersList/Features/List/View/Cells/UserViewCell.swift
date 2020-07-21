@@ -124,9 +124,7 @@ extension UserViewCell {
     fullNameLabel.text = fullName
     emailLabel.text = email
     phoneLabel.text = phone
-    guard let image = image else {
-      return
-    }
+    guard let image = image else { return }
     let url = URL(string: image)
     picture.kf.setImage(with: url)
   }

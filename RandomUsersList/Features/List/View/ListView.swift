@@ -3,6 +3,7 @@ import SnapKit
 
 protocol ListViewDelegate: class {
   func didTap(user: User)
+  func didTapDelete(user: User)
 }
 
 private enum Constants {
@@ -127,7 +128,8 @@ extension ListView {
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == UITableViewCell.EditingStyle.delete {
-      //delete user and never show him/her again
+      let userToDelete = users[indexPath.row]
+      delegate?.didTapDelete(user: userToDelete)
     }
   }
 }

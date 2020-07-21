@@ -63,6 +63,23 @@ class ListInteractorMock: NSObject, ListInteractor {
         fetchUsersClosure?()
     }
 
+    //MARK: - delete
+
+    private(set) var deleteUserCallsCount = 0
+    var deleteUserCalled: Bool {
+        return deleteUserCallsCount > 0
+    }
+    private(set) var deleteUserReceivedUser: User?
+    private(set) var deleteUserReceivedInvocations: [User] = []
+    var deleteUserClosure: ((User) -> Void)?
+
+    func delete(user: User) {
+        deleteUserCallsCount += 1
+        deleteUserReceivedUser = user
+        deleteUserReceivedInvocations.append(user)
+        deleteUserClosure?(user)
+    }
+
 }
 class ListNavigatorMock: NSObject, ListNavigator {
 
@@ -111,6 +128,23 @@ class ListPresenterMock: NSObject, ListPresenter {
         didSelectUserReceivedUser = user
         didSelectUserReceivedInvocations.append(user)
         didSelectUserClosure?(user)
+    }
+
+    //MARK: - delete
+
+    private(set) var deleteUserCallsCount = 0
+    var deleteUserCalled: Bool {
+        return deleteUserCallsCount > 0
+    }
+    private(set) var deleteUserReceivedUser: User?
+    private(set) var deleteUserReceivedInvocations: [User] = []
+    var deleteUserClosure: ((User) -> Void)?
+
+    func delete(user: User) {
+        deleteUserCallsCount += 1
+        deleteUserReceivedUser = user
+        deleteUserReceivedInvocations.append(user)
+        deleteUserClosure?(user)
     }
 
 }

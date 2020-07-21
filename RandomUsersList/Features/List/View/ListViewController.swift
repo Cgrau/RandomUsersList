@@ -39,4 +39,8 @@ extension ListViewController: ListViewDelegate {
   func didTap(user: User) {
     presenter?.didSelect(user: user)
   }
+  
+  func didTapDelete(user: User) {
+    presenter?.delete(user: user)
+  }
 }

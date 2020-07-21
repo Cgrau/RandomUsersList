@@ -20,6 +20,10 @@ class DefaultListPresenter: ListPresenter {
   func didSelect(user: User) {
     
   }
+  
+  func delete(user: User) {
+    interactor.delete(user: user)
+  }
 }
 
 extension DefaultListPresenter: ListInteractorDelegate {
@@ -31,5 +35,9 @@ extension DefaultListPresenter: ListInteractorDelegate {
   func didFailLoadingUsers(error: Error) {
     ui?.hideLoading()
     ui?.show(error: error.message)
+  }
+  
+  func didDeleteUser(users: [User]) {
+    ui?.show(users: users)
   }
 }

@@ -1,19 +1,31 @@
 import Foundation
 
 // MARK: - User
-struct User: Codable {
-  let name, surname, email, gender, phone: String?
+struct User: Hashable {
+  let uuid: String
+  let fullName, email, phone: String?
+  let gender: Gender?
   let picture: Picture?
   let location: Location?
   let registeredDate: String?
+  
+  static func == (lhs: User, rhs: User) -> Bool {
+    return lhs.uuid == rhs.uuid
+  }
+}
+
+// MARK: - Gender
+enum Gender: String {
+  case male
+  case female
 }
 
 // MARK: - Picture
-struct Picture: Codable {
+struct Picture: Hashable {
   let large, medium, thumbnail: String?
 }
 
 // MARK: - Location
-struct Location: Codable {
+struct Location: Hashable {
   let street, city, state: String?
 }

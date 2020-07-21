@@ -17,15 +17,22 @@ struct RandomUsersApiToDomainMapper: Mappable {
   func map(_ from: RandomUsersApiResponse) throws -> [User] {
     let users = from.results.removingDuplicates()
     return users.map { (response: UserApiResponse) in
-      return User(name: response.name?.first,
-                  surname: response.name?.last,
+      return User(uuid: response.login.uuid,
+                  fullName: map(name: response.name?.first,
+                                surname: response.name?.last),
                   email: response.email,
-                  gender: response.gender,
                   phone: response.phone,
+                  gender: Gender(rawValue: response.gender ?? ""),
                   picture: map(picture: response.picture),
                   location: map(location: response.location),
                   registeredDate: map(registeredDate: response.registrationInfo?.date))
     }
+  }
+  
+  private func map(name: String?, surname: String?) -> String? {
+    guard let name = name else { return nil }
+    guard let surname = surname else { return name }
+    return "\(name) \(surname)"
   }
   
   private func map(picture: PictureApiResponse?) -> Picture? {

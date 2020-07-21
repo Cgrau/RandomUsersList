@@ -1,6 +1,6 @@
 import UIKit
 
-class ListViewController: UIViewController, ListUI {
+class ListViewController: UIViewController {
   
   var mainView: ListView?
   
@@ -11,14 +11,44 @@ class ListViewController: UIViewController, ListUI {
     view = mainView
   }
   
-  func showSomething() {
-    
+  override func viewDidLoad() {
+    presenter?.didLoad()
+  }
+}
+
+extension ListViewController: ListUI {
+  func show(users: [User]) {
+    mainView?.users = users
+  }
+  
+  func show(error: String) {
+    show(errorMessage: error)
+  }
+  
+  func showLoading() {
+    showLoadingView()
+  }
+  
+  func hideLoading() {
+    hideLoadingView()
   }
 }
 
 extension ListViewController: ListViewDelegate {
   
-  func didTapButton() {
-    //call presenter
+  func didTap(user: User) {
+    presenter?.didSelect(user: user)
+  }
+  
+  func didTapDelete(user: User) {
+    presenter?.delete(user: user)
+  }
+  
+  func didSearchFor(text: String) {
+    presenter?.search(for: text)
+  }
+  
+  func reachedBottomOfTable() {
+    presenter?.loadMoreUsers()
   }
 }

@@ -9,30 +9,15 @@ private enum Constants {
     static let phone = "Phone:"
   }
   static let pictureCornerRadius: CGFloat = 4
+  static let phoneIcon = "phoneIcon"
+  static let phoneIconSize = CGSize(width: 18, height: 18)
 }
 
 final class UserViewCell: TableViewCell {
   
-  private var fullNameTitleLabel: UILabel = {
-    let label = UILabel()
-    label.text = Constants.Titles.name
-    label.font = UIFont.boldSystemFont(ofSize: FontSize.regular)
-    label.textColor = Colors.secondary
-    return label
-  }()
-  
   private var fullNameLabel: UILabel = {
     let label = UILabel()
     label.font = label.font.withSize(FontSize.regular)
-    return label
-  }()
-  
-  private var emailTitleLabel: UILabel = {
-    let label = UILabel()
-    label.text = Constants.Titles.email
-    label.font = UIFont.boldSystemFont(ofSize: FontSize.regular)
-    label.textColor = Colors.secondary
-    label.numberOfLines = 0
     return label
   }()
   
@@ -43,12 +28,10 @@ final class UserViewCell: TableViewCell {
     return label
   }()
   
-  private var phoneTitleLabel: UILabel = {
-    let label = UILabel()
-    label.text = Constants.Titles.phone
-    label.font = UIFont.boldSystemFont(ofSize: FontSize.regular)
-    label.textColor = Colors.secondary
-    return label
+  private var phoneIcon: UIImageView = {
+    let imageView = UIImageView()
+    imageView.image = UIImage(named: Constants.phoneIcon)
+    return imageView
   }()
   
   private var phoneLabel: UILabel = {
@@ -65,11 +48,9 @@ final class UserViewCell: TableViewCell {
   }()
   
   override func setupView() {
-    addSubview(fullNameTitleLabel)
     addSubview(fullNameLabel)
-    addSubview(emailTitleLabel)
     addSubview(emailLabel)
-    addSubview(phoneTitleLabel)
+    addSubview(phoneIcon)
     addSubview(phoneLabel)
     addSubview(picture)
   }
@@ -80,35 +61,25 @@ final class UserViewCell: TableViewCell {
       make.top.equalToSuperview().offset(Spacing.l)
       make.size.equalTo(Constants.imageSize)
     }
-    fullNameTitleLabel.snp.makeConstraints { make in
+    fullNameLabel.snp.makeConstraints { make in
       make.top.equalTo(picture)
       make.leading.equalTo(picture.snp.trailing).offset(Spacing.s)
       make.trailing.equalToSuperview().offset(-Spacing.s)
     }
-    fullNameLabel.snp.makeConstraints { make in
-      make.top.equalTo(fullNameTitleLabel.snp.bottom).offset(Spacing.xs)
-      make.leading.equalTo(fullNameTitleLabel)
-      make.trailing.equalTo(fullNameTitleLabel)
-    }
-    emailTitleLabel.snp.makeConstraints { make in
-      make.top.equalTo(fullNameLabel.snp.bottom).offset(Spacing.s)
-      make.leading.equalTo(fullNameTitleLabel)
-      make.trailing.equalTo(fullNameTitleLabel)
-    }
     emailLabel.snp.makeConstraints { make in
-      make.top.equalTo(emailTitleLabel.snp.bottom).offset(Spacing.xs)
-      make.leading.equalTo(fullNameTitleLabel)
-      make.trailing.equalTo(fullNameTitleLabel)
+      make.top.equalTo(fullNameLabel.snp.bottom).offset(Spacing.xs)
+      make.leading.equalTo(fullNameLabel)
+      make.trailing.equalTo(fullNameLabel)
     }
-    phoneTitleLabel.snp.makeConstraints { make in
-      make.top.equalTo(emailLabel.snp.bottom).offset(Spacing.s)
-      make.leading.equalTo(fullNameTitleLabel)
-      make.trailing.equalTo(fullNameTitleLabel)
+    phoneIcon.snp.makeConstraints { make in
+      make.centerY.equalTo(phoneLabel)
+      make.leading.equalTo(fullNameLabel)
+      make.size.equalTo(Constants.phoneIconSize)
     }
     phoneLabel.snp.makeConstraints { make in
-      make.top.equalTo(phoneTitleLabel.snp.bottom).offset(Spacing.xs)
-      make.leading.equalTo(fullNameTitleLabel)
-      make.trailing.equalTo(fullNameTitleLabel)
+      make.top.equalTo(emailLabel.snp.bottom).offset(Spacing.xs)
+      make.leading.equalTo(phoneIcon.snp.trailing).offset(Spacing.s)
+      make.trailing.equalTo(fullNameLabel)
       make.bottom.equalToSuperview().offset(-Spacing.l)
     }
   }
@@ -120,7 +91,7 @@ extension UserViewCell {
                  phone: String?,
                  image: String?) {
     accessoryType = .disclosureIndicator
-    selectionStyle = UITableViewCell.SelectionStyle.none
+    selectionStyle = .none
     fullNameLabel.text = fullName
     emailLabel.text = email
     phoneLabel.text = phone

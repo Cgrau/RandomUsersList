@@ -2,6 +2,8 @@ import UIKit
 
 open class View: UIView {
   
+  fileprivate var tap: UITapGestureRecognizer?
+  
   public override init(frame: CGRect) {
     super.init(frame: frame)
     setup()
@@ -52,6 +54,7 @@ extension View {
   @objc func keyboardWillShow(_ notification: Notification) {
     guard let userInfo = notification.userInfo else { return }
     guard let keyboardKey = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue else { return }
+    addTapHideKeyboard()
     let keyboardSize = keyboardKey.cgRectValue
     selectedScrollView?.contentInset = UIEdgeInsets(top: .zero, left: .zero, bottom: keyboardSize.height, right: .zero)
   }
@@ -59,6 +62,23 @@ extension View {
   @objc func keyboardWillHide(_ notification: Notification) {
     guard let userInfo = notification.userInfo else { return }
     guard userInfo[UIResponder.keyboardFrameBeginUserInfoKey] != nil else { return }
+    removeTapHideKeyboard()
     selectedScrollView?.contentInset = UIEdgeInsets(top: .zero, left: .zero, bottom: .zero, right: .zero)
+  }
+  
+  private func addTapHideKeyboard() {
+    tap = UITapGestureRecognizer(target: self,
+                                 action: #selector(self.dismissKeyboard))
+    guard let tap = tap else { return }
+    addGestureRecognizer(tap)
+  }
+  
+  func removeTapHideKeyboard() {
+    guard let tap = tap else { return }
+    removeGestureRecognizer(tap)
+  }
+  
+  @objc func dismissKeyboard() {
+    endEditing(true)
   }
 }

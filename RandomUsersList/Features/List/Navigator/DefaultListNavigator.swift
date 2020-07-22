@@ -9,6 +9,7 @@ class DefaultListNavigator: ListNavigator {
   }
   
   func navigateToDetail(user: User) {
-    
+    let detailViewController = container.detailViewController(user: user)
+    from.navigationController?.pushViewController(detailViewController, animated: true)
   }
 }

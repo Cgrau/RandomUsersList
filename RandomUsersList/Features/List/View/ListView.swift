@@ -67,7 +67,6 @@ class ListView: View {
     tableView.dataSource = self
     tableView.delegate = self
     setupKeyboardBehaviour(to: tableView)
-    configureTapHideKeyboard()
     configureSearchboxReaction()
   }
   
@@ -101,16 +100,6 @@ class ListView: View {
         guard let text = self?.textField.text else { return }
         self?.delegate?.didSearchFor(text: text)
       }).disposed(by: bag)
-  }
-  
-  private func configureTapHideKeyboard() {
-    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                             action: #selector(self.dismissKeyboard))
-    addGestureRecognizer(tap)
-  }
-  
-  @objc func dismissKeyboard() {
-    endEditing(true)
   }
 }
 

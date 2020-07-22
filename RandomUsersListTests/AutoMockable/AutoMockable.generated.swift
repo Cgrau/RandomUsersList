@@ -26,6 +26,26 @@ import AppKit
 
 
 
+class DetailUIMock: NSObject, DetailUI {
+
+    //MARK: - show
+
+    private(set) var showUserDetailsCallsCount = 0
+    var showUserDetailsCalled: Bool {
+        return showUserDetailsCallsCount > 0
+    }
+    private(set) var showUserDetailsReceivedUserDetails: UserDetails?
+    private(set) var showUserDetailsReceivedInvocations: [UserDetails] = []
+    var showUserDetailsClosure: ((UserDetails) -> Void)?
+
+    func show(userDetails: UserDetails) {
+        showUserDetailsCallsCount += 1
+        showUserDetailsReceivedUserDetails = userDetails
+        showUserDetailsReceivedInvocations.append(userDetails)
+        showUserDetailsClosure?(userDetails)
+    }
+
+}
 class GetRandomUsersUseCaseMock: NSObject, GetRandomUsersUseCase {
 
     //MARK: - execute

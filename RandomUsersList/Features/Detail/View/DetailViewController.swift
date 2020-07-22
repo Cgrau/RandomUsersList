@@ -8,11 +8,13 @@ class DetailViewController: UIViewController, DetailUI {
   
   override func viewWillAppear(_ animated: Bool) {
     navigationController?.navigationBar.isHidden = false
-    title = "User Details"
+    navigationController?.navigationBar.backgroundColor = Colors.main
+    DispatchQueue.main.async {
+      self.mainView?.roundImage()
+    }
   }
   
   override func loadView() {
-    mainView?.delegate = self
     view = mainView
   }
   
@@ -22,12 +24,5 @@ class DetailViewController: UIViewController, DetailUI {
   
   func show(userDetails: UserDetails) {
     mainView?.userDetails = userDetails
-  }
-}
-
-extension DetailViewController: DetailViewDelegate {
-  
-  func didTapButton() {
-    //call presenter
   }
 }

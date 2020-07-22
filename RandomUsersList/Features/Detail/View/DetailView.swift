@@ -1,16 +1,21 @@
 import UIKit
 
-protocol DetailViewDelegate: class {
-  func didTapButton()
-}
-
 private enum Constants {
-  static let proportionRate = 3
+  static let pictureSize = CGSize(width: 200, height: 200)
+  static let pictureBorderWidth: CGFloat = 3
+  enum Titles {
+    static let name = "FullName: "
+    static let gender = "Gender:"
+    static let email = "Email:"
+    static let location = "Location:"
+    static let street = "Street:"
+    static let city = "City:"
+    static let state = "State:"
+  }
 }
 
 class DetailView: View {
   
-  weak var delegate: DetailViewDelegate?
   var userDetails: UserDetails? {
     didSet {
       setup(with: userDetails)
@@ -19,29 +24,215 @@ class DetailView: View {
   
   private var picture: UIImageView = {
     let imageView = UIImageView()
-    imageView.clipsToBounds = true
     imageView.contentMode = .scaleAspectFill
+    imageView.layer.masksToBounds = false
+    imageView.clipsToBounds = true
     return imageView
+  }()
+  
+  private var container: UIView = {
+    let view = UIView()
+    view.backgroundColor = .white
+    return view
+  }()
+  
+  private var fullNameLabel: UILabel = {
+    let label = UILabel()
+    label.font = UIFont.boldSystemFont(ofSize: FontSize.header)
+    label.textAlignment = .center
+    label.textColor = .white
+    label.backgroundColor = Colors.main
+    return label
+  }()
+  
+  private var emailTitleLabel: UILabel = {
+    let label = UILabel()
+    label.text = Constants.Titles.email
+    label.font = UIFont.boldSystemFont(ofSize: FontSize.title)
+    label.textColor = Colors.main
+    label.numberOfLines = 0
+    return label
+  }()
+  
+  private var emailLabel: UILabel = {
+    let label = UILabel()
+    label.font = label.font.withSize(FontSize.regular)
+    label.numberOfLines = 0
+    return label
+  }()
+  
+  private var genderTitleLabel: UILabel = {
+    let label = UILabel()
+    label.text = Constants.Titles.gender
+    label.font = UIFont.boldSystemFont(ofSize: FontSize.title)
+    label.textColor = Colors.main
+    return label
+  }()
+  
+  private var genderLabel: UILabel = {
+    let label = UILabel()
+    label.font = label.font.withSize(FontSize.regular)
+    return label
+  }()
+  
+  private var locationTitleLabel: UILabel = {
+    let label = UILabel()
+    label.text = Constants.Titles.location
+    label.font = UIFont.boldSystemFont(ofSize: FontSize.title)
+    label.textColor = Colors.main
+    return label
+  }()
+  
+  private var streetTitleLabel: UILabel = {
+    let label = UILabel()
+    label.text = Constants.Titles.street
+    label.font = UIFont.boldSystemFont(ofSize: FontSize.title)
+    label.textColor = Colors.main
+    return label
+  }()
+  
+  private var streetLabel: UILabel = {
+    let label = UILabel()
+    label.font = label.font.withSize(FontSize.regular)
+    return label
+  }()
+  
+  private var cityTitleLabel: UILabel = {
+    let label = UILabel()
+    label.text = Constants.Titles.city
+    label.font = UIFont.boldSystemFont(ofSize: FontSize.title)
+    label.textColor = Colors.main
+    return label
+  }()
+  
+  private var cityLabel: UILabel = {
+    let label = UILabel()
+    label.font = label.font.withSize(FontSize.regular)
+    return label
+  }()
+  
+  private var stateTitleLabel: UILabel = {
+    let label = UILabel()
+    label.text = Constants.Titles.state
+    label.font = UIFont.boldSystemFont(ofSize: FontSize.title)
+    label.textColor = Colors.main
+    return label
+  }()
+  
+  private var stateLabel: UILabel = {
+    let label = UILabel()
+    label.font = label.font.withSize(FontSize.regular)
+    return label
   }()
   
   // MARK: View Functions
   override func setupView() {
     backgroundColor = Colors.main
-    addSubview(picture)
+    addSubview(fullNameLabel)
+    addSubview(container)
+    container.addSubview(picture)
+    container.addSubview(emailTitleLabel)
+    container.addSubview(emailLabel)
+    container.addSubview(genderTitleLabel)
+    container.addSubview(genderLabel)
+    container.addSubview(locationTitleLabel)
+    container.addSubview(streetTitleLabel)
+    container.addSubview(streetLabel)
+    container.addSubview(cityTitleLabel)
+    container.addSubview(cityLabel)
+    container.addSubview(stateTitleLabel)
+    container.addSubview(stateLabel)
   }
   
   override func setupConstraints() {
-    picture.snp.makeConstraints { make in
-      make.top.equalTo(safeAreaLayoutGuide).offset(Spacing.s)
+    fullNameLabel.snp.makeConstraints { make in
+      make.top.equalTo(safeAreaLayoutGuide)
       make.leading.equalToSuperview()
       make.trailing.equalToSuperview()
-      make.height.equalToSuperview().dividedBy(Constants.proportionRate)
+    }
+    container.snp.makeConstraints { make in
+      make.top.equalTo(fullNameLabel.snp.bottom).offset(Spacing.m)
+      make.leading.equalToSuperview()
+      make.trailing.equalToSuperview()
+      make.bottom.equalTo(safeAreaLayoutGuide)
+    }
+    picture.snp.makeConstraints { make in
+      make.top.equalTo(container).offset(Spacing.m)
+      make.centerX.equalToSuperview()
+      make.size.equalTo(Constants.pictureSize)
+    }
+    emailTitleLabel.snp.makeConstraints { make in
+      make.top.equalTo(picture.snp.bottom).offset(Spacing.m)
+      make.leading.equalTo(fullNameLabel).offset(Spacing.xl)
+      make.trailing.equalTo(fullNameLabel)
+    }
+    emailLabel.snp.makeConstraints { make in
+      make.top.equalTo(emailTitleLabel.snp.bottom).offset(Spacing.xs)
+      make.leading.equalTo(emailTitleLabel).offset(Spacing.s)
+      make.trailing.equalTo(emailTitleLabel)
+    }
+    genderTitleLabel.snp.makeConstraints { make in
+      make.top.equalTo(emailLabel.snp.bottom).offset(Spacing.s)
+      make.leading.equalTo(emailTitleLabel)
+      make.trailing.equalTo(emailTitleLabel)
+    }
+    genderLabel.snp.makeConstraints { make in
+      make.top.equalTo(genderTitleLabel.snp.bottom).offset(Spacing.xs)
+      make.leading.equalTo(genderTitleLabel).offset(Spacing.s)
+      make.trailing.equalTo(genderTitleLabel)
+    }
+    locationTitleLabel.snp.makeConstraints { make in
+      make.top.equalTo(genderLabel.snp.bottom).offset(Spacing.s)
+      make.leading.equalTo(emailTitleLabel)
+      make.trailing.equalTo(emailTitleLabel)
+    }
+    streetTitleLabel.snp.makeConstraints { make in
+      make.top.equalTo(locationTitleLabel.snp.bottom).offset(Spacing.s)
+      make.leading.equalTo(locationTitleLabel).offset(Spacing.s)
+      make.trailing.equalTo(locationTitleLabel)
+    }
+    streetLabel.snp.makeConstraints { make in
+      make.top.equalTo(streetTitleLabel.snp.bottom).offset(Spacing.xs)
+      make.leading.equalTo(streetTitleLabel).offset(Spacing.s)
+      make.trailing.equalTo(streetTitleLabel)
+    }
+    cityTitleLabel.snp.makeConstraints { make in
+      make.top.equalTo(streetLabel.snp.bottom).offset(Spacing.s)
+      make.leading.equalTo(locationTitleLabel).offset(Spacing.s)
+      make.trailing.equalTo(locationTitleLabel)
+    }
+    cityLabel.snp.makeConstraints { make in
+      make.top.equalTo(cityTitleLabel.snp.bottom).offset(Spacing.xs)
+      make.leading.equalTo(cityTitleLabel).offset(Spacing.s)
+      make.trailing.equalTo(cityTitleLabel)
+    }
+    stateTitleLabel.snp.makeConstraints { make in
+      make.top.equalTo(cityLabel.snp.bottom).offset(Spacing.s)
+      make.leading.equalTo(locationTitleLabel).offset(Spacing.s)
+      make.trailing.equalTo(locationTitleLabel)
+    }
+    stateLabel.snp.makeConstraints { make in
+      make.top.equalTo(stateTitleLabel.snp.bottom).offset(Spacing.xs)
+      make.leading.equalTo(stateTitleLabel).offset(Spacing.s)
+      make.trailing.equalTo(stateTitleLabel)
     }
   }
   
   private func setup(with userDetails: UserDetails?) {
     guard let userDetails = userDetails else { return }
+    fullNameLabel.text = userDetails.fullName
+    emailLabel.text = userDetails.email
+    genderLabel.text = userDetails.gender
+    streetLabel.text = userDetails.street
+    cityLabel.text = userDetails.city
+    stateLabel.text = userDetails.state
     let url = URL(string: userDetails.picture)
     picture.kf.setImage(with: url)
+  }
+  
+  func roundImage() {
+    picture.layer.borderWidth = Constants.pictureBorderWidth
+    picture.layer.borderColor = Colors.main.cgColor
+    picture.layer.cornerRadius = picture.frame.width/2
   }
 }

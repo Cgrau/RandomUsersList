@@ -1,16 +1,83 @@
 PODS:
+  - Alamofire (5.2.2)
+  - Kingfisher (5.14.1):
+    - Kingfisher/Core (= 5.14.1)
+  - Kingfisher/Core (5.14.1)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - OHHTTPStubs/Core (9.0.0)
+  - OHHTTPStubs/Default (9.0.0):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (9.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (9.0.0):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (9.0.0)
+  - OHHTTPStubs/Swift (9.0.0):
+    - OHHTTPStubs/Default
+  - RxBlocking (5.0.0):
+    - RxSwift (~> 5)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
+  - SnapKit (5.0.1)
+  - SnapshotTesting (1.7.2)
+  - Sourcery (0.18.0)
   - SwiftLint (0.39.2)
 
 DEPENDENCIES:
+  - Kingfisher
+  - Moya (= 14.0.0)
+  - Moya/RxSwift (= 14.0.0)
+  - OHHTTPStubs/Swift
+  - RxBlocking (= 5.0)
+  - RxCocoa (= 5.0)
+  - RxSwift (= 5.0)
+  - SnapKit (~> 5.0.0)
+  - SnapshotTesting (~> 1.7.2)
+  - Sourcery
   - SwiftLint
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - Kingfisher
+    - Moya
+    - OHHTTPStubs
+    - RxBlocking
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - SnapshotTesting
+    - Sourcery
     - SwiftLint
 
 SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  OHHTTPStubs: cb29d2a9d09a828ecb93349a2b0c64f99e0db89f
+  RxBlocking: c67185d26498ea3cbe3e121917c3c16739e43123
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SnapshotTesting: 8caa6661fea7c8019d5b46de77c16bab99c36c5c
+  Sourcery: e0e8658a1ce6d9f475156ad3ffce4c68f1261b3e
   SwiftLint: 22ccbbe3b8008684be5955693bab135e0ed6a447
 
-PODFILE CHECKSUM: 2b9746b6d1832c033b7d83831fa1df08a0a87ed3
+PODFILE CHECKSUM: 49733c12afd19ab624ff908a1a3517e791b116f0
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

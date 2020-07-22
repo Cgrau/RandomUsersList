@@ -29,9 +29,12 @@ class DefaultListInteractor: ListInteractor {
     let request = RandomUsersRequest(results: Constants.numberOfResults)
     getRandomUsersUseCase.execute(request: request).subscribe(onSuccess: { [weak self] users in
       guard let `self` = self else { return }
+      let retrievedUsers = self.localStorage.retrieveSavedUsers()
+      self.users = retrievedUsers
       self.users.append(contentsOf: users)
       self.users.removeDuplicates()
       self.users = self.localStorage.removeDeletedUsers(from: self.users)
+      self.localStorage.save(users: self.users)
       self.delegate?.didLoad(users: self.users)
     }) { [weak self] error in
       self?.delegate?.didFailLoadingUsers(error: error)

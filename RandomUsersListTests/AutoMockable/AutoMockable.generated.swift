@@ -374,4 +374,35 @@ class LocalStorageMock: NSObject, LocalStorage {
         return removeDeletedUsersFromClosure.map({ $0(from) }) ?? removeDeletedUsersFromReturnValue
     }
 
+    //MARK: - save
+
+    private(set) var saveUsersCallsCount = 0
+    var saveUsersCalled: Bool {
+        return saveUsersCallsCount > 0
+    }
+    private(set) var saveUsersReceivedUsers: [User]?
+    private(set) var saveUsersReceivedInvocations: [[User]] = []
+    var saveUsersClosure: (([User]) -> Void)?
+
+    func save(users: [User]) {
+        saveUsersCallsCount += 1
+        saveUsersReceivedUsers = users
+        saveUsersReceivedInvocations.append(users)
+        saveUsersClosure?(users)
+    }
+
+    //MARK: - retrieveSavedUsers
+
+    private(set) var retrieveSavedUsersCallsCount = 0
+    var retrieveSavedUsersCalled: Bool {
+        return retrieveSavedUsersCallsCount > 0
+    }
+    var retrieveSavedUsersReturnValue: [User]!
+    var retrieveSavedUsersClosure: (() -> [User])?
+
+    func retrieveSavedUsers() -> [User] {
+        retrieveSavedUsersCallsCount += 1
+        return retrieveSavedUsersClosure.map({ $0() }) ?? retrieveSavedUsersReturnValue
+    }
+
 }

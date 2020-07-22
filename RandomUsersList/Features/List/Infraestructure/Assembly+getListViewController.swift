@@ -1,11 +1,11 @@
 import UIKit
 
 protocol ListProvider {
-  func getListViewController() -> UIViewController
+  func listViewController() -> UIViewController
 }
 
 extension Assembly: ListProvider {
-  func getListViewController() -> UIViewController {
+  func listViewController() -> UIViewController {
     let viewController = ListViewController()
     viewController.mainView = mainView
     let navigator = mainNavigator(from: viewController)
@@ -15,7 +15,9 @@ extension Assembly: ListProvider {
                                   interactor: interactor)
     
     viewController.presenter = presenter
-    return viewController
+    let navigationController = UINavigationController(rootViewController: viewController)
+    configure(navigationController: navigationController)
+    return navigationController
   }
   
   private var mainView: ListView {
@@ -43,5 +45,14 @@ extension Assembly: ListProvider {
   
   private var localStorage: LocalStorage {
     return UserDefaultsLocalStorage(userDefaults: UserDefaults.standard)
+  }
+  
+  private func configure(navigationController: UINavigationController) {
+    navigationController.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+    navigationController.navigationBar.shadowImage = UIImage()
+    navigationController.navigationBar.isTranslucent = true
+    navigationController.navigationBar.tintColor = .white
+    navigationController.navigationBar.titleTextAttributes = [.font: UIFont.boldSystemFont(ofSize: FontSize.title),
+                                                              .foregroundColor: UIColor.white]
   }
 }

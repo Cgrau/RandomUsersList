@@ -120,7 +120,7 @@ extension UserViewCell {
                  phone: String?,
                  image: String?) {
     accessoryType = .disclosureIndicator
-    selectionStyle = UITableViewCell.SelectionStyle.none
+    selectionStyle = .none
     fullNameLabel.text = fullName
     emailLabel.text = email
     phoneLabel.text = phone

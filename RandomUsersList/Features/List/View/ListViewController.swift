@@ -1,7 +1,7 @@
 import UIKit
 
 private enum Constants {
-  static let deleteMessage = "You really don't want to see %@ anymore?"
+  static let deleteMessage = "Don't you really want to see %@ anymore?"
 }
 
 class ListViewController: UIViewController {
@@ -17,6 +17,10 @@ class ListViewController: UIViewController {
   
   override func viewDidLoad() {
     presenter?.didLoad()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    navigationController?.navigationBar.isHidden = true
   }
 }
 

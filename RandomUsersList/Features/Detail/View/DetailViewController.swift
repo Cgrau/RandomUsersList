@@ -16,8 +16,12 @@ class DetailViewController: UIViewController, DetailUI {
     view = mainView
   }
   
-  func showSomething() {
-    
+  override func viewDidLoad() {
+    presenter?.didLoad()
+  }
+  
+  func show(userDetails: UserDetails) {
+    mainView?.userDetails = userDetails
   }
 }
 

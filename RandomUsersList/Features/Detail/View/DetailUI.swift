@@ -1,5 +1,5 @@
 import UIKit
 
 protocol DetailUI: class {
-  func showSomething()
+  func show(userDetails: UserDetails)
 }

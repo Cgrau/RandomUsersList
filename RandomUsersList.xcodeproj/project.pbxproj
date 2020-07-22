@@ -10,6 +10,7 @@
 		2C08384B24C4C273002898AF /* MainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08384A24C4C273002898AF /* MainSpec.swift */; };
 		2C08384E24C4C357002898AF /* RandomUsers.ok.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C08384D24C4C357002898AF /* RandomUsers.ok.json */; };
 		2C08385124C4C390002898AF /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08385024C4C390002898AF /* Fixture.swift */; };
+		2C2C204624C82CCE00858ECD /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C204524C82CCE00858ECD /* UserDetails.swift */; };
 		2C2C2A9F24C1997D00EC9652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C2A9E24C1997D00EC9652 /* AppDelegate.swift */; };
 		2C2C2AA124C1997D00EC9652 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C2AA024C1997D00EC9652 /* SceneDelegate.swift */; };
 		2C2C2AA824C1997F00EC9652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C2AA724C1997F00EC9652 /* Assets.xcassets */; };
@@ -39,8 +40,6 @@
 		2C9F149D24C81085001CF10E /* DetailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149324C81085001CF10E /* DetailNavigator.swift */; };
 		2C9F149E24C81085001CF10E /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149424C81085001CF10E /* DetailPresenter.swift */; };
 		2C9F149F24C81085001CF10E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149524C81085001CF10E /* DetailViewController.swift */; };
-		2C9F14A024C81085001CF10E /* DefaultDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149624C81085001CF10E /* DefaultDetailInteractor.swift */; };
-		2C9F14A124C81085001CF10E /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149724C81085001CF10E /* DetailInteractor.swift */; };
 		2C9F14A224C81085001CF10E /* DefaultDetailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149824C81085001CF10E /* DefaultDetailNavigator.swift */; };
 		2C9F14A324C81085001CF10E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149924C81085001CF10E /* DetailView.swift */; };
 		2C9F14A424C81085001CF10E /* DetailUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149A24C81085001CF10E /* DetailUI.swift */; };
@@ -103,6 +102,7 @@
 		2C08384A24C4C273002898AF /* MainSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSpec.swift; sourceTree = "<group>"; };
 		2C08384D24C4C357002898AF /* RandomUsers.ok.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RandomUsers.ok.json; sourceTree = "<group>"; };
 		2C08385024C4C390002898AF /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
+		2C2C204524C82CCE00858ECD /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		2C2C2A9B24C1997D00EC9652 /* RandomUsersList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUsersList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2C2A9E24C1997D00EC9652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C2C2AA024C1997D00EC9652 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,8 +137,6 @@
 		2C9F149324C81085001CF10E /* DetailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNavigator.swift; sourceTree = "<group>"; };
 		2C9F149424C81085001CF10E /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		2C9F149524C81085001CF10E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		2C9F149624C81085001CF10E /* DefaultDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDetailInteractor.swift; sourceTree = "<group>"; };
-		2C9F149724C81085001CF10E /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		2C9F149824C81085001CF10E /* DefaultDetailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDetailNavigator.swift; sourceTree = "<group>"; };
 		2C9F149924C81085001CF10E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		2C9F149A24C81085001CF10E /* DetailUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUI.swift; sourceTree = "<group>"; };
@@ -247,6 +245,14 @@
 				2C9F148524C75C29001CF10E /* XCTestCase+UIViewController.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		2C2C204424C82CC000858ECD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C2C204524C82CCE00858ECD /* UserDetails.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		2C2C2A9224C1997C00EC9652 = {
@@ -390,9 +396,9 @@
 		2C9F149124C81066001CF10E /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				2C2C204424C82CC000858ECD /* Model */,
 				2C9F14AA24C810B7001CF10E /* View */,
 				2C9F14A924C810A6001CF10E /* Presenter */,
-				2C9F14A824C8109E001CF10E /* Interactor */,
 				2C9F14A724C81098001CF10E /* Navigator */,
 				2C9F14A624C8108D001CF10E /* Infraestructure */,
 			);
@@ -414,15 +420,6 @@
 				2C9F149824C81085001CF10E /* DefaultDetailNavigator.swift */,
 			);
 			path = Navigator;
-			sourceTree = "<group>";
-		};
-		2C9F14A824C8109E001CF10E /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				2C9F149724C81085001CF10E /* DetailInteractor.swift */,
-				2C9F149624C81085001CF10E /* DefaultDetailInteractor.swift */,
-			);
-			path = Interactor;
 			sourceTree = "<group>";
 		};
 		2C9F14A924C810A6001CF10E /* Presenter */ = {
@@ -1034,12 +1031,12 @@
 				2CCDDF6224C4A55F00FA1660 /* MainDataSource.swift in Sources */,
 				2CCDDF4F24C49F6600FA1660 /* Service.swift in Sources */,
 				2CCDDF4D24C49F2C00FA1660 /* Error+Message.swift in Sources */,
+				2C2C204624C82CCE00858ECD /* UserDetails.swift in Sources */,
 				2CCDDF5524C4A0E300FA1660 /* Endpoint.swift in Sources */,
 				2CCDDF5124C49F7500FA1660 /* PrimitiveSequence+CustomError.swift in Sources */,
 				2C9F149E24C81085001CF10E /* DetailPresenter.swift in Sources */,
 				2CCDDF1224C48F9800FA1660 /* Assembly.swift in Sources */,
 				2C9F146524C6EC6A001CF10E /* TableViewCell.swift in Sources */,
-				2C9F14A024C81085001CF10E /* DefaultDetailInteractor.swift in Sources */,
 				2CCDDF5324C49F8300FA1660 /* TargetType+Default.swift in Sources */,
 				2CCDDF7E24C4B52F00FA1660 /* GetRandomUsers.swift in Sources */,
 				2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */,
@@ -1060,7 +1057,6 @@
 				2CCDDF2624C4902800FA1660 /* ListView.swift in Sources */,
 				2C9F147B24C749CF001CF10E /* UserDefaultsLocalStorage.swift in Sources */,
 				2CCDDF6C24C4AA6D00FA1660 /* RandomUsersRequest.swift in Sources */,
-				2C9F14A124C81085001CF10E /* DetailInteractor.swift in Sources */,
 				2CCDDF2224C4902800FA1660 /* ListViewController.swift in Sources */,
 				2CCDDF4924C49ED800FA1660 /* DefaultErrorAdapter.swift in Sources */,
 				2CCDDF5B24C4A4B900FA1660 /* NetworkAssembly+Services.swift in Sources */,

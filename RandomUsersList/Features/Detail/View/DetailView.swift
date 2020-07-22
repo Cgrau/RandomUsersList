@@ -11,9 +11,16 @@ private enum Constants {
 class DetailView: View {
   
   weak var delegate: DetailViewDelegate?
+  var userDetails: UserDetails? {
+    didSet {
+      setup(with: userDetails)
+    }
+  }
   
   private var picture: UIImageView = {
     let imageView = UIImageView()
+    imageView.clipsToBounds = true
+    imageView.contentMode = .scaleAspectFill
     return imageView
   }()
   
@@ -30,5 +37,11 @@ class DetailView: View {
       make.trailing.equalToSuperview()
       make.height.equalToSuperview().dividedBy(Constants.proportionRate)
     }
+  }
+  
+  private func setup(with userDetails: UserDetails?) {
+    guard let userDetails = userDetails else { return }
+    let url = URL(string: userDetails.picture)
+    picture.kf.setImage(with: url)
   }
 }

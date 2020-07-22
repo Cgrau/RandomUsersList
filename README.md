@@ -15,7 +15,7 @@ Slide to delete if you don't want to see his/her anymore.
 ### ListView
 <img src="https://github.com/Cgrau/assets/blob/master/RandomUsersList/ListScreen.png" width="225" height="487">
 
-Once the application loads, you get a list of 40 random users.
+Once the application loads, you get a list of 40 random users plus the ones you had in previous sessions.
 
 The table is "infinite", it means that when you are about to reach the last user, you will get 40 more form the endpoint.
 

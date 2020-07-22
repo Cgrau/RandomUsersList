@@ -20,4 +20,23 @@ final class UserDefaultsLocalStorage: LocalStorage {
     filteredArray.removeAll(where: { deletedUsers.contains($0.uuid) })
     return filteredArray
   }
+  
+  func save(users: [User]) {
+    let usersJSON: [String?] = users.map {
+      guard let jsonData = try? JSONEncoder().encode($0) else { return nil }
+      let jsonString = String(data: jsonData, encoding: .utf8)!
+      return jsonString
+    }.compactMap {$0}
+    userDefaults.set(usersJSON, forKey: LocalStorageKey.savedUsers.rawValue)
+  }
+  
+  func retrieveSavedUsers() -> [User] {
+    let jsonDataArray = userDefaults.array(forKey: LocalStorageKey.savedUsers.rawValue) as? [String] ?? []
+    let users: [User?] = jsonDataArray.map {
+      let jsonData = $0.data(using: .utf8)!
+      guard let user = try? JSONDecoder().decode(User.self, from: jsonData) else { return nil }
+      return user
+    }
+    return users.compactMap {$0}
+  }
 }

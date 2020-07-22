@@ -27,8 +27,11 @@ final class ListInteractorSpec: XCTestCase {
   func test_fetchUsers_OK() {
     givenGetRandomUsersResponse_OK()
     givenDeletedUsers()
+    givenRetrievedUsers()
     sut.fetchUsers()
+    XCTAssertTrue(localStorage.retrieveSavedUsersCalled)
     XCTAssertTrue(localStorage.removeDeletedUsersFromCalled)
+    XCTAssertTrue(localStorage.saveUsersCalled)
     XCTAssertTrue(delegate.didLoadUsersCalled)
     XCTAssertFalse(delegate.didFailLoadingUsersErrorCalled)
   }
@@ -36,7 +39,9 @@ final class ListInteractorSpec: XCTestCase {
   func test_fetchUsers_KO() {
     givenGetRandomUsersResponse_KO()
     sut.fetchUsers()
+    XCTAssertFalse(localStorage.retrieveSavedUsersCalled)
     XCTAssertFalse(localStorage.removeDeletedUsersFromCalled)
+    XCTAssertFalse(localStorage.saveUsersCalled)
     XCTAssertFalse(delegate.didLoadUsersCalled)
     XCTAssertTrue(delegate.didFailLoadingUsersErrorCalled)
   }
@@ -82,5 +87,9 @@ extension ListInteractorSpec {
   
   func givenUsers() {
     sut.users = [User](repeating: User.mock, count: 10)
+  }
+  
+  func givenRetrievedUsers() {
+    localStorage.retrieveSavedUsersReturnValue = [User.mock, User.mockRandom]
   }
 }

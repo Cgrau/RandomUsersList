@@ -11,6 +11,9 @@
 		2C08384E24C4C357002898AF /* RandomUsers.ok.json in Resources */ = {isa = PBXBuildFile; fileRef = 2C08384D24C4C357002898AF /* RandomUsers.ok.json */; };
 		2C08385124C4C390002898AF /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C08385024C4C390002898AF /* Fixture.swift */; };
 		2C2C204624C82CCE00858ECD /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C204524C82CCE00858ECD /* UserDetails.swift */; };
+		2C2C209024C88BFF00858ECD /* DetailViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C208F24C88BFF00858ECD /* DetailViewSpec.swift */; };
+		2C2C209324C88D1600858ECD /* UserDetails+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C209224C88D1600858ECD /* UserDetails+Mock.swift */; };
+		2C2C209524C8946A00858ECD /* DetailPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C209424C8946A00858ECD /* DetailPresenterSpec.swift */; };
 		2C2C2A9F24C1997D00EC9652 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C2A9E24C1997D00EC9652 /* AppDelegate.swift */; };
 		2C2C2AA124C1997D00EC9652 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C2AA024C1997D00EC9652 /* SceneDelegate.swift */; };
 		2C2C2AA824C1997F00EC9652 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C2AA724C1997F00EC9652 /* Assets.xcassets */; };
@@ -36,16 +39,14 @@
 		2C9F148B24C762A1001CF10E /* ListPresenterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F148A24C762A1001CF10E /* ListPresenterSpec.swift */; };
 		2C9F148D24C7651F001CF10E /* ListInteractorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F148C24C7651F001CF10E /* ListInteractorSpec.swift */; };
 		2C9F149024C77551001CF10E /* RemoveDuplicatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F148F24C77551001CF10E /* RemoveDuplicatesTests.swift */; };
-		2C9F149C24C81085001CF10E /* Assembly+getDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149224C81085001CF10E /* Assembly+getDetailViewController.swift */; };
-		2C9F149D24C81085001CF10E /* DetailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149324C81085001CF10E /* DetailNavigator.swift */; };
+		2C9F149C24C81085001CF10E /* Assembly+DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149224C81085001CF10E /* Assembly+DetailViewController.swift */; };
 		2C9F149E24C81085001CF10E /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149424C81085001CF10E /* DetailPresenter.swift */; };
 		2C9F149F24C81085001CF10E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149524C81085001CF10E /* DetailViewController.swift */; };
-		2C9F14A224C81085001CF10E /* DefaultDetailNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149824C81085001CF10E /* DefaultDetailNavigator.swift */; };
 		2C9F14A324C81085001CF10E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149924C81085001CF10E /* DetailView.swift */; };
 		2C9F14A424C81085001CF10E /* DetailUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149A24C81085001CF10E /* DetailUI.swift */; };
 		2C9F14A524C81085001CF10E /* DefaultDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149B24C81085001CF10E /* DefaultDetailPresenter.swift */; };
 		2CCDDF1224C48F9800FA1660 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1124C48F9800FA1660 /* Assembly.swift */; };
-		2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */; };
+		2CCDDF1F24C4902800FA1660 /* Assembly+ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1524C4902800FA1660 /* Assembly+ListViewController.swift */; };
 		2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1624C4902800FA1660 /* ListNavigator.swift */; };
 		2CCDDF2124C4902800FA1660 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1724C4902800FA1660 /* ListPresenter.swift */; };
 		2CCDDF2224C4902800FA1660 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1824C4902800FA1660 /* ListViewController.swift */; };
@@ -103,6 +104,9 @@
 		2C08384D24C4C357002898AF /* RandomUsers.ok.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RandomUsers.ok.json; sourceTree = "<group>"; };
 		2C08385024C4C390002898AF /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		2C2C204524C82CCE00858ECD /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
+		2C2C208F24C88BFF00858ECD /* DetailViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewSpec.swift; sourceTree = "<group>"; };
+		2C2C209224C88D1600858ECD /* UserDetails+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDetails+Mock.swift"; sourceTree = "<group>"; };
+		2C2C209424C8946A00858ECD /* DetailPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenterSpec.swift; sourceTree = "<group>"; };
 		2C2C2A9B24C1997D00EC9652 /* RandomUsersList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomUsersList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C2C2A9E24C1997D00EC9652 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C2C2AA024C1997D00EC9652 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,16 +137,14 @@
 		2C9F148A24C762A1001CF10E /* ListPresenterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenterSpec.swift; sourceTree = "<group>"; };
 		2C9F148C24C7651F001CF10E /* ListInteractorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractorSpec.swift; sourceTree = "<group>"; };
 		2C9F148F24C77551001CF10E /* RemoveDuplicatesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveDuplicatesTests.swift; sourceTree = "<group>"; };
-		2C9F149224C81085001CF10E /* Assembly+getDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+getDetailViewController.swift"; sourceTree = "<group>"; };
-		2C9F149324C81085001CF10E /* DetailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNavigator.swift; sourceTree = "<group>"; };
+		2C9F149224C81085001CF10E /* Assembly+DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+DetailViewController.swift"; sourceTree = "<group>"; };
 		2C9F149424C81085001CF10E /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		2C9F149524C81085001CF10E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		2C9F149824C81085001CF10E /* DefaultDetailNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDetailNavigator.swift; sourceTree = "<group>"; };
 		2C9F149924C81085001CF10E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		2C9F149A24C81085001CF10E /* DetailUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUI.swift; sourceTree = "<group>"; };
 		2C9F149B24C81085001CF10E /* DefaultDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDetailPresenter.swift; sourceTree = "<group>"; };
 		2CCDDF1124C48F9800FA1660 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
-		2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+getListViewController.swift"; sourceTree = "<group>"; };
+		2CCDDF1524C4902800FA1660 /* Assembly+ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+ListViewController.swift"; sourceTree = "<group>"; };
 		2CCDDF1624C4902800FA1660 /* ListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigator.swift; sourceTree = "<group>"; };
 		2CCDDF1724C4902800FA1660 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		2CCDDF1824C4902800FA1660 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +257,40 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		2C2C208C24C88B7600858ECD /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				2C2C209124C88D0800858ECD /* Mock */,
+				2C2C208D24C88B8300858ECD /* View */,
+				2C2C208E24C88B9300858ECD /* Presenter */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		2C2C208D24C88B8300858ECD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C2C208F24C88BFF00858ECD /* DetailViewSpec.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C2C208E24C88B9300858ECD /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2C2C209424C8946A00858ECD /* DetailPresenterSpec.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2C2C209124C88D0800858ECD /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				2C2C209224C88D1600858ECD /* UserDetails+Mock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		2C2C2A9224C1997C00EC9652 = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				2C9F147F24C75BBA001CF10E /* List */,
+				2C2C208C24C88B7600858ECD /* Detail */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -399,7 +436,6 @@
 				2C2C204424C82CC000858ECD /* Model */,
 				2C9F14AA24C810B7001CF10E /* View */,
 				2C9F14A924C810A6001CF10E /* Presenter */,
-				2C9F14A724C81098001CF10E /* Navigator */,
 				2C9F14A624C8108D001CF10E /* Infraestructure */,
 			);
 			path = Detail;
@@ -408,18 +444,9 @@
 		2C9F14A624C8108D001CF10E /* Infraestructure */ = {
 			isa = PBXGroup;
 			children = (
-				2C9F149224C81085001CF10E /* Assembly+getDetailViewController.swift */,
+				2C9F149224C81085001CF10E /* Assembly+DetailViewController.swift */,
 			);
 			path = Infraestructure;
-			sourceTree = "<group>";
-		};
-		2C9F14A724C81098001CF10E /* Navigator */ = {
-			isa = PBXGroup;
-			children = (
-				2C9F149324C81085001CF10E /* DetailNavigator.swift */,
-				2C9F149824C81085001CF10E /* DefaultDetailNavigator.swift */,
-			);
-			path = Navigator;
 			sourceTree = "<group>";
 		};
 		2C9F14A924C810A6001CF10E /* Presenter */ = {
@@ -499,7 +526,7 @@
 		2CCDDF2A24C4903100FA1660 /* Infraestructure */ = {
 			isa = PBXGroup;
 			children = (
-				2CCDDF1524C4902800FA1660 /* Assembly+getListViewController.swift */,
+				2CCDDF1524C4902800FA1660 /* Assembly+ListViewController.swift */,
 			);
 			path = Infraestructure;
 			sourceTree = "<group>";
@@ -1014,7 +1041,7 @@
 				2CCDDF2724C4902800FA1660 /* ListUI.swift in Sources */,
 				2C9F149F24C81085001CF10E /* DetailViewController.swift in Sources */,
 				2C9F146724C6EC8A001CF10E /* TableViewCell+ReuseIdentifier.swift in Sources */,
-				2C9F149C24C81085001CF10E /* Assembly+getDetailViewController.swift in Sources */,
+				2C9F149C24C81085001CF10E /* Assembly+DetailViewController.swift in Sources */,
 				2CCDDF6E24C4AB2D00FA1660 /* RandomUsersEndpoint.swift in Sources */,
 				2CCDDF7A24C4B3CE00FA1660 /* String+MapToDateString.swift in Sources */,
 				2CCDDF6A24C4A9F500FA1660 /* RandomUsersApiResponse.swift in Sources */,
@@ -1023,7 +1050,7 @@
 				2C9F147424C6FF20001CF10E /* Colors.swift in Sources */,
 				2C9F147224C6FB25001CF10E /* UserViewCell.swift in Sources */,
 				2C9F146F24C6F5E1001CF10E /* UIColor+HexColor.swift in Sources */,
-				2CCDDF1F24C4902800FA1660 /* Assembly+getListViewController.swift in Sources */,
+				2CCDDF1F24C4902800FA1660 /* Assembly+ListViewController.swift in Sources */,
 				2CCDDF7C24C4B4D500FA1660 /* GetRandomUsersUseCase.swift in Sources */,
 				2C9F145E24C6E8EF001CF10E /* Array+RemoveDuplicates.swift in Sources */,
 				2CCDDF2324C4902800FA1660 /* DefaultListInteractor.swift in Sources */,
@@ -1049,7 +1076,6 @@
 				2C9F146B24C6F122001CF10E /* UIViewController+Loading.swift in Sources */,
 				2CCDDF7724C4AD3700FA1660 /* User.swift in Sources */,
 				2CCDDF6824C4A5D500FA1660 /* UserApiResponse.swift in Sources */,
-				2C9F14A224C81085001CF10E /* DefaultDetailNavigator.swift in Sources */,
 				2C9F14A324C81085001CF10E /* DetailView.swift in Sources */,
 				2CCDDF2824C4902800FA1660 /* DefaultListPresenter.swift in Sources */,
 				2C2C2AA124C1997D00EC9652 /* SceneDelegate.swift in Sources */,
@@ -1063,7 +1089,6 @@
 				2CCDDF8324C4B64000FA1660 /* MainApiDataSource.swift in Sources */,
 				2C9F147924C747E0001CF10E /* LocalStorage.swift in Sources */,
 				2C9F146124C6EC01001CF10E /* Fontsize.swift in Sources */,
-				2C9F149D24C81085001CF10E /* DetailNavigator.swift in Sources */,
 				2CCDDF2524C4902800FA1660 /* DefaultListNavigator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1074,12 +1099,15 @@
 			files = (
 				2C9F148924C75C5E001CF10E /* User+Mock.swift in Sources */,
 				2C08384B24C4C273002898AF /* MainSpec.swift in Sources */,
+				2C2C209324C88D1600858ECD /* UserDetails+Mock.swift in Sources */,
 				2C9F148624C75C29001CF10E /* XCTestCase+UIViewController.swift in Sources */,
 				2CCDDF3A24C49AA000FA1660 /* AutoMockable.generated.swift in Sources */,
 				2C9F149024C77551001CF10E /* RemoveDuplicatesTests.swift in Sources */,
+				2C2C209524C8946A00858ECD /* DetailPresenterSpec.swift in Sources */,
 				2C08385124C4C390002898AF /* Fixture.swift in Sources */,
 				2C9F148D24C7651F001CF10E /* ListInteractorSpec.swift in Sources */,
 				2C9F148424C75BF2001CF10E /* ListViewSpec.swift in Sources */,
+				2C2C209024C88BFF00858ECD /* DetailViewSpec.swift in Sources */,
 				2C9F148B24C762A1001CF10E /* ListPresenterSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

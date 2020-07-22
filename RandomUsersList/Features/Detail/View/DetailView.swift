@@ -11,6 +11,7 @@ private enum Constants {
     static let street = "Street:"
     static let city = "City:"
     static let state = "State:"
+    static let registeredDate = "Registered Date:"
   }
 }
 
@@ -75,14 +76,6 @@ class DetailView: View {
     return label
   }()
   
-  private var locationTitleLabel: UILabel = {
-    let label = UILabel()
-    label.text = Constants.Titles.location
-    label.font = UIFont.boldSystemFont(ofSize: FontSize.title)
-    label.textColor = Colors.main
-    return label
-  }()
-  
   private var streetTitleLabel: UILabel = {
     let label = UILabel()
     label.text = Constants.Titles.street
@@ -125,6 +118,20 @@ class DetailView: View {
     return label
   }()
   
+  private var registeredDateTitleLabel: UILabel = {
+    let label = UILabel()
+    label.text = Constants.Titles.registeredDate
+    label.font = UIFont.boldSystemFont(ofSize: FontSize.title)
+    label.textColor = Colors.main
+    return label
+  }()
+  
+  private var registeredDateLabel: UILabel = {
+    let label = UILabel()
+    label.font = label.font.withSize(FontSize.regular)
+    return label
+  }()
+  
   // MARK: View Functions
   override func setupView() {
     backgroundColor = Colors.main
@@ -135,13 +142,14 @@ class DetailView: View {
     container.addSubview(emailLabel)
     container.addSubview(genderTitleLabel)
     container.addSubview(genderLabel)
-    container.addSubview(locationTitleLabel)
     container.addSubview(streetTitleLabel)
     container.addSubview(streetLabel)
     container.addSubview(cityTitleLabel)
     container.addSubview(cityLabel)
     container.addSubview(stateTitleLabel)
     container.addSubview(stateLabel)
+    container.addSubview(registeredDateTitleLabel)
+    container.addSubview(registeredDateLabel)
   }
   
   override func setupConstraints() {
@@ -181,15 +189,10 @@ class DetailView: View {
       make.leading.equalTo(genderTitleLabel).offset(Spacing.s)
       make.trailing.equalTo(genderTitleLabel)
     }
-    locationTitleLabel.snp.makeConstraints { make in
+    streetTitleLabel.snp.makeConstraints { make in
       make.top.equalTo(genderLabel.snp.bottom).offset(Spacing.s)
       make.leading.equalTo(emailTitleLabel)
       make.trailing.equalTo(emailTitleLabel)
-    }
-    streetTitleLabel.snp.makeConstraints { make in
-      make.top.equalTo(locationTitleLabel.snp.bottom).offset(Spacing.s)
-      make.leading.equalTo(locationTitleLabel).offset(Spacing.s)
-      make.trailing.equalTo(locationTitleLabel)
     }
     streetLabel.snp.makeConstraints { make in
       make.top.equalTo(streetTitleLabel.snp.bottom).offset(Spacing.xs)
@@ -198,8 +201,8 @@ class DetailView: View {
     }
     cityTitleLabel.snp.makeConstraints { make in
       make.top.equalTo(streetLabel.snp.bottom).offset(Spacing.s)
-      make.leading.equalTo(locationTitleLabel).offset(Spacing.s)
-      make.trailing.equalTo(locationTitleLabel)
+      make.leading.equalTo(emailTitleLabel)
+      make.trailing.equalTo(emailTitleLabel)
     }
     cityLabel.snp.makeConstraints { make in
       make.top.equalTo(cityTitleLabel.snp.bottom).offset(Spacing.xs)
@@ -208,11 +211,21 @@ class DetailView: View {
     }
     stateTitleLabel.snp.makeConstraints { make in
       make.top.equalTo(cityLabel.snp.bottom).offset(Spacing.s)
-      make.leading.equalTo(locationTitleLabel).offset(Spacing.s)
-      make.trailing.equalTo(locationTitleLabel)
+      make.leading.equalTo(emailTitleLabel)
+      make.trailing.equalTo(emailTitleLabel)
     }
     stateLabel.snp.makeConstraints { make in
       make.top.equalTo(stateTitleLabel.snp.bottom).offset(Spacing.xs)
+      make.leading.equalTo(stateTitleLabel).offset(Spacing.s)
+      make.trailing.equalTo(stateTitleLabel)
+    }
+    registeredDateTitleLabel.snp.makeConstraints { make in
+      make.top.equalTo(stateLabel.snp.bottom).offset(Spacing.s)
+      make.leading.equalTo(emailTitleLabel)
+      make.trailing.equalTo(emailTitleLabel)
+    }
+    registeredDateLabel.snp.makeConstraints { make in
+      make.top.equalTo(registeredDateTitleLabel.snp.bottom).offset(Spacing.xs)
       make.leading.equalTo(stateTitleLabel).offset(Spacing.s)
       make.trailing.equalTo(stateTitleLabel)
     }
@@ -226,6 +239,7 @@ class DetailView: View {
     streetLabel.text = userDetails.street
     cityLabel.text = userDetails.city
     stateLabel.text = userDetails.state
+    registeredDateLabel.text = userDetails.registeredDate
     let url = URL(string: userDetails.picture)
     picture.kf.setImage(with: url)
   }

@@ -3,12 +3,9 @@ import UIKit
 class DefaultDetailPresenter: DetailPresenter {
   
   weak var ui: DetailUI?
-  private let navigator: DetailNavigator
   private let user: User
   
-  init(navigator: DetailNavigator,
-       user: User) {
-    self.navigator = navigator
+  init(user: User) {
     self.user = user
   }
   

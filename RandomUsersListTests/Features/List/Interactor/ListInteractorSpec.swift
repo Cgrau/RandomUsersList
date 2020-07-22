@@ -51,11 +51,13 @@ final class ListInteractorSpec: XCTestCase {
     givenUsers()
     sut.searchUsers(by: "John")
     XCTAssertTrue(delegate.didLoadUsersCalled)
+    XCTAssertEqual(delegate.didLoadUsersCallsCount, 1)
   }
   
   func test_searchUserByText_empty() {
     sut.searchUsers(by: "")
     XCTAssertTrue(delegate.didLoadUsersCalled)
+    XCTAssertEqual(delegate.didLoadUsersCallsCount, 1)
   }
 }
 

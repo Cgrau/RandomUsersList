@@ -17,9 +17,14 @@ private enum Constants {
   static let lastRowSpace = 5
 }
 
+private enum ViewState {
+  case general, search
+}
+
 class ListView: View {
   
   weak var delegate: ListViewDelegate?
+  private var state: ViewState = .general
   private var bag = DisposeBag()
   
   var users: [User] = [] {
@@ -98,10 +103,15 @@ class ListView: View {
     textField.rx.controlEvent(.editingChanged)
       .asObservable().subscribe({ [weak self] _ in
         guard let text = self?.textField.text else { return }
+        self?.state = text.isEmpty ?  .general : .search
         self?.delegate?.didSearchFor(text: text)
       }).disposed(by: bag)
   }
 }
+
+//diferenciar estados de la app: busqueda y normal
+//unit test en save in userdefaults
+//Infinite Scroll with willDisplay
 
 // MARK: - UITableViewDataSource
 extension ListView: UITableViewDataSource {
@@ -111,15 +121,7 @@ extension ListView: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let user = users[indexPath.row]
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: UserViewCell.cellIdentifier) as? UserViewCell else {
-      return UITableViewCell()
-    }
-    
-    cell.configure(fullName: user.fullName,
-                   email: user.email,
-                   phone: user.phone,
-                   image: user.picture?.thumbnail)
-    
+    let cell = ListCellFactory.cell(with: user)
     return cell
   }
   
@@ -147,6 +149,10 @@ extension ListView {
       let userToDelete = users[indexPath.row]
       delegate?.didTapDelete(user: userToDelete)
     }
+  }
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    //calcular si es la ultima celda
   }
 }
 

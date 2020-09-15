@@ -85,17 +85,14 @@ final class UserViewCell: TableViewCell {
   }
 }
 
-extension UserViewCell {
-  func configure(fullName: String?,
-                 email: String?,
-                 phone: String?,
-                 image: String?) {
+extension UserViewCell: ConfigurableListCell {
+  func configure(data: User) {
     accessoryType = .disclosureIndicator
     selectionStyle = .none
-    fullNameLabel.text = fullName
-    emailLabel.text = email
-    phoneLabel.text = phone
-    guard let image = image else { return }
+    fullNameLabel.text = data.fullName
+    emailLabel.text = data.email
+    phoneLabel.text = data.phone
+    guard let image = data.picture?.thumbnail else { return }
     let url = URL(string: image)
     picture.kf.setImage(with: url)
   }

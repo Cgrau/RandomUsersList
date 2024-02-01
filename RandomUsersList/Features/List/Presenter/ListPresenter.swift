@@ -1,11 +1,12 @@
 import UIKit
 
-protocol ListPresenter: class, AutoMockable {
+protocol ListPresenter: AnyObject, AutoMockable {
   var ui: ListUI? { get set }
+  var users: [User] { get set }
   
   func didLoad()
-  func didSelect(user: User)
-  func delete(user: User)
+  func didSelectUser(with indexPath: IndexPath)
+  func didSelectDeleteUser(with indexPath: IndexPath)
   func search(for text: String)
   func loadMoreUsers()
 }

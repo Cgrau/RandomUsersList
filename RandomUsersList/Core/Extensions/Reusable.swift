@@ -1,0 +1,18 @@
+import UIKit
+
+public protocol Reusable: ClassName {}
+public extension Reusable where Self: UIView {
+    static var reuseIdentifier: String { className }
+}
+
+extension UITableViewCell: Reusable {
+    @objc public static func wpp_reuseIdentifier() -> String {
+        reuseIdentifier
+    }
+}
+
+extension UICollectionReusableView: Reusable {
+    @objc public static func wpp_reuseIdentifier() -> String {
+        reuseIdentifier
+    }
+}

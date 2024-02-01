@@ -3,18 +3,11 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
-protocol ListViewDelegate: class {
-  func didTap(user: User)
-  func didTapDelete(user: User)
+protocol ListViewDelegate: AnyObject {
+  func didTapUser(with indexPath: IndexPath)
+  func didTapDelete(with indexPath: IndexPath)
   func didSearchFor(text: String)
   func reachedBottomOfTable()
-}
-
-private enum Constants {
-  static let title = "RandomUsers"
-  static let searchPlaceholder = "Search User"
-  static let undelineHeight = 2
-  static let lastRowSpace = 5
 }
 
 class ListView: View {
@@ -22,10 +15,10 @@ class ListView: View {
   weak var delegate: ListViewDelegate?
   private var bag = DisposeBag()
   
-  var users: [User] = [] {
-    didSet {
-      tableView.reloadData()
-    }
+  private enum Constants {
+    static let title = "RandomUsers"
+    static let searchPlaceholder = "Search User"
+    static let undelineHeight = 2
   }
   
   private var titleLabel: UILabel = {
@@ -51,7 +44,7 @@ class ListView: View {
     return textField
   }()
   
-  private var tableView: UITableView = {
+  var tableView: UITableView = {
     let tableView = UITableView()
     return tableView
   }()
@@ -64,8 +57,6 @@ class ListView: View {
     addSubview(textField)
     addSubview(tableView)
     tableView.register(UserViewCell.self)
-    tableView.dataSource = self
-    tableView.delegate = self
     setupKeyboardBehaviour(to: tableView)
     configureSearchboxReaction()
   }
@@ -100,62 +91,5 @@ class ListView: View {
         guard let text = self?.textField.text else { return }
         self?.delegate?.didSearchFor(text: text)
       }).disposed(by: bag)
-  }
-}
-
-// MARK: - UITableViewDataSource
-extension ListView: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return users.count
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let user = users[indexPath.row]
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: UserViewCell.cellIdentifier) as? UserViewCell else {
-      return UITableViewCell()
-    }
-    
-    cell.configure(fullName: user.fullName,
-                   email: user.email,
-                   phone: user.phone,
-                   image: user.picture?.thumbnail)
-    
-    return cell
-  }
-  
-  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-    return UITableView.automaticDimension
-  }
-}
-
-// MARK: - UITableViewDelegate
-extension ListView: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let selectedUser = users[indexPath.row]
-    delegate?.didTap(user: selectedUser)
-  }
-}
-
-// MARK: - Swipe to Delete
-extension ListView {
-  func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    return true
-  }
-  
-  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    if editingStyle == UITableViewCell.EditingStyle.delete {
-      let userToDelete = users[indexPath.row]
-      delegate?.didTapDelete(user: userToDelete)
-    }
-  }
-}
-
-// MARK: - TableView - Bottom Reached minus lastRowSpace
-extension ListView {
-  func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    guard let lastCell = tableView.visibleCells.last, let row = tableView.indexPath(for: lastCell)?.row else { return }
-    if row == users.count - Constants.lastRowSpace {
-      delegate?.reachedBottomOfTable()
-    }
   }
 }

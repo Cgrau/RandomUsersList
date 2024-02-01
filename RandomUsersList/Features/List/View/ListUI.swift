@@ -1,7 +1,7 @@
 import UIKit
 
-protocol ListUI: class, AutoMockable {
-  func show(users: [User])
+protocol ListUI: AnyObject, AutoMockable {
+  func show(users: [UserCellViewModel])
   func show(error: String)
   
   func showLoading()

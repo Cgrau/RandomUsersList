@@ -7,7 +7,6 @@ protocol ListProvider {
 extension Assembly: ListProvider {
   func listViewController() -> UIViewController {
     let viewController = ListViewController()
-    viewController.mainView = mainView
     let navigator = mainNavigator(from: viewController)
     let interactor = mainInteractor()
     let presenter = mainPresenter(from: viewController,
@@ -18,10 +17,6 @@ extension Assembly: ListProvider {
     let navigationController = UINavigationController(rootViewController: viewController)
     configure(navigationController: navigationController)
     return navigationController
-  }
-  
-  private var mainView: ListView {
-    return ListView()
   }
   
   private func mainPresenter(from: UIViewController,

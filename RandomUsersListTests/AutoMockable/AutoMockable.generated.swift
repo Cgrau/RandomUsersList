@@ -194,6 +194,7 @@ class ListNavigatorMock: NSObject, ListNavigator {
 }
 class ListPresenterMock: NSObject, ListPresenter {
     var ui: ListUI?
+    var users: [User] = []
 
     //MARK: - didLoad
 
@@ -208,38 +209,38 @@ class ListPresenterMock: NSObject, ListPresenter {
         didLoadClosure?()
     }
 
-    //MARK: - didSelect
+    //MARK: - didSelectUser
 
-    private(set) var didSelectUserCallsCount = 0
-    var didSelectUserCalled: Bool {
-        return didSelectUserCallsCount > 0
+    private(set) var didSelectUserWithCallsCount = 0
+    var didSelectUserWithCalled: Bool {
+        return didSelectUserWithCallsCount > 0
     }
-    private(set) var didSelectUserReceivedUser: User?
-    private(set) var didSelectUserReceivedInvocations: [] = []
-    var didSelectUserClosure: ((User) -> Void)?
+    private(set) var didSelectUserWithReceivedIndexPath: IndexPath?
+    private(set) var didSelectUserWithReceivedInvocations: [] = []
+    var didSelectUserWithClosure: ((IndexPath) -> Void)?
 
-    func didSelect(user: User) {
-        didSelectUserCallsCount += 1
-        didSelectUserReceivedUser = user
-        didSelectUserReceivedInvocations.append(user)
-        didSelectUserClosure?(user)
+    func didSelectUser(with indexPath: IndexPath) {
+        didSelectUserWithCallsCount += 1
+        didSelectUserWithReceivedIndexPath = indexPath
+        didSelectUserWithReceivedInvocations.append(indexPath)
+        didSelectUserWithClosure?(indexPath)
     }
 
-    //MARK: - delete
+    //MARK: - didSelectDeleteUser
 
-    private(set) var deleteUserCallsCount = 0
-    var deleteUserCalled: Bool {
-        return deleteUserCallsCount > 0
+    private(set) var didSelectDeleteUserWithCallsCount = 0
+    var didSelectDeleteUserWithCalled: Bool {
+        return didSelectDeleteUserWithCallsCount > 0
     }
-    private(set) var deleteUserReceivedUser: User?
-    private(set) var deleteUserReceivedInvocations: [] = []
-    var deleteUserClosure: ((User) -> Void)?
+    private(set) var didSelectDeleteUserWithReceivedIndexPath: IndexPath?
+    private(set) var didSelectDeleteUserWithReceivedInvocations: [] = []
+    var didSelectDeleteUserWithClosure: ((IndexPath) -> Void)?
 
-    func delete(user: User) {
-        deleteUserCallsCount += 1
-        deleteUserReceivedUser = user
-        deleteUserReceivedInvocations.append(user)
-        deleteUserClosure?(user)
+    func didSelectDeleteUser(with indexPath: IndexPath) {
+        didSelectDeleteUserWithCallsCount += 1
+        didSelectDeleteUserWithReceivedIndexPath = indexPath
+        didSelectDeleteUserWithReceivedInvocations.append(indexPath)
+        didSelectDeleteUserWithClosure?(indexPath)
     }
 
     //MARK: - search
@@ -273,6 +274,81 @@ class ListPresenterMock: NSObject, ListPresenter {
     }
 
 }
+class ListRowCellControllingMock: NSObject, ListRowCellControlling {
+
+    //MARK: - tableView
+
+    private(set) var tableViewCellForItemAtViewModelCallsCount = 0
+    var tableViewCellForItemAtViewModelCalled: Bool {
+        return tableViewCellForItemAtViewModelCallsCount > 0
+    }
+    private(set) var tableViewCellForItemAtViewModelReceivedArguments: (tableView: UITableView, indexPath: IndexPath, viewModel: UserCellViewModel)?
+    private(set) var tableViewCellForItemAtViewModelReceivedInvocations: [(tableView: UITableView, indexPath: IndexPath, viewModel: UserCellViewModel)] = []
+    var tableViewCellForItemAtViewModelReturnValue: UITableViewCell!
+    var tableViewCellForItemAtViewModelClosure: ((UITableView, IndexPath, UserCellViewModel) -> UITableViewCell)?
+
+    func tableView(_ tableView: UITableView, cellForItemAt indexPath: IndexPath, viewModel: UserCellViewModel) -> UITableViewCell {
+        tableViewCellForItemAtViewModelCallsCount += 1
+        tableViewCellForItemAtViewModelReceivedArguments = (tableView: tableView, indexPath: indexPath, viewModel: viewModel)
+        tableViewCellForItemAtViewModelReceivedInvocations.append((tableView: tableView, indexPath: indexPath, viewModel: viewModel))
+        return tableViewCellForItemAtViewModelClosure.map({ $0(tableView, indexPath, viewModel) }) ?? tableViewCellForItemAtViewModelReturnValue
+    }
+
+    //MARK: - registerCell
+
+    private(set) var registerCellOnCallsCount = 0
+    var registerCellOnCalled: Bool {
+        return registerCellOnCallsCount > 0
+    }
+    private(set) var registerCellOnReceivedTableView: UITableView?
+    private(set) var registerCellOnReceivedInvocations: [] = []
+    var registerCellOnClosure: ((UITableView) -> Void)?
+
+    func registerCell(on tableView: UITableView) {
+        registerCellOnCallsCount += 1
+        registerCellOnReceivedTableView = tableView
+        registerCellOnReceivedInvocations.append(tableView)
+        registerCellOnClosure?(tableView)
+    }
+
+}
+class ListTableViewAdapterDelegateMock: NSObject, ListTableViewAdapterDelegate {
+
+    //MARK: - didSelectRow
+
+    private(set) var didSelectRowAtCallsCount = 0
+    var didSelectRowAtCalled: Bool {
+        return didSelectRowAtCallsCount > 0
+    }
+    private(set) var didSelectRowAtReceivedIndexPath: IndexPath?
+    private(set) var didSelectRowAtReceivedInvocations: [] = []
+    var didSelectRowAtClosure: ((IndexPath) -> Void)?
+
+    func didSelectRow(at indexPath: IndexPath) {
+        didSelectRowAtCallsCount += 1
+        didSelectRowAtReceivedIndexPath = indexPath
+        didSelectRowAtReceivedInvocations.append(indexPath)
+        didSelectRowAtClosure?(indexPath)
+    }
+
+    //MARK: - didDeleteRow
+
+    private(set) var didDeleteRowAtCallsCount = 0
+    var didDeleteRowAtCalled: Bool {
+        return didDeleteRowAtCallsCount > 0
+    }
+    private(set) var didDeleteRowAtReceivedIndexPath: IndexPath?
+    private(set) var didDeleteRowAtReceivedInvocations: [] = []
+    var didDeleteRowAtClosure: ((IndexPath) -> Void)?
+
+    func didDeleteRow(at indexPath: IndexPath) {
+        didDeleteRowAtCallsCount += 1
+        didDeleteRowAtReceivedIndexPath = indexPath
+        didDeleteRowAtReceivedInvocations.append(indexPath)
+        didDeleteRowAtClosure?(indexPath)
+    }
+
+}
 class ListUIMock: NSObject, ListUI {
 
     //MARK: - show
@@ -281,11 +357,11 @@ class ListUIMock: NSObject, ListUI {
     var showUsersCalled: Bool {
         return showUsersCallsCount > 0
     }
-    private(set) var showUsersReceivedUsers: [User]?
+    private(set) var showUsersReceivedUsers: [UserCellViewModel]?
     private(set) var showUsersReceivedInvocations: [] = []
-    var showUsersClosure: (([User]) -> Void)?
+    var showUsersClosure: (([UserCellViewModel]) -> Void)?
 
-    func show(users: [User]) {
+    func show(users: [UserCellViewModel]) {
         showUsersCallsCount += 1
         showUsersReceivedUsers = users
         showUsersReceivedInvocations.append(users)

@@ -1,6 +1,5 @@
-// Generated using Sourcery 0.18.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 2.1.7 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
-
 // swiftlint:disable line_length
 // swiftlint:disable variable_name
 
@@ -35,7 +34,7 @@ class DetailUIMock: NSObject, DetailUI {
         return showUserDetailsCallsCount > 0
     }
     private(set) var showUserDetailsReceivedUserDetails: UserDetails?
-    private(set) var showUserDetailsReceivedInvocations: [UserDetails] = []
+    private(set) var showUserDetailsReceivedInvocations: [] = []
     var showUserDetailsClosure: ((UserDetails) -> Void)?
 
     func show(userDetails: UserDetails) {
@@ -55,7 +54,7 @@ class GetRandomUsersUseCaseMock: NSObject, GetRandomUsersUseCase {
         return executeRequestCallsCount > 0
     }
     private(set) var executeRequestReceivedRequest: RandomUsersRequest?
-    private(set) var executeRequestReceivedInvocations: [RandomUsersRequest] = []
+    private(set) var executeRequestReceivedInvocations: [] = []
     var executeRequestReturnValue: Single<[User]>!
     var executeRequestClosure: ((RandomUsersRequest) -> Single<[User]>)?
 
@@ -91,7 +90,7 @@ class ListInteractorMock: NSObject, ListInteractor {
         return deleteUserCallsCount > 0
     }
     private(set) var deleteUserReceivedUser: User?
-    private(set) var deleteUserReceivedInvocations: [User] = []
+    private(set) var deleteUserReceivedInvocations: [] = []
     var deleteUserClosure: ((User) -> Void)?
 
     func delete(user: User) {
@@ -108,7 +107,7 @@ class ListInteractorMock: NSObject, ListInteractor {
         return searchUsersByCallsCount > 0
     }
     private(set) var searchUsersByReceivedText: String?
-    private(set) var searchUsersByReceivedInvocations: [String] = []
+    private(set) var searchUsersByReceivedInvocations: [] = []
     var searchUsersByClosure: ((String) -> Void)?
 
     func searchUsers(by text: String) {
@@ -128,7 +127,7 @@ class ListInteractorDelegateMock: NSObject, ListInteractorDelegate {
         return didLoadUsersCallsCount > 0
     }
     private(set) var didLoadUsersReceivedUsers: [User]?
-    private(set) var didLoadUsersReceivedInvocations: [[User]] = []
+    private(set) var didLoadUsersReceivedInvocations: [] = []
     var didLoadUsersClosure: (([User]) -> Void)?
 
     func didLoad(users: [User]) {
@@ -145,7 +144,7 @@ class ListInteractorDelegateMock: NSObject, ListInteractorDelegate {
         return didFailLoadingUsersErrorCallsCount > 0
     }
     private(set) var didFailLoadingUsersErrorReceivedError: Error?
-    private(set) var didFailLoadingUsersErrorReceivedInvocations: [Error] = []
+    private(set) var didFailLoadingUsersErrorReceivedInvocations: [] = []
     var didFailLoadingUsersErrorClosure: ((Error) -> Void)?
 
     func didFailLoadingUsers(error: Error) {
@@ -162,7 +161,7 @@ class ListInteractorDelegateMock: NSObject, ListInteractorDelegate {
         return didDeleteUserUsersCallsCount > 0
     }
     private(set) var didDeleteUserUsersReceivedUsers: [User]?
-    private(set) var didDeleteUserUsersReceivedInvocations: [[User]] = []
+    private(set) var didDeleteUserUsersReceivedInvocations: [] = []
     var didDeleteUserUsersClosure: (([User]) -> Void)?
 
     func didDeleteUser(users: [User]) {
@@ -182,7 +181,7 @@ class ListNavigatorMock: NSObject, ListNavigator {
         return navigateToDetailUserCallsCount > 0
     }
     private(set) var navigateToDetailUserReceivedUser: User?
-    private(set) var navigateToDetailUserReceivedInvocations: [User] = []
+    private(set) var navigateToDetailUserReceivedInvocations: [] = []
     var navigateToDetailUserClosure: ((User) -> Void)?
 
     func navigateToDetail(user: User) {
@@ -216,7 +215,7 @@ class ListPresenterMock: NSObject, ListPresenter {
         return didSelectUserCallsCount > 0
     }
     private(set) var didSelectUserReceivedUser: User?
-    private(set) var didSelectUserReceivedInvocations: [User] = []
+    private(set) var didSelectUserReceivedInvocations: [] = []
     var didSelectUserClosure: ((User) -> Void)?
 
     func didSelect(user: User) {
@@ -233,7 +232,7 @@ class ListPresenterMock: NSObject, ListPresenter {
         return deleteUserCallsCount > 0
     }
     private(set) var deleteUserReceivedUser: User?
-    private(set) var deleteUserReceivedInvocations: [User] = []
+    private(set) var deleteUserReceivedInvocations: [] = []
     var deleteUserClosure: ((User) -> Void)?
 
     func delete(user: User) {
@@ -250,7 +249,7 @@ class ListPresenterMock: NSObject, ListPresenter {
         return searchForCallsCount > 0
     }
     private(set) var searchForReceivedText: String?
-    private(set) var searchForReceivedInvocations: [String] = []
+    private(set) var searchForReceivedInvocations: [] = []
     var searchForClosure: ((String) -> Void)?
 
     func search(for text: String) {
@@ -283,7 +282,7 @@ class ListUIMock: NSObject, ListUI {
         return showUsersCallsCount > 0
     }
     private(set) var showUsersReceivedUsers: [User]?
-    private(set) var showUsersReceivedInvocations: [[User]] = []
+    private(set) var showUsersReceivedInvocations: [] = []
     var showUsersClosure: (([User]) -> Void)?
 
     func show(users: [User]) {
@@ -300,7 +299,7 @@ class ListUIMock: NSObject, ListUI {
         return showErrorCallsCount > 0
     }
     private(set) var showErrorReceivedError: String?
-    private(set) var showErrorReceivedInvocations: [String] = []
+    private(set) var showErrorReceivedInvocations: [] = []
     var showErrorClosure: ((String) -> Void)?
 
     func show(error: String) {
@@ -346,7 +345,7 @@ class LocalStorageMock: NSObject, LocalStorage {
         return deleteUserWithCallsCount > 0
     }
     private(set) var deleteUserWithReceivedUuid: String?
-    private(set) var deleteUserWithReceivedInvocations: [String] = []
+    private(set) var deleteUserWithReceivedInvocations: [] = []
     var deleteUserWithClosure: ((String) -> Void)?
 
     func deleteUser(with uuid: String) {
@@ -363,7 +362,7 @@ class LocalStorageMock: NSObject, LocalStorage {
         return removeDeletedUsersFromCallsCount > 0
     }
     private(set) var removeDeletedUsersFromReceivedFrom: [User]?
-    private(set) var removeDeletedUsersFromReceivedInvocations: [[User]] = []
+    private(set) var removeDeletedUsersFromReceivedInvocations: [] = []
     var removeDeletedUsersFromReturnValue: [User]!
     var removeDeletedUsersFromClosure: (([User]) -> [User])?
 
@@ -381,7 +380,7 @@ class LocalStorageMock: NSObject, LocalStorage {
         return saveUsersCallsCount > 0
     }
     private(set) var saveUsersReceivedUsers: [User]?
-    private(set) var saveUsersReceivedInvocations: [[User]] = []
+    private(set) var saveUsersReceivedInvocations: [] = []
     var saveUsersClosure: (([User]) -> Void)?
 
     func save(users: [User]) {

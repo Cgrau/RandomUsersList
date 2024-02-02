@@ -22,8 +22,8 @@ extension Assembly: ListProvider {
    private func mainPresenter(from: UIViewController,
                               navigator: ListNavigator,
                               interactor: ListInteractor) -> ListPresenter {
-      let presenter = DefaultListPresenter.buildDefault(interactor: interactor,
-                                                        navigator: navigator)
+      let presenter = ListPresenter.buildDefault(interactor: interactor,
+                                                 navigator: navigator)
       interactor.delegate = presenter
       presenter.ui = from as? ListViewController
       
@@ -31,12 +31,12 @@ extension Assembly: ListProvider {
    }
    
    private func mainNavigator(from: UIViewController) -> ListNavigator {
-      DefaultListNavigator(from: from)
+      ListNavigator(from: from)
    }
    
    private func mainInteractor() -> ListInteractor {
-      DefaultListInteractor(getRandomUsers: resolver.getRandomUsers,
-                            localStorage: localStorage)
+      ListInteractor(getRandomUsers: resolver.getRandomUsers,
+                     localStorage: localStorage)
    }
    
    private var localStorage: LocalStorage {

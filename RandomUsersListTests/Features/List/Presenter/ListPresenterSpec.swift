@@ -2,70 +2,76 @@ import XCTest
 @testable import RandomUsersList
 
 final class ListPresenterSpec: XCTestCase {
-  
-  private var sut: DefaultListPresenter!
-  private var ui: ListUIMock!
-  private var interactor: ListInteractorMock!
-  private var navigator: ListNavigatorMock!
-  
-  override func setUp() {
-    interactor = ListInteractorMock()
-    navigator = ListNavigatorMock()
-    ui = ListUIMock()
-    sut = DefaultListPresenter(interactor: interactor,
-                               navigator: navigator)
-    sut.ui = ui
-  }
-  
-  override func tearDown() {
-    interactor = nil
-    navigator = nil
-    ui = nil
-    sut = nil
-  }
-  
-  func test_did_load() {
-    sut.didLoad()
-    XCTAssertTrue(ui.showLoadingCalled)
-    XCTAssertTrue(interactor.fetchUsersCalled)
-  }
-  
-  func test_select_user() {
-    sut.didSelect(user: UserDataModel.mock)
-    XCTAssertTrue(navigator.navigateToDetailUserCalled)
-  }
-  
-  func test_delete_user() {
-    sut.delete(user: UserDataModel.mock)
-    XCTAssertTrue(interactor.deleteUserCalled)
-  }
-  
-  func test_searchForText() {
-    sut.search(for: "Text")
-    XCTAssertTrue(interactor.searchUsersByCalled)
-  }
-  
-  func test_loadMoreUsers() {
-    sut.loadMoreUsers()
-    XCTAssertTrue(ui.showLoadingCalled)
-    XCTAssertTrue(interactor.fetchUsersCalled)
-  }
-  
-  // MARK:- ListInteractorDelegate
-  func test_didLoadUsers() {
-    sut.didLoad(users: [UserDataModel](repeating: UserDataModel.mock, count: 40))
-    XCTAssertTrue(ui.hideLoadingCalled)
-    XCTAssertTrue(ui.showUsersCalled)
-  }
-  
-  func test_didFailLoadingUsers() {
-    sut.didFailLoadingUsers(error: DefaultError.mock)
-    XCTAssertTrue(ui.hideLoadingCalled)
-    XCTAssertTrue(ui.showErrorCalled)
-  }
-  
-  func test_didDeleteUser() {
-    sut.didDeleteUser(users: [UserDataModel](repeating: UserDataModel.mock, count: 39))
-    XCTAssertTrue(ui.showUsersCalled)
-  }
+   
+   private var sut: ListPresenter!
+   private var ui: ListUIMock!
+   private var interactor: ListInteractingMock!
+   private var navigator: ListNavigatingMock!
+   private var viewModelMapper: ListViewModelMappingMock!
+   
+   override func setUp() {
+      interactor = ListInteractingMock()
+      navigator = ListNavigatingMock()
+      viewModelMapper = ListViewModelMappingMock()
+      viewModelMapper._mapData.returnValue = ListViewModel.init(title: "LoremIpsum", placeholder: "LoremIpsum", users: [UserCellViewModel](repeating: UserCellViewModel.mock, count: 10))
+      ui = ListUIMock()
+      sut = ListPresenter(interactor: interactor,
+                          navigator: navigator, 
+                          viewModelMapper: viewModelMapper)
+      sut.ui = ui
+   }
+   
+   override func tearDown() {
+      interactor = nil
+      navigator = nil
+      ui = nil
+      sut = nil
+   }
+   
+   func test_did_load() {
+      sut.didLoad()
+      XCTAssertTrue(ui._showLoading.called)
+      XCTAssertTrue(interactor._fetchUsers.called)
+   }
+   
+   func test_select_user() {
+      sut.didLoad(users: [UserDataModel](repeating: UserDataModel.mock, count: 10))
+      sut.didSelectUser(with: .init(row: 0, section: 0))
+      XCTAssertTrue(navigator._navigateToDetailUser.called)
+   }
+   
+   func test_delete_user() {
+      sut.didLoad(users: [UserDataModel](repeating: UserDataModel.mock, count: 10))
+      sut.didSelectDeleteUser(with: .init(row: 0, section: 0))
+      XCTAssertTrue(interactor._deleteUser.called)
+   }
+   
+   func test_searchForText() {
+      sut.search(for: "Text")
+      XCTAssertTrue(interactor._searchUsersBy.called)
+   }
+   
+   func test_loadMoreUsers() {
+      sut.didScrollToBottom()
+      XCTAssertTrue(ui._showLoading.called)
+      XCTAssertTrue(interactor._fetchUsers.called)
+   }
+   
+   // MARK:- ListInteractorDelegate
+   func test_didLoadUsers() {
+      sut.didLoad(users: [UserDataModel](repeating: UserDataModel.mock, count: 10))
+      XCTAssertTrue(ui._hideLoading.called)
+      XCTAssertTrue(ui._applyViewModel.called)
+   }
+   
+   func test_didFailLoadingUsers() {
+      sut.didFailLoadingUsers(error: DefaultError.mock)
+      XCTAssertTrue(ui._hideLoading.called)
+      XCTAssertTrue(ui._showError.called)
+   }
+   
+   func test_didDeleteUser() {
+      sut.didDeleteUser(users: [UserDataModel](repeating: UserDataModel.mock, count: 9))
+      XCTAssertTrue(ui._applyViewModel.called)
+   }
 }

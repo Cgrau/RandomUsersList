@@ -32,3 +32,12 @@ extension UserDataModel {
                 registeredDate: "12:13 - 15-12-2020")
   }
 }
+
+extension UserCellViewModel {
+   static var mock: UserCellViewModel {
+      UserCellViewModel(fullName: "John Doe",
+                        email: "john.doe@random.com",
+                        phone: "5121321312",
+                        imageURL: "https://raw.githubusercontent.com/Cgrau/assets/master/RandomUsersList/blankThumbnail.png")
+   }
+}

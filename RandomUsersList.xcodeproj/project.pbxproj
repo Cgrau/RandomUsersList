@@ -47,17 +47,12 @@
 		2C9F14A524C81085001CF10E /* DefaultDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F149B24C81085001CF10E /* DefaultDetailPresenter.swift */; };
 		2CCDDF1224C48F9800FA1660 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1124C48F9800FA1660 /* Assembly.swift */; };
 		2CCDDF1F24C4902800FA1660 /* Assembly+ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1524C4902800FA1660 /* Assembly+ListViewController.swift */; };
-		2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1624C4902800FA1660 /* ListNavigator.swift */; };
-		2CCDDF2124C4902800FA1660 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1724C4902800FA1660 /* ListPresenter.swift */; };
 		2CCDDF2224C4902800FA1660 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1824C4902800FA1660 /* ListViewController.swift */; };
-		2CCDDF2324C4902800FA1660 /* DefaultListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1924C4902800FA1660 /* DefaultListInteractor.swift */; };
-		2CCDDF2424C4902800FA1660 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1A24C4902800FA1660 /* ListInteractor.swift */; };
-		2CCDDF2524C4902800FA1660 /* DefaultListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1B24C4902800FA1660 /* DefaultListNavigator.swift */; };
+		2CCDDF2324C4902800FA1660 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1924C4902800FA1660 /* ListInteractor.swift */; };
+		2CCDDF2524C4902800FA1660 /* ListNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1B24C4902800FA1660 /* ListNavigator.swift */; };
 		2CCDDF2624C4902800FA1660 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1C24C4902800FA1660 /* ListView.swift */; };
-		2CCDDF2724C4902800FA1660 /* ListUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1D24C4902800FA1660 /* ListUI.swift */; };
-		2CCDDF2824C4902800FA1660 /* DefaultListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1E24C4902800FA1660 /* DefaultListPresenter.swift */; };
+		2CCDDF2824C4902800FA1660 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF1E24C4902800FA1660 /* ListPresenter.swift */; };
 		2CCDDF3324C496D600FA1660 /* AutoMockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF3224C496D600FA1660 /* AutoMockable.swift */; };
-		2CCDDF3A24C49AA000FA1660 /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF3924C49AA000FA1660 /* AutoMockable.generated.swift */; };
 		2CCDDF4224C49E7300FA1660 /* NetworkAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF4124C49E7300FA1660 /* NetworkAssembly.swift */; };
 		2CCDDF4424C49E8A00FA1660 /* NetworkAssembly+Moya.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF4324C49E8A00FA1660 /* NetworkAssembly+Moya.swift */; };
 		2CCDDF4624C49EA700FA1660 /* NetworkAssembly+ErrorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF4524C49EA700FA1660 /* NetworkAssembly+ErrorAdapter.swift */; };
@@ -90,6 +85,7 @@
 		2CF3C8552B6CF0E3007B080F /* UIView+Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C8542B6CF0E3007B080F /* UIView+Configurable.swift */; };
 		2CF3C8572B6CF166007B080F /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C8562B6CF166007B080F /* ListViewModel.swift */; };
 		2CF3C8592B6D1C88007B080F /* ListViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C8582B6D1C88007B080F /* ListViewModelMapper.swift */; };
+		2CF3C8702B6D6DA7007B080F /* AutoMockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF3C86E2B6D6DA7007B080F /* AutoMockable.generated.swift */; };
 		32B4F8FF651C87501CB3ABBA /* Pods_RandomUsersList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC89D4AE7227A39791664553 /* Pods_RandomUsersList.framework */; };
 		AFC78C070A7E5BBE42593436 /* Pods_RandomUsersListTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C8AECC075FB4C633003B9D /* Pods_RandomUsersListTests.framework */; };
 /* End PBXBuildFile section */
@@ -150,17 +146,12 @@
 		2C9F149B24C81085001CF10E /* DefaultDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDetailPresenter.swift; sourceTree = "<group>"; };
 		2CCDDF1124C48F9800FA1660 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		2CCDDF1524C4902800FA1660 /* Assembly+ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assembly+ListViewController.swift"; sourceTree = "<group>"; };
-		2CCDDF1624C4902800FA1660 /* ListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigator.swift; sourceTree = "<group>"; };
-		2CCDDF1724C4902800FA1660 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		2CCDDF1824C4902800FA1660 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		2CCDDF1924C4902800FA1660 /* DefaultListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultListInteractor.swift; sourceTree = "<group>"; };
-		2CCDDF1A24C4902800FA1660 /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
-		2CCDDF1B24C4902800FA1660 /* DefaultListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultListNavigator.swift; sourceTree = "<group>"; };
+		2CCDDF1924C4902800FA1660 /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
+		2CCDDF1B24C4902800FA1660 /* ListNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavigator.swift; sourceTree = "<group>"; };
 		2CCDDF1C24C4902800FA1660 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
-		2CCDDF1D24C4902800FA1660 /* ListUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUI.swift; sourceTree = "<group>"; };
-		2CCDDF1E24C4902800FA1660 /* DefaultListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultListPresenter.swift; sourceTree = "<group>"; };
+		2CCDDF1E24C4902800FA1660 /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		2CCDDF3224C496D600FA1660 /* AutoMockable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMockable.swift; sourceTree = "<group>"; };
-		2CCDDF3924C49AA000FA1660 /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
 		2CCDDF4124C49E7300FA1660 /* NetworkAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembly.swift; sourceTree = "<group>"; };
 		2CCDDF4324C49E8A00FA1660 /* NetworkAssembly+Moya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkAssembly+Moya.swift"; sourceTree = "<group>"; };
 		2CCDDF4524C49EA700FA1660 /* NetworkAssembly+ErrorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkAssembly+ErrorAdapter.swift"; sourceTree = "<group>"; };
@@ -193,6 +184,7 @@
 		2CF3C8542B6CF0E3007B080F /* UIView+Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Configurable.swift"; sourceTree = "<group>"; };
 		2CF3C8562B6CF166007B080F /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		2CF3C8582B6D1C88007B080F /* ListViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModelMapper.swift; sourceTree = "<group>"; };
+		2CF3C86E2B6D6DA7007B080F /* AutoMockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMockable.generated.swift; sourceTree = "<group>"; };
 		35C8AECC075FB4C633003B9D /* Pods_RandomUsersListTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomUsersListTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB541E9C739A22CA3191A06 /* Pods-RandomUsersList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUsersList.debug.xcconfig"; path = "Target Support Files/Pods-RandomUsersList/Pods-RandomUsersList.debug.xcconfig"; sourceTree = "<group>"; };
 		996E59CAED28A84012BBA550 /* Pods-RandomUsersListTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomUsersListTests.release.xcconfig"; path = "Target Support Files/Pods-RandomUsersListTests/Pods-RandomUsersListTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -332,7 +324,7 @@
 		2C2C2AB424C1997F00EC9652 /* RandomUsersListTests */ = {
 			isa = PBXGroup;
 			children = (
-				2CCDDF3824C49AA000FA1660 /* AutoMockable */,
+				2CF3C86D2B6D6DA7007B080F /* Generated */,
 				2C08384F24C4C381002898AF /* Utils */,
 				2C9F148E24C7752D001CF10E /* Others */,
 				2C9F147E24C75BAF001CF10E /* Features */,
@@ -358,13 +350,13 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		2C9F147024C6FB14001CF10E /* Cells */ = {
+		2C9F147024C6FB14001CF10E /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
 				2C9F147124C6FB25001CF10E /* UserViewCell.swift */,
 				2CF3C84C2B6BD0EE007B080F /* UserCellViewModel.swift */,
 			);
-			path = Cells;
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		2C9F147724C747C0001CF10E /* LocalStorage */ = {
@@ -511,10 +503,6 @@
 			isa = PBXGroup;
 			children = (
 				2CCDDF2924C4902C00FA1660 /* View */,
-				2CCDDF2D24C4905000FA1660 /* Presenter */,
-				2CCDDF2C24C4904B00FA1660 /* Interactor */,
-				2CCDDF2B24C4904400FA1660 /* Navigator */,
-				2CCDDF2A24C4903100FA1660 /* Infraestructure */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -522,65 +510,25 @@
 		2CCDDF2924C4902C00FA1660 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2C9F147024C6FB14001CF10E /* Cells */,
-				2CCDDF1C24C4902800FA1660 /* ListView.swift */,
-				2CF3C8562B6CF166007B080F /* ListViewModel.swift */,
-				2CCDDF1824C4902800FA1660 /* ListViewController.swift */,
-				2CCDDF1D24C4902800FA1660 /* ListUI.swift */,
+				2C9F147024C6FB14001CF10E /* Subviews */,
 				2CF3C84A2B6BD081007B080F /* ListTableViewAdapter.swift */,
+				2CCDDF1B24C4902800FA1660 /* ListNavigator.swift */,
+				2CCDDF1E24C4902800FA1660 /* ListPresenter.swift */,
+				2CCDDF1924C4902800FA1660 /* ListInteractor.swift */,
+				2CCDDF1C24C4902800FA1660 /* ListView.swift */,
+				2CCDDF1824C4902800FA1660 /* ListViewController.swift */,
+				2CF3C8562B6CF166007B080F /* ListViewModel.swift */,
+				2CF3C8582B6D1C88007B080F /* ListViewModelMapper.swift */,
 				2CF3C84E2B6BD1B0007B080F /* ListRowCellController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2CCDDF2A24C4903100FA1660 /* Infraestructure */ = {
-			isa = PBXGroup;
-			children = (
 				2CCDDF1524C4902800FA1660 /* Assembly+ListViewController.swift */,
 			);
-			path = Infraestructure;
-			sourceTree = "<group>";
-		};
-		2CCDDF2B24C4904400FA1660 /* Navigator */ = {
-			isa = PBXGroup;
-			children = (
-				2CCDDF1624C4902800FA1660 /* ListNavigator.swift */,
-				2CCDDF1B24C4902800FA1660 /* DefaultListNavigator.swift */,
-			);
-			path = Navigator;
-			sourceTree = "<group>";
-		};
-		2CCDDF2C24C4904B00FA1660 /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				2CCDDF1A24C4902800FA1660 /* ListInteractor.swift */,
-				2CCDDF1924C4902800FA1660 /* DefaultListInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		2CCDDF2D24C4905000FA1660 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				2CCDDF1724C4902800FA1660 /* ListPresenter.swift */,
-				2CF3C8582B6D1C88007B080F /* ListViewModelMapper.swift */,
-				2CCDDF1E24C4902800FA1660 /* DefaultListPresenter.swift */,
-			);
-			path = Presenter;
+			path = View;
 			sourceTree = "<group>";
 		};
 		2CCDDF3124C496BF00FA1660 /* AutoMockable */ = {
 			isa = PBXGroup;
 			children = (
 				2CCDDF3224C496D600FA1660 /* AutoMockable.swift */,
-			);
-			path = AutoMockable;
-			sourceTree = "<group>";
-		};
-		2CCDDF3824C49AA000FA1660 /* AutoMockable */ = {
-			isa = PBXGroup;
-			children = (
-				2CCDDF3924C49AA000FA1660 /* AutoMockable.generated.swift */,
 			);
 			path = AutoMockable;
 			sourceTree = "<group>";
@@ -787,6 +735,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		2CF3C86D2B6D6DA7007B080F /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				2CF3C86E2B6D6DA7007B080F /* AutoMockable.generated.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
 		BA78DC48818008AA50C33279 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -963,7 +919,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "$PODS_ROOT/Sourcery/bin/sourcery --sources ./ --templates ./Templates/Sourcery --output ./RandomUsersListTests/AutoMockable\n";
+			shellScript = "$PODS_ROOT/Sourcery/bin/sourcery --sources ./ --templates ./Templates/Sourcery --output ./RandomUsersListTests/Generated\n";
 		};
 		3DF169C07B6F6E123D8E35A1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1061,7 +1017,6 @@
 				2C9F14A524C81085001CF10E /* DefaultDetailPresenter.swift in Sources */,
 				2CF3C8592B6D1C88007B080F /* ListViewModelMapper.swift in Sources */,
 				2C2C2A9F24C1997D00EC9652 /* AppDelegate.swift in Sources */,
-				2CCDDF2724C4902800FA1660 /* ListUI.swift in Sources */,
 				2C9F149F24C81085001CF10E /* DetailViewController.swift in Sources */,
 				2C9F146724C6EC8A001CF10E /* TableViewCell+ReuseIdentifier.swift in Sources */,
 				2C9F149C24C81085001CF10E /* Assembly+DetailViewController.swift in Sources */,
@@ -1078,8 +1033,7 @@
 				2CCDDF1F24C4902800FA1660 /* Assembly+ListViewController.swift in Sources */,
 				2CF3C84D2B6BD0EE007B080F /* UserCellViewModel.swift in Sources */,
 				2C9F145E24C6E8EF001CF10E /* Array+RemoveDuplicates.swift in Sources */,
-				2CCDDF2324C4902800FA1660 /* DefaultListInteractor.swift in Sources */,
-				2CCDDF2424C4902800FA1660 /* ListInteractor.swift in Sources */,
+				2CCDDF2324C4902800FA1660 /* ListInteractor.swift in Sources */,
 				2CCDDF6224C4A55F00FA1660 /* MainDataSource.swift in Sources */,
 				2CCDDF4F24C49F6600FA1660 /* Service.swift in Sources */,
 				2CCDDF4D24C49F2C00FA1660 /* Error+Message.swift in Sources */,
@@ -1091,12 +1045,10 @@
 				2C9F146524C6EC6A001CF10E /* TableViewCell.swift in Sources */,
 				2CCDDF5324C49F8300FA1660 /* TargetType+Default.swift in Sources */,
 				2CCDDF7E24C4B52F00FA1660 /* GetRandomUsers.swift in Sources */,
-				2CCDDF2024C4902800FA1660 /* ListNavigator.swift in Sources */,
 				2CF3C8532B6BD24C007B080F /* ClassName.swift in Sources */,
 				2CCDDF4224C49E7300FA1660 /* NetworkAssembly.swift in Sources */,
 				2C9F146324C6EC12001CF10E /* View.swift in Sources */,
 				2CCDDF5724C4A0FD00FA1660 /* Mappable.swift in Sources */,
-				2CCDDF2124C4902800FA1660 /* ListPresenter.swift in Sources */,
 				2CCDDF4B24C49F0900FA1660 /* ErrorAdapter.swift in Sources */,
 				2C9F146D24C6F3CB001CF10E /* UIViewController+ShowErrorMessage.swift in Sources */,
 				2C9F146B24C6F122001CF10E /* UIViewController+Loading.swift in Sources */,
@@ -1104,7 +1056,7 @@
 				2CCDDF7724C4AD3700FA1660 /* UserDataModel.swift in Sources */,
 				2CCDDF6824C4A5D500FA1660 /* UserApiResponse.swift in Sources */,
 				2C9F14A324C81085001CF10E /* DetailView.swift in Sources */,
-				2CCDDF2824C4902800FA1660 /* DefaultListPresenter.swift in Sources */,
+				2CCDDF2824C4902800FA1660 /* ListPresenter.swift in Sources */,
 				2CF3C84F2B6BD1B0007B080F /* ListRowCellController.swift in Sources */,
 				2C2C2AA124C1997D00EC9652 /* SceneDelegate.swift in Sources */,
 				2C9F14A424C81085001CF10E /* DetailUI.swift in Sources */,
@@ -1117,7 +1069,7 @@
 				2CCDDF8324C4B64000FA1660 /* MainApiDataSource.swift in Sources */,
 				2C9F147924C747E0001CF10E /* LocalStorage.swift in Sources */,
 				2C9F146124C6EC01001CF10E /* Fontsize.swift in Sources */,
-				2CCDDF2524C4902800FA1660 /* DefaultListNavigator.swift in Sources */,
+				2CCDDF2524C4902800FA1660 /* ListNavigator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1129,7 +1081,6 @@
 				2C08384B24C4C273002898AF /* MainSpec.swift in Sources */,
 				2C2C209324C88D1600858ECD /* UserDetails+Mock.swift in Sources */,
 				2C9F148624C75C29001CF10E /* XCTestCase+UIViewController.swift in Sources */,
-				2CCDDF3A24C49AA000FA1660 /* AutoMockable.generated.swift in Sources */,
 				2C9F149024C77551001CF10E /* RemoveDuplicatesTests.swift in Sources */,
 				2C2C209524C8946A00858ECD /* DetailPresenterSpec.swift in Sources */,
 				2C08385124C4C390002898AF /* Fixture.swift in Sources */,
@@ -1137,6 +1088,7 @@
 				2C9F148424C75BF2001CF10E /* ListViewSpec.swift in Sources */,
 				2C2C209024C88BFF00858ECD /* DetailViewSpec.swift in Sources */,
 				2C9F148B24C762A1001CF10E /* ListPresenterSpec.swift in Sources */,
+				2CF3C8702B6D6DA7007B080F /* AutoMockable.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

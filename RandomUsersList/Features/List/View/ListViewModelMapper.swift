@@ -1,13 +1,6 @@
-//
-//  ListViewMapper.swift
-//  RandomUsersList
-//
-//  Created by Carles Grau on 2/2/24.
-//  Copyright © 2024 Carles Grau. All rights reserved.
-//
-
 import Foundation
 
+// sourcery: AutoMockable
 protocol ListViewModelMapping {
    func map(data: [UserDataModel]) -> ListViewModel
 }

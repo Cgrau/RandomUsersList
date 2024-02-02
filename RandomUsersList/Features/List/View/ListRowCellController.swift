@@ -18,8 +18,8 @@ final class ListRowCellController: ListRowCellControlling {
    func tableView(_ tableView: UITableView,
                   cellForItemAt indexPath: IndexPath,
                   viewModel: UserCellViewModel) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: Cell.reuseIdentifier,
-                                               for: indexPath) as! Cell
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.reuseIdentifier,
+                                                     for: indexPath) as? Cell else { return UITableViewCell() }
       cell.apply(viewModel: viewModel)
       return cell
    }

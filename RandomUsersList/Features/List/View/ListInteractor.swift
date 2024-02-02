@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 
+// sourcery: AutoMockable
 protocol ListInteractorDelegate: AnyObject, AutoMockable {
    func didLoad(users: [UserDataModel])
    func didLoadSearched(users: [UserDataModel])
@@ -8,11 +9,21 @@ protocol ListInteractorDelegate: AnyObject, AutoMockable {
    func didDeleteUser(users: [UserDataModel])
 }
 
-private enum Constants {
-   static let numberOfResults = 10
+// sourcery: AutoMockable
+protocol ListInteracting: AnyObject, AutoMockable {
+   var delegate: ListInteractorDelegate? { get set }
+   var users: [UserDataModel] { get set }
+   
+   func fetchUsers()
+   func delete(user: UserDataModel)
+   func searchUsers(by text: String)
+   func resetPagination()
 }
 
-class DefaultListInteractor: ListInteractor {
+class ListInteractor: ListInteracting {
+   private enum Constants {
+      static let numberOfResults = 10
+   }
    
    weak var delegate: ListInteractorDelegate?
    private let getRandomUsers: GetRandomUsers.UseCase

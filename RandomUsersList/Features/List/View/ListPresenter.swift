@@ -1,6 +1,29 @@
 import UIKit
 
-class DefaultListPresenter: ListPresenter {
+// sourcery: AutoMockable
+protocol ListPresenting {
+   var ui: ListUI? { get set }
+   var users: [UserDataModel] { get set }
+   
+   func didLoad()
+   func didSelectUser(with indexPath: IndexPath)
+   func didSelectDeleteUser(with indexPath: IndexPath)
+   func search(for text: String)
+   func didScrollToBottom()
+   func didFocusSearch()
+   func didUnfocusSearch()
+}
+
+// sourcery: AutoMockable
+protocol ListUI: AnyObject, AutoMockable {
+   func apply(viewModel: ListViewModel)
+   func show(error: String)
+   
+   func showLoading()
+   func hideLoading()
+}
+
+class ListPresenter: ListPresenting {
    enum State {
       case idle
       case loading
@@ -9,21 +32,21 @@ class DefaultListPresenter: ListPresenter {
    
    weak var ui: ListUI?
    var users: [UserDataModel] = []
-   private let interactor: ListInteractor
-   private let navigator: ListNavigator
+   private let interactor: ListInteracting
+   private let navigator: ListNavigating
    private let viewModelMapper: ListViewModelMapping
    private var state: State = .idle
    
-   required init(interactor: ListInteractor,
-                 navigator: ListNavigator,
+   required init(interactor: ListInteracting,
+                 navigator: ListNavigating,
                  viewModelMapper: ListViewModelMapping) {
       self.interactor = interactor
       self.navigator = navigator
       self.viewModelMapper = viewModelMapper
    }
    
-   static func buildDefault(interactor: ListInteractor,
-                            navigator: ListNavigator) -> Self {
+   static func buildDefault(interactor: ListInteracting,
+                            navigator: ListNavigating) -> Self {
       .init(interactor: interactor,
             navigator: navigator,
             viewModelMapper: ListViewModelMapper())
@@ -69,7 +92,7 @@ class DefaultListPresenter: ListPresenter {
    }
 }
 
-extension DefaultListPresenter: ListInteractorDelegate {
+extension ListPresenter: ListInteractorDelegate {
    func didLoad(users: [UserDataModel]) {
       self.users = users
       state = .idle

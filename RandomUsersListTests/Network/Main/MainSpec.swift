@@ -37,6 +37,7 @@ extension MainSpec {
 
 extension RandomUsersRequest {
   static var mock: RandomUsersRequest {
-    return RandomUsersRequest(results: 40)
+     return RandomUsersRequest(results: 10,
+                               page: 0)
   }
 }

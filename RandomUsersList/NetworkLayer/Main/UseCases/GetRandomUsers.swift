@@ -1,6 +1,7 @@
 import RxSwift
 
-struct GetRandomUsers: GetRandomUsersUseCase {
+struct GetRandomUsers {
+   typealias UseCase = (RandomUsersRequest) -> Single<[UserDataModel]>
 
   private let repository: MainRepository
   
@@ -8,7 +9,7 @@ struct GetRandomUsers: GetRandomUsersUseCase {
     self.repository = repository
   }
   
-  func execute(request: RandomUsersRequest) -> Single<[UserDataModel]> {
+   func execute(_ request: RandomUsersRequest) -> Single<[UserDataModel]> {
     return repository.getRandomUsers(request: request)
   }
 }

@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 
-protocol ListInteractorDelegate: class, AutoMockable {
+protocol ListInteractorDelegate: AnyObject, AutoMockable {
    func didLoad(users: [UserDataModel])
    func didLoadSearched(users: [UserDataModel])
    func didFailLoadingUsers(error: Error)
@@ -15,15 +15,15 @@ private enum Constants {
 class DefaultListInteractor: ListInteractor {
    
    weak var delegate: ListInteractorDelegate?
-   private let getRandomUsersUseCase: GetRandomUsersUseCase
+   private let getRandomUsers: GetRandomUsers.UseCase
    private let localStorage: LocalStorage
    var users: [UserDataModel] = []
    private var pagination: Int = 0
    private let bag = DisposeBag()
    
-   init(getRandomUsersUseCase: GetRandomUsersUseCase,
+   init(getRandomUsers: @escaping GetRandomUsers.UseCase,
         localStorage: LocalStorage) {
-      self.getRandomUsersUseCase = getRandomUsersUseCase
+      self.getRandomUsers = getRandomUsers
       self.localStorage = localStorage
    }
    
@@ -34,7 +34,7 @@ class DefaultListInteractor: ListInteractor {
          self.localStorage.resetUsersDatabase()
       }
       self.pagination += 1
-      getRandomUsersUseCase.execute(request: request)
+      getRandomUsers(request)
          .subscribe(onSuccess: { [weak self] users in
             guard let `self` = self else { return }
             let retrievedUsers = self.localStorage.retrieveSavedUsers()

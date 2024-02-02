@@ -79,7 +79,6 @@
 		2CCDDF7524C4AD1600FA1660 /* RandomUsersApiToDomainMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF7424C4AD1600FA1660 /* RandomUsersApiToDomainMapper.swift */; };
 		2CCDDF7724C4AD3700FA1660 /* UserDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF7624C4AD3700FA1660 /* UserDataModel.swift */; };
 		2CCDDF7A24C4B3CE00FA1660 /* String+MapToDateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF7924C4B3CE00FA1660 /* String+MapToDateString.swift */; };
-		2CCDDF7C24C4B4D500FA1660 /* GetRandomUsersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF7B24C4B4D500FA1660 /* GetRandomUsersUseCase.swift */; };
 		2CCDDF7E24C4B52F00FA1660 /* GetRandomUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF7D24C4B52F00FA1660 /* GetRandomUsers.swift */; };
 		2CCDDF8024C4B57300FA1660 /* MainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF7F24C4B57300FA1660 /* MainRepository.swift */; };
 		2CCDDF8324C4B64000FA1660 /* MainApiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCDDF8224C4B64000FA1660 /* MainApiDataSource.swift */; };
@@ -183,7 +182,6 @@
 		2CCDDF7424C4AD1600FA1660 /* RandomUsersApiToDomainMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUsersApiToDomainMapper.swift; sourceTree = "<group>"; };
 		2CCDDF7624C4AD3700FA1660 /* UserDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataModel.swift; sourceTree = "<group>"; };
 		2CCDDF7924C4B3CE00FA1660 /* String+MapToDateString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MapToDateString.swift"; sourceTree = "<group>"; };
-		2CCDDF7B24C4B4D500FA1660 /* GetRandomUsersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomUsersUseCase.swift; sourceTree = "<group>"; };
 		2CCDDF7D24C4B52F00FA1660 /* GetRandomUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomUsers.swift; sourceTree = "<group>"; };
 		2CCDDF7F24C4B57300FA1660 /* MainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepository.swift; sourceTree = "<group>"; };
 		2CCDDF8224C4B64000FA1660 /* MainApiDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApiDataSource.swift; sourceTree = "<group>"; };
@@ -675,7 +673,6 @@
 		2CCDDF5D24C4A4FE00FA1660 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				2CCDDF7B24C4B4D500FA1660 /* GetRandomUsersUseCase.swift */,
 				2CCDDF7D24C4B52F00FA1660 /* GetRandomUsers.swift */,
 			);
 			path = UseCases;
@@ -1080,7 +1077,6 @@
 				2C9F146F24C6F5E1001CF10E /* UIColor+HexColor.swift in Sources */,
 				2CCDDF1F24C4902800FA1660 /* Assembly+ListViewController.swift in Sources */,
 				2CF3C84D2B6BD0EE007B080F /* UserCellViewModel.swift in Sources */,
-				2CCDDF7C24C4B4D500FA1660 /* GetRandomUsersUseCase.swift in Sources */,
 				2C9F145E24C6E8EF001CF10E /* Array+RemoveDuplicates.swift in Sources */,
 				2CCDDF2324C4902800FA1660 /* DefaultListInteractor.swift in Sources */,
 				2CCDDF2424C4902800FA1660 /* ListInteractor.swift in Sources */,

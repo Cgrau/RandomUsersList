@@ -1,6 +1,6 @@
 import UIKit
 
-public protocol Identifiable: class {
+public protocol Identifiable: AnyObject {
   static var cellIdentifier: String { get }
 }
 

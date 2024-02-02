@@ -35,7 +35,7 @@ extension Assembly: ListProvider {
    }
    
    private func mainInteractor() -> ListInteractor {
-      DefaultListInteractor(getRandomUsersUseCase: resolver.getRandomUsers,
+      DefaultListInteractor(getRandomUsers: resolver.getRandomUsers,
                             localStorage: localStorage)
    }
    

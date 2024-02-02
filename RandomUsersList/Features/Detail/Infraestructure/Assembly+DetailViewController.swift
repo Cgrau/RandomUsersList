@@ -1,11 +1,11 @@
 import UIKit
 
 protocol DetailProvider {
-  func detailViewController(user: User) -> UIViewController
+  func detailViewController(user: UserDataModel) -> UIViewController
 }
 
 extension Assembly: DetailProvider {
-  func detailViewController(user: User) -> UIViewController {
+  func detailViewController(user: UserDataModel) -> UIViewController {
     let viewController = DetailViewController()
     viewController.mainView = mainView
     let presenter = mainPresenter(from: viewController,
@@ -20,7 +20,7 @@ extension Assembly: DetailProvider {
   }
   
   private func mainPresenter(from: UIViewController,
-                             user: User) -> DetailPresenter {
+                             user: UserDataModel) -> DetailPresenter {
     let presenter = DefaultDetailPresenter(user: user)
     presenter.ui = from as? DetailViewController
     

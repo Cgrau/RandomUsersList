@@ -8,7 +8,7 @@ struct GetRandomUsers: GetRandomUsersUseCase {
     self.repository = repository
   }
   
-  func execute(request: RandomUsersRequest) -> Single<[User]> {
+  func execute(request: RandomUsersRequest) -> Single<[UserDataModel]> {
     return repository.getRandomUsers(request: request)
   }
 }

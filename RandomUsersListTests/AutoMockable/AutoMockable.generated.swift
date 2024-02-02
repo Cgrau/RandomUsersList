@@ -55,10 +55,10 @@ class GetRandomUsersUseCaseMock: NSObject, GetRandomUsersUseCase {
     }
     private(set) var executeRequestReceivedRequest: RandomUsersRequest?
     private(set) var executeRequestReceivedInvocations: [] = []
-    var executeRequestReturnValue: Single<[User]>!
-    var executeRequestClosure: ((RandomUsersRequest) -> Single<[User]>)?
+    var executeRequestReturnValue: Single<[UserDataModel]>!
+    var executeRequestClosure: ((RandomUsersRequest) -> Single<[UserDataModel]>)?
 
-    func execute(request: RandomUsersRequest) -> Single<[User]> {
+    func execute(request: RandomUsersRequest) -> Single<[UserDataModel]> {
         executeRequestCallsCount += 1
         executeRequestReceivedRequest = request
         executeRequestReceivedInvocations.append(request)
@@ -68,7 +68,7 @@ class GetRandomUsersUseCaseMock: NSObject, GetRandomUsersUseCase {
 }
 class ListInteractorMock: NSObject, ListInteractor {
     var delegate: ListInteractorDelegate?
-    var users: [User] = []
+    var users: [UserDataModel] = []
 
     //MARK: - fetchUsers
 
@@ -89,11 +89,11 @@ class ListInteractorMock: NSObject, ListInteractor {
     var deleteUserCalled: Bool {
         return deleteUserCallsCount > 0
     }
-    private(set) var deleteUserReceivedUser: User?
+    private(set) var deleteUserReceivedUser: UserDataModel?
     private(set) var deleteUserReceivedInvocations: [] = []
-    var deleteUserClosure: ((User) -> Void)?
+    var deleteUserClosure: ((UserDataModel) -> Void)?
 
-    func delete(user: User) {
+    func delete(user: UserDataModel) {
         deleteUserCallsCount += 1
         deleteUserReceivedUser = user
         deleteUserReceivedInvocations.append(user)
@@ -126,11 +126,11 @@ class ListInteractorDelegateMock: NSObject, ListInteractorDelegate {
     var didLoadUsersCalled: Bool {
         return didLoadUsersCallsCount > 0
     }
-    private(set) var didLoadUsersReceivedUsers: [User]?
+    private(set) var didLoadUsersReceivedUsers: [UserDataModel]?
     private(set) var didLoadUsersReceivedInvocations: [] = []
-    var didLoadUsersClosure: (([User]) -> Void)?
+    var didLoadUsersClosure: (([UserDataModel]) -> Void)?
 
-    func didLoad(users: [User]) {
+    func didLoad(users: [UserDataModel]) {
         didLoadUsersCallsCount += 1
         didLoadUsersReceivedUsers = users
         didLoadUsersReceivedInvocations.append(users)
@@ -160,11 +160,11 @@ class ListInteractorDelegateMock: NSObject, ListInteractorDelegate {
     var didDeleteUserUsersCalled: Bool {
         return didDeleteUserUsersCallsCount > 0
     }
-    private(set) var didDeleteUserUsersReceivedUsers: [User]?
+    private(set) var didDeleteUserUsersReceivedUsers: [UserDataModel]?
     private(set) var didDeleteUserUsersReceivedInvocations: [] = []
-    var didDeleteUserUsersClosure: (([User]) -> Void)?
+    var didDeleteUserUsersClosure: (([UserDataModel]) -> Void)?
 
-    func didDeleteUser(users: [User]) {
+    func didDeleteUser(users: [UserDataModel]) {
         didDeleteUserUsersCallsCount += 1
         didDeleteUserUsersReceivedUsers = users
         didDeleteUserUsersReceivedInvocations.append(users)
@@ -180,11 +180,11 @@ class ListNavigatorMock: NSObject, ListNavigator {
     var navigateToDetailUserCalled: Bool {
         return navigateToDetailUserCallsCount > 0
     }
-    private(set) var navigateToDetailUserReceivedUser: User?
+    private(set) var navigateToDetailUserReceivedUser: UserDataModel?
     private(set) var navigateToDetailUserReceivedInvocations: [] = []
-    var navigateToDetailUserClosure: ((User) -> Void)?
+    var navigateToDetailUserClosure: ((UserDataModel) -> Void)?
 
-    func navigateToDetail(user: User) {
+    func navigateToDetail(user: UserDataModel) {
         navigateToDetailUserCallsCount += 1
         navigateToDetailUserReceivedUser = user
         navigateToDetailUserReceivedInvocations.append(user)
@@ -194,7 +194,7 @@ class ListNavigatorMock: NSObject, ListNavigator {
 }
 class ListPresenterMock: NSObject, ListPresenter {
     var ui: ListUI?
-    var users: [User] = []
+    var users: [UserDataModel] = []
 
     //MARK: - didLoad
 
@@ -351,21 +351,21 @@ class ListTableViewAdapterDelegateMock: NSObject, ListTableViewAdapterDelegate {
 }
 class ListUIMock: NSObject, ListUI {
 
-    //MARK: - show
+    //MARK: - apply
 
-    private(set) var showUsersCallsCount = 0
-    var showUsersCalled: Bool {
-        return showUsersCallsCount > 0
+    private(set) var applyViewModelCallsCount = 0
+    var applyViewModelCalled: Bool {
+        return applyViewModelCallsCount > 0
     }
-    private(set) var showUsersReceivedUsers: [UserCellViewModel]?
-    private(set) var showUsersReceivedInvocations: [] = []
-    var showUsersClosure: (([UserCellViewModel]) -> Void)?
+    private(set) var applyViewModelReceivedViewModel: ListViewModel?
+    private(set) var applyViewModelReceivedInvocations: [] = []
+    var applyViewModelClosure: ((ListViewModel) -> Void)?
 
-    func show(users: [UserCellViewModel]) {
-        showUsersCallsCount += 1
-        showUsersReceivedUsers = users
-        showUsersReceivedInvocations.append(users)
-        showUsersClosure?(users)
+    func apply(viewModel: ListViewModel) {
+        applyViewModelCallsCount += 1
+        applyViewModelReceivedViewModel = viewModel
+        applyViewModelReceivedInvocations.append(viewModel)
+        applyViewModelClosure?(viewModel)
     }
 
     //MARK: - show
@@ -437,12 +437,12 @@ class LocalStorageMock: NSObject, LocalStorage {
     var removeDeletedUsersFromCalled: Bool {
         return removeDeletedUsersFromCallsCount > 0
     }
-    private(set) var removeDeletedUsersFromReceivedFrom: [User]?
+    private(set) var removeDeletedUsersFromReceivedFrom: [UserDataModel]?
     private(set) var removeDeletedUsersFromReceivedInvocations: [] = []
-    var removeDeletedUsersFromReturnValue: [User]!
-    var removeDeletedUsersFromClosure: (([User]) -> [User])?
+    var removeDeletedUsersFromReturnValue: [UserDataModel]!
+    var removeDeletedUsersFromClosure: (([UserDataModel]) -> [UserDataModel])?
 
-    func removeDeletedUsers(from: [User]) -> [User] {
+    func removeDeletedUsers(from: [UserDataModel]) -> [UserDataModel] {
         removeDeletedUsersFromCallsCount += 1
         removeDeletedUsersFromReceivedFrom = from
         removeDeletedUsersFromReceivedInvocations.append(from)
@@ -455,11 +455,11 @@ class LocalStorageMock: NSObject, LocalStorage {
     var saveUsersCalled: Bool {
         return saveUsersCallsCount > 0
     }
-    private(set) var saveUsersReceivedUsers: [User]?
+    private(set) var saveUsersReceivedUsers: [UserDataModel]?
     private(set) var saveUsersReceivedInvocations: [] = []
-    var saveUsersClosure: (([User]) -> Void)?
+    var saveUsersClosure: (([UserDataModel]) -> Void)?
 
-    func save(users: [User]) {
+    func save(users: [UserDataModel]) {
         saveUsersCallsCount += 1
         saveUsersReceivedUsers = users
         saveUsersReceivedInvocations.append(users)
@@ -472,10 +472,10 @@ class LocalStorageMock: NSObject, LocalStorage {
     var retrieveSavedUsersCalled: Bool {
         return retrieveSavedUsersCallsCount > 0
     }
-    var retrieveSavedUsersReturnValue: [User]!
-    var retrieveSavedUsersClosure: (() -> [User])?
+    var retrieveSavedUsersReturnValue: [UserDataModel]!
+    var retrieveSavedUsersClosure: (() -> [UserDataModel])?
 
-    func retrieveSavedUsers() -> [User] {
+    func retrieveSavedUsers() -> [UserDataModel] {
         retrieveSavedUsersCallsCount += 1
         return retrieveSavedUsersClosure.map({ $0() }) ?? retrieveSavedUsersReturnValue
     }

@@ -24,7 +24,7 @@ class ListViewSpec: XCTestCase {
   }
   
   func givenUsers() {
-    sut.users = [User](repeating: User.mock, count: 40)
+    sut.users = [UserDataModel](repeating: UserDataModel.mock, count: 40)
   }
 }
 

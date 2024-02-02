@@ -6,13 +6,13 @@ public extension Reusable where Self: UIView {
 }
 
 extension UITableViewCell: Reusable {
-    @objc public static func wpp_reuseIdentifier() -> String {
+    @objc public static func reuseIdentifier() -> String {
         reuseIdentifier
     }
 }
 
 extension UICollectionReusableView: Reusable {
-    @objc public static func wpp_reuseIdentifier() -> String {
+    @objc public static func reuseIdentifier() -> String {
         reuseIdentifier
     }
 }

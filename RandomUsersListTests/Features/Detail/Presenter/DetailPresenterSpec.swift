@@ -8,7 +8,7 @@ final class DetailPresenterSpec: XCTestCase {
   
   override func setUp() {
     ui = DetailUIMock()
-    sut = DefaultDetailPresenter(user: User.mock)
+    sut = DefaultDetailPresenter(user: UserDataModel.mock)
     sut.ui = ui
   }
   

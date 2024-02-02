@@ -15,7 +15,7 @@ struct MainApiDataSource: MainDataSource {
     self.mapper = mapper
   }
   
-  func getRandomUsers(request: RandomUsersRequest) -> Single<[User]> {
+  func getRandomUsers(request: RandomUsersRequest) -> Single<[UserDataModel]> {
     return provider.rx
       .request(.randomUsers(request))
       .filterSuccessfulStatusCodes()

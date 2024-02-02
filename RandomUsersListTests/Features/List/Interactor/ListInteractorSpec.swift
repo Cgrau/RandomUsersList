@@ -47,7 +47,7 @@ final class ListInteractorSpec: XCTestCase {
   }
   
   func test_deleteUser() {
-    sut.delete(user: User.mock)
+    sut.delete(user: UserDataModel.mock)
     XCTAssertTrue(localStorage.deleteUserWithCalled)
     XCTAssertTrue(delegate.didDeleteUserUsersCalled)
   }
@@ -69,7 +69,7 @@ final class ListInteractorSpec: XCTestCase {
 extension ListInteractorSpec {
   func givenGetRandomUsersResponse_OK() {
     getRandomUsersUseCase.executeRequestReturnValue = Single.create(subscribe: { event in
-      event(.success([User](repeating: User.mock, count: 10)))
+      event(.success([UserDataModel](repeating: UserDataModel.mock, count: 10)))
       return Disposables.create()
     })
   }
@@ -86,10 +86,10 @@ extension ListInteractorSpec {
   }
   
   func givenUsers() {
-    sut.users = [User](repeating: User.mock, count: 10)
+    sut.users = [UserDataModel](repeating: UserDataModel.mock, count: 10)
   }
   
   func givenRetrievedUsers() {
-    localStorage.retrieveSavedUsersReturnValue = [User.mock, User.mockRandom]
+    localStorage.retrieveSavedUsersReturnValue = [UserDataModel.mock, UserDataModel.mockRandom]
   }
 }

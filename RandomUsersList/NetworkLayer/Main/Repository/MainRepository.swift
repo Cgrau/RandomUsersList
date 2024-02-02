@@ -7,7 +7,7 @@ struct MainRepository {
     self.apiDataSource = apiDataSource
   }
   
-  func getRandomUsers(request: RandomUsersRequest) -> Single<[User]> {
+  func getRandomUsers(request: RandomUsersRequest) -> Single<[UserDataModel]> {
     apiDataSource.getRandomUsers(request: request)
   }
 }

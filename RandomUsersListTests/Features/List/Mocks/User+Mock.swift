@@ -1,9 +1,9 @@
 @testable import RandomUsersList
 import Foundation
 
-extension User {
-  static var mock: User {
-    return User(uuid: "e1233-312312-1321312-13213213",
+extension UserDataModel {
+  static var mock: UserDataModel {
+    return UserDataModel(uuid: "e1233-312312-1321312-13213213",
                 fullName: "John Doe",
                 email: "john.doe@random.com",
                 phone: "5121321312",
@@ -17,8 +17,8 @@ extension User {
                 registeredDate: "10:23 - 15-04-2020")
   }
   
-  static var mockRandom: User {
-    return User(uuid: "e1233-2323131-31312312222-111",
+  static var mockRandom: UserDataModel {
+    return UserDataModel(uuid: "e1233-2323131-31312312222-111",
                 fullName: "Rando Cardrissian",
                 email: "rando.cardrissian@random.com",
                 phone: "1331123",

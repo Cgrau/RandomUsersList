@@ -2,9 +2,9 @@ import UIKit
 import RxSwift
 
 protocol ListInteractorDelegate: class, AutoMockable {
-  func didLoad(users: [User])
+  func didLoad(users: [UserDataModel])
   func didFailLoadingUsers(error: Error)
-  func didDeleteUser(users: [User])
+  func didDeleteUser(users: [UserDataModel])
 }
 
 private enum Constants {
@@ -16,7 +16,7 @@ class DefaultListInteractor: ListInteractor {
   weak var delegate: ListInteractorDelegate?
   private let getRandomUsersUseCase: GetRandomUsersUseCase
   private let localStorage: LocalStorage
-  var users: [User] = []
+  var users: [UserDataModel] = []
   private let bag = DisposeBag()
   
   init(getRandomUsersUseCase: GetRandomUsersUseCase,
@@ -41,7 +41,7 @@ class DefaultListInteractor: ListInteractor {
     }.disposed(by: bag)
   }
   
-  func delete(user: User) {
+  func delete(user: UserDataModel) {
     users = users.filter { $0.uuid != user.uuid }
     localStorage.deleteUser(with: user.uuid)
     delegate?.didDeleteUser(users: users)

@@ -2,7 +2,7 @@ import XCTest
 @testable import RandomUsersList
 
 final class RemoveDuplicatedTests: XCTestCase {
-  private var array = [User]()
+  private var array = [UserDataModel]()
   
   func test_1_element_from_ArrayOfSameElement() {
     givenArrayOfSameElement()
@@ -17,10 +17,10 @@ final class RemoveDuplicatedTests: XCTestCase {
   }
   
   func givenArrayOfSameElement() {
-    array = [User](repeating: User.mock, count: 40)
+    array = [UserDataModel](repeating: UserDataModel.mock, count: 40)
   }
   
   func givenArrayOf2same1different() {
-    array = [User.mock, User.mock, User.mockRandom]
+    array = [UserDataModel.mock, UserDataModel.mock, UserDataModel.mockRandom]
   }
 }

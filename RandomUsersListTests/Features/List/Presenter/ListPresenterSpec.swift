@@ -31,12 +31,12 @@ final class ListPresenterSpec: XCTestCase {
   }
   
   func test_select_user() {
-    sut.didSelect(user: User.mock)
+    sut.didSelect(user: UserDataModel.mock)
     XCTAssertTrue(navigator.navigateToDetailUserCalled)
   }
   
   func test_delete_user() {
-    sut.delete(user: User.mock)
+    sut.delete(user: UserDataModel.mock)
     XCTAssertTrue(interactor.deleteUserCalled)
   }
   
@@ -53,7 +53,7 @@ final class ListPresenterSpec: XCTestCase {
   
   // MARK:- ListInteractorDelegate
   func test_didLoadUsers() {
-    sut.didLoad(users: [User](repeating: User.mock, count: 40))
+    sut.didLoad(users: [UserDataModel](repeating: UserDataModel.mock, count: 40))
     XCTAssertTrue(ui.hideLoadingCalled)
     XCTAssertTrue(ui.showUsersCalled)
   }
@@ -65,7 +65,7 @@ final class ListPresenterSpec: XCTestCase {
   }
   
   func test_didDeleteUser() {
-    sut.didDeleteUser(users: [User](repeating: User.mock, count: 39))
+    sut.didDeleteUser(users: [UserDataModel](repeating: UserDataModel.mock, count: 39))
     XCTAssertTrue(ui.showUsersCalled)
   }
 }

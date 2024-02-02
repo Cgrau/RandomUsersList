@@ -3,9 +3,9 @@ import UIKit
 class DefaultDetailPresenter: DetailPresenter {
   
   weak var ui: DetailUI?
-  private let user: User
+  private let user: UserDataModel
   
-  init(user: User) {
+  init(user: UserDataModel) {
     self.user = user
   }
   

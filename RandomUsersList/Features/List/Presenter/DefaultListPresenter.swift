@@ -1,17 +1,26 @@
 import UIKit
 
 class DefaultListPresenter: ListPresenter {
-   
    weak var ui: ListUI?
-   var users: [User] = []
+   var users: [UserDataModel] = []
    private let interactor: ListInteractor
    private let navigator: ListNavigator
+   private let viewModelMapper: ListViewModelMapping
    private var isLoading = false
    
-   init(interactor: ListInteractor,
-        navigator: ListNavigator) {
+   required init(interactor: ListInteractor,
+                 navigator: ListNavigator,
+                 viewModelMapper: ListViewModelMapping) {
       self.interactor = interactor
       self.navigator = navigator
+      self.viewModelMapper = viewModelMapper
+   }
+   
+   static func buildDefault(interactor: ListInteractor,
+                            navigator: ListNavigator) -> Self {
+      .init(interactor: interactor,
+            navigator: navigator,
+            viewModelMapper: ListViewModelMapper())
    }
    
    func didLoad() {
@@ -45,17 +54,12 @@ class DefaultListPresenter: ListPresenter {
 }
 
 extension DefaultListPresenter: ListInteractorDelegate {
-   func didLoad(users: [User]) {
+   func didLoad(users: [UserDataModel]) {
       self.users = users
       isLoading = false
       ui?.hideLoading()
-      let mappedUsers = users.map {
-         UserCellViewModel(fullName: $0.fullName,
-                           email: $0.email,
-                           phone: $0.phone,
-                           imageURL: $0.picture?.thumbnail)
-      }
-      ui?.show(users: mappedUsers)
+      let viewModel = viewModelMapper.map(data: users)
+      ui?.apply(viewModel: viewModel)
    }
    
    func didFailLoadingUsers(error: Error) {
@@ -64,14 +68,9 @@ extension DefaultListPresenter: ListInteractorDelegate {
       ui?.show(error: error.message)
    }
    
-   func didDeleteUser(users: [User]) {
+   func didDeleteUser(users: [UserDataModel]) {
       self.users = users
-      let mappedUsers = users.map {
-         UserCellViewModel(fullName: $0.fullName,
-                           email: $0.email,
-                           phone: $0.phone,
-                           imageURL: $0.picture?.thumbnail)
-      }
-      ui?.show(users: mappedUsers)
+      let viewModel = viewModelMapper.map(data: users)
+      ui?.apply(viewModel: viewModel)
    }
 }

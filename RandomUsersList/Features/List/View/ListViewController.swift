@@ -26,8 +26,9 @@ class ListViewController: UIViewController {
 }
 
 extension ListViewController: ListUI {
-   func show(users: [UserCellViewModel]) {
-      adapter.set(viewModels: users)
+   func apply(viewModel: ListViewModel) {
+      mainView.apply(viewModel: viewModel)
+      adapter.set(viewModels: viewModel.users)
    }
    
    func show(error: String) {

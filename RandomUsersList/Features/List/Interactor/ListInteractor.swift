@@ -1,10 +1,10 @@
 import UIKit
 
-protocol ListInteractor: class, AutoMockable {
+protocol ListInteractor: AnyObject, AutoMockable {
   var delegate: ListInteractorDelegate? { get set }
-  var users: [User] { get set }
+  var users: [UserDataModel] { get set }
   
   func fetchUsers()
-  func delete(user: User)
+  func delete(user: UserDataModel)
   func searchUsers(by text: String)
 }

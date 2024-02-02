@@ -1,7 +1,7 @@
 import Foundation
 
 // MARK: - User
-struct User: Codable, Hashable {
+struct UserDataModel: Codable, Hashable {
   let uuid: String
   let fullName, email, phone: String?
   let gender: Gender?
@@ -9,7 +9,7 @@ struct User: Codable, Hashable {
   let location: Location?
   let registeredDate: String?
   
-  static func == (lhs: User, rhs: User) -> Bool {
+  static func == (lhs: UserDataModel, rhs: UserDataModel) -> Bool {
     return lhs.uuid == rhs.uuid
   }
 }

@@ -1,5 +1,5 @@
 import UIKit
 
-protocol ListNavigator: class, AutoMockable {
-  func navigateToDetail(user: User)
+protocol ListNavigator: AnyObject, AutoMockable {
+  func navigateToDetail(user: UserDataModel)
 }

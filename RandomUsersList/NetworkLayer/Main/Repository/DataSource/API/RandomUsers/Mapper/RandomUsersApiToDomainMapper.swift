@@ -2,7 +2,7 @@ import Foundation
 import CoreLocation
 
 struct RandomUsersApiToDomainMapper: Mappable {
-  func map(data: Data?) -> [User]? {
+  func map(data: Data?) -> [UserDataModel]? {
     guard let data = data else {
       return nil
     }
@@ -14,10 +14,10 @@ struct RandomUsersApiToDomainMapper: Mappable {
     }
   }
   
-  func map(_ from: RandomUsersApiResponse) throws -> [User] {
+  func map(_ from: RandomUsersApiResponse) throws -> [UserDataModel] {
     let users = from.results.removingDuplicates()
     return users.map { (response: UserApiResponse) in
-      return User(uuid: response.login.uuid,
+      return UserDataModel(uuid: response.login.uuid,
                   fullName: map(name: response.name?.first,
                                 surname: response.name?.last),
                   email: response.email,
@@ -61,7 +61,7 @@ struct RandomUsersApiToDomainMapper: Mappable {
     return registeredDate.formatDateString()
   }
   
-  private func decode(jsonDecoder: JSONDecoder, data: Data) throws -> [User] {
+  private func decode(jsonDecoder: JSONDecoder, data: Data) throws -> [UserDataModel] {
     let response = try jsonDecoder.decode(RandomUsersApiResponse.self, from: data)
     return try map(response)
   }

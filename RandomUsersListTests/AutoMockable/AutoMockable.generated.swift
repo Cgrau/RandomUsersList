@@ -117,6 +117,19 @@ class ListInteractorMock: NSObject, ListInteractor {
         searchUsersByClosure?(text)
     }
 
+    //MARK: - resetPagination
+
+    private(set) var resetPaginationCallsCount = 0
+    var resetPaginationCalled: Bool {
+        return resetPaginationCallsCount > 0
+    }
+    var resetPaginationClosure: (() -> Void)?
+
+    func resetPagination() {
+        resetPaginationCallsCount += 1
+        resetPaginationClosure?()
+    }
+
 }
 class ListInteractorDelegateMock: NSObject, ListInteractorDelegate {
 
@@ -135,6 +148,23 @@ class ListInteractorDelegateMock: NSObject, ListInteractorDelegate {
         didLoadUsersReceivedUsers = users
         didLoadUsersReceivedInvocations.append(users)
         didLoadUsersClosure?(users)
+    }
+
+    //MARK: - didLoadSearched
+
+    private(set) var didLoadSearchedUsersCallsCount = 0
+    var didLoadSearchedUsersCalled: Bool {
+        return didLoadSearchedUsersCallsCount > 0
+    }
+    private(set) var didLoadSearchedUsersReceivedUsers: [UserDataModel]?
+    private(set) var didLoadSearchedUsersReceivedInvocations: [] = []
+    var didLoadSearchedUsersClosure: (([UserDataModel]) -> Void)?
+
+    func didLoadSearched(users: [UserDataModel]) {
+        didLoadSearchedUsersCallsCount += 1
+        didLoadSearchedUsersReceivedUsers = users
+        didLoadSearchedUsersReceivedInvocations.append(users)
+        didLoadSearchedUsersClosure?(users)
     }
 
     //MARK: - didFailLoadingUsers
@@ -260,17 +290,43 @@ class ListPresenterMock: NSObject, ListPresenter {
         searchForClosure?(text)
     }
 
-    //MARK: - loadMoreUsers
+    //MARK: - didScrollToBottom
 
-    private(set) var loadMoreUsersCallsCount = 0
-    var loadMoreUsersCalled: Bool {
-        return loadMoreUsersCallsCount > 0
+    private(set) var didScrollToBottomCallsCount = 0
+    var didScrollToBottomCalled: Bool {
+        return didScrollToBottomCallsCount > 0
     }
-    var loadMoreUsersClosure: (() -> Void)?
+    var didScrollToBottomClosure: (() -> Void)?
 
-    func loadMoreUsers() {
-        loadMoreUsersCallsCount += 1
-        loadMoreUsersClosure?()
+    func didScrollToBottom() {
+        didScrollToBottomCallsCount += 1
+        didScrollToBottomClosure?()
+    }
+
+    //MARK: - didFocusSearch
+
+    private(set) var didFocusSearchCallsCount = 0
+    var didFocusSearchCalled: Bool {
+        return didFocusSearchCallsCount > 0
+    }
+    var didFocusSearchClosure: (() -> Void)?
+
+    func didFocusSearch() {
+        didFocusSearchCallsCount += 1
+        didFocusSearchClosure?()
+    }
+
+    //MARK: - didUnfocusSearch
+
+    private(set) var didUnfocusSearchCallsCount = 0
+    var didUnfocusSearchCalled: Bool {
+        return didUnfocusSearchCallsCount > 0
+    }
+    var didUnfocusSearchClosure: (() -> Void)?
+
+    func didUnfocusSearch() {
+        didUnfocusSearchCallsCount += 1
+        didUnfocusSearchClosure?()
     }
 
 }
@@ -346,6 +402,19 @@ class ListTableViewAdapterDelegateMock: NSObject, ListTableViewAdapterDelegate {
         didDeleteRowAtReceivedIndexPath = indexPath
         didDeleteRowAtReceivedInvocations.append(indexPath)
         didDeleteRowAtClosure?(indexPath)
+    }
+
+    //MARK: - didScrollToBottom
+
+    private(set) var didScrollToBottomCallsCount = 0
+    var didScrollToBottomCalled: Bool {
+        return didScrollToBottomCallsCount > 0
+    }
+    var didScrollToBottomClosure: (() -> Void)?
+
+    func didScrollToBottom() {
+        didScrollToBottomCallsCount += 1
+        didScrollToBottomClosure?()
     }
 
 }
@@ -478,6 +547,19 @@ class LocalStorageMock: NSObject, LocalStorage {
     func retrieveSavedUsers() -> [UserDataModel] {
         retrieveSavedUsersCallsCount += 1
         return retrieveSavedUsersClosure.map({ $0() }) ?? retrieveSavedUsersReturnValue
+    }
+
+    //MARK: - resetUsersDatabase
+
+    private(set) var resetUsersDatabaseCallsCount = 0
+    var resetUsersDatabaseCalled: Bool {
+        return resetUsersDatabaseCallsCount > 0
+    }
+    var resetUsersDatabaseClosure: (() -> Void)?
+
+    func resetUsersDatabase() {
+        resetUsersDatabaseCallsCount += 1
+        resetUsersDatabaseClosure?()
     }
 
 }

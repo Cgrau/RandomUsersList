@@ -43,4 +43,8 @@ final class UserDefaultsLocalStorage: LocalStorage {
       }
       return users.compactMap {$0}
    }
+   
+   func resetUsersDatabase() {
+      userDefaults.removeObject(forKey: LocalStorageKey.savedUsers.rawValue)
+   }
 }

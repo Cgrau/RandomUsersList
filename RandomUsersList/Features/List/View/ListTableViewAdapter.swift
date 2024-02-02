@@ -4,6 +4,7 @@ import UIKit
 protocol ListTableViewAdapterDelegate: AnyObject {
    func didSelectRow(at indexPath: IndexPath)
    func didDeleteRow(at indexPath: IndexPath)
+   func didScrollToBottom()
 }
 
 final class ListTableViewAdapter: NSObject {
@@ -61,6 +62,16 @@ extension ListTableViewAdapter: UITableViewDelegate {
    
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
       delegate?.didDeleteRow(at: indexPath)
+   }
+   
+   func scrollViewDidScroll(_ scrollView: UIScrollView) {
+      let offsetY = scrollView.contentOffset.y
+      let contentHeight = scrollView.contentSize.height
+      let height = scrollView.frame.size.height
+      
+      if offsetY > contentHeight - height {
+         delegate?.didScrollToBottom()
+      }
    }
 }
 

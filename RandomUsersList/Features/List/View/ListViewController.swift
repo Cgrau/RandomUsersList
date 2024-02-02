@@ -52,6 +52,10 @@ extension ListViewController: ListTableViewAdapterDelegate {
    func didDeleteRow(at indexPath: IndexPath) {
       presenter?.didSelectDeleteUser(with: indexPath)
    }
+   
+   func didScrollToBottom() {
+      presenter?.didScrollToBottom()
+   }
 }
 
 extension ListViewController: ListViewDelegate {
@@ -67,7 +71,11 @@ extension ListViewController: ListViewDelegate {
       presenter?.search(for: text)
    }
    
-   func reachedBottomOfTable() {
-      presenter?.loadMoreUsers()
+   func didFocusSearch() {
+      presenter?.didFocusSearch()
+   }
+   
+   func didUnfocusSearch() {
+      presenter?.didUnfocusSearch()
    }
 }

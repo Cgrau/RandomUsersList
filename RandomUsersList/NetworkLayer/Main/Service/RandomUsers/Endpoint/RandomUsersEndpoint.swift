@@ -17,7 +17,8 @@ struct RandomUsersEndpoint: Endpoint {
   }
   
   var task: Task {
-    return .requestParameters(parameters: ["results": request.results],
+    return .requestParameters(parameters: ["page": request.page,
+                                           "results": request.results],
                               encoding: URLEncoding.default)
   }
 }

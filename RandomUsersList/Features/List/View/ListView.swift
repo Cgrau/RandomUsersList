@@ -7,7 +7,8 @@ protocol ListViewDelegate: AnyObject {
    func didTapUser(with indexPath: IndexPath)
    func didTapDelete(with indexPath: IndexPath)
    func didSearchFor(text: String)
-   func reachedBottomOfTable()
+   func didFocusSearch()
+   func didUnfocusSearch()
 }
 
 final class ListView: View {
@@ -33,8 +34,8 @@ final class ListView: View {
       return view
    }()
    
-   private var textField: TextField = {
-      let textField = TextField()
+   private var textField: UISearchTextField = {
+      let textField = UISearchTextField()
       textField.autocorrectionType = .no
       textField.font = UIFont.systemFont(ofSize: FontSize.regular)
       return textField
@@ -49,6 +50,8 @@ final class ListView: View {
       addSubview(tableView)
       setupKeyboardBehaviour(to: tableView)
       configureSearchboxReaction()
+      textField.delegate = self
+      setupKeyboardBehaviour(to: tableView)
    }
    
    override func setupConstraints() {
@@ -81,6 +84,16 @@ final class ListView: View {
             guard let text = self?.textField.text else { return }
             self?.delegate?.didSearchFor(text: text)
          }).disposed(by: bag)
+   }
+}
+
+extension ListView: UITextFieldDelegate {
+   func textFieldDidBeginEditing(_ textField: UITextField) {
+      delegate?.didFocusSearch()
+   }
+   
+   func textFieldDidEndEditing(_ textField: UITextField) {
+      delegate?.didUnfocusSearch()
    }
 }
 

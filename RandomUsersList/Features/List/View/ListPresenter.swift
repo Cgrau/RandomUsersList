@@ -15,7 +15,7 @@ protocol ListPresenting {
 }
 
 // sourcery: AutoMockable
-protocol ListUI: AnyObject, AutoMockable {
+protocol ListUI: AnyObject {
    func apply(viewModel: ListViewModel)
    func show(error: String)
    

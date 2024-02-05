@@ -1,5 +1,6 @@
 import UIKit
 
-protocol DetailUI: AnyObject, AutoMockable {
+// sourcery: AutoMockable
+protocol DetailUI: AnyObject {
   func show(userDetails: UserDetails)
 }

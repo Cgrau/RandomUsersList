@@ -38,6 +38,7 @@ final class ListView: View {
       let textField = UISearchTextField()
       textField.autocorrectionType = .no
       textField.font = UIFont.systemFont(ofSize: FontSize.regular)
+      textField.backgroundColor = .white
       return textField
    }()
    

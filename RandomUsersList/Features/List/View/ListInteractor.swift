@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 
 // sourcery: AutoMockable
-protocol ListInteractorDelegate: AnyObject, AutoMockable {
+protocol ListInteractorDelegate: AnyObject {
    func didLoad(users: [UserDataModel])
    func didLoadSearched(users: [UserDataModel])
    func didFailLoadingUsers(error: Error)
@@ -10,7 +10,7 @@ protocol ListInteractorDelegate: AnyObject, AutoMockable {
 }
 
 // sourcery: AutoMockable
-protocol ListInteracting: AnyObject, AutoMockable {
+protocol ListInteracting {
    var delegate: ListInteractorDelegate? { get set }
    var users: [UserDataModel] { get set }
    

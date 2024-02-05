@@ -29,20 +29,27 @@ class ListViewSpec: XCTestCase {
       sut = nil
    }
    
-   func givenUsers() {
-      let viewModel: ListViewModel = .init(title: "LoremIpsum",
-                                           placeholder: "LoremIpsum",
-                                           users: [UserCellViewModel](repeating: UserCellViewModel.mock, count: 10))
+   private func givenUsers() {
+      let viewModel = givenViewModel(users: [UserCellViewModel](repeating: UserCellViewModel.mock, count: 10))
       adapter.set(viewModels: viewModel.users)
       sut.apply(viewModel: viewModel)
    }
    
-   func givenEmptyState() {
-      let viewModel: ListViewModel = .init(title: "LoremIpsum",
-                                           placeholder: "LoremIpsum",
-                                           users: [])
+   private func givenEmptyState() {
+      let viewModel = givenViewModel()
       adapter.set(viewModels: [])
       sut.apply(viewModel: viewModel)
+   }
+   
+   private func givenViewModel(users: [UserCellViewModel] = []) -> ListViewModel {
+      .init(title: Constants.title,
+            placeholder: Constants.placeholder,
+            users: users)
+   }
+   
+   private enum Constants {
+      static let title = "LoremIpsum"
+      static let placeholder = "LoremIpsum"
    }
 }
 

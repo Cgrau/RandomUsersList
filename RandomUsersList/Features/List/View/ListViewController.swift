@@ -1,9 +1,5 @@
 import UIKit
 
-//private enum Constants {
-//   static let deleteMessage = "Don't you really want to see %@ anymore?"
-//}
-
 class ListViewController: UIViewController {
    private let mainView = ListView()
    var presenter: ListPresenter?
